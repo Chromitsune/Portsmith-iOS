@@ -1,22 +1,22 @@
 [submodule "sources/UniXNU"]
 	path = sources/UniXNU
-	url = https://github.com/Chromitsune/UniXNU.git
+	url = https://github.com/UniXNU/UniXNU.git
 	branch = main
 [submodule "ports/negroni/repo"]
 	path = ports/negroni/repo
-	url = https://github.com/Chromitsune/iOSPlus10.git
-	branch = lavender-panic-recovery
+	url = https://github.com/akshaynexus/iOSPlus10.git
+	branch = main
 [submodule "ports/sweet/repo"]
 	path = ports/sweet/repo
-	url = https://github.com/Chromitsune/ios-sweet.git
+	url = https://github.com/dipa-studio/ios-sweet.git
 	branch = main
 [submodule "ports/flame/repo"]
 	path = ports/flame/repo
-	url = https://github.com/Chromitsune/ios-flame.git
+	url = https://github.com/NWylynko/ios-flame.git
 	branch = main
 [submodule "ports/galaxy-s9-snapdragon/repo"]
 	path = ports/galaxy-s9-snapdragon/repo
-	url = https://github.com/Chromitsune/ios-s9.git
+	url = https://github.com/syncmodz/ios-s9.git
 	branch = main
 [submodule "ports/lavender/repo"]
 	path = ports/lavender/repo

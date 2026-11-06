@@ -38,10 +38,10 @@ These are **reports from the pinned upstream projects**, not independent Portsmi
 
 | Port | Reported working | Reported missing / limitations |
 |---|---|---|
-| [Negroni / iOSPlus10](https://github.com/Chromitsune/iOSPlus10) — OnePlus 10 Pro, SM8450 | iOS 16 home screen; project notes report GPU-rendered UI and USB log tooling | Experimental; many peripherals/features remain incomplete. OnePlus 10 Pro work is paused; iOS 26 is a separate WIP track. |
-| [Sweet](https://github.com/Chromitsune/ios-sweet) — Redmi Note 10 Pro, SM7150 | iOS 16.7.16 home screen, touch, and buttons | CPU-rendered UI; Wi-Fi, cellular, audio, camera, and many services unavailable. |
-| [Flame](https://github.com/Chromitsune/ios-flame) — Pixel 4, SM8150 | iOS 16 UI, touch, USB tools, and GPU-rendered UI through the documented Metal/Vulkan path | Experimental; audio, cellular, camera, sensors, and other services remain incomplete. |
-| [Galaxy S9 Snapdragon](https://github.com/Chromitsune/ios-s9) — SM-G9600/SDM845 | iOS 16.7.16 home screen, panic hold, and persistent logs | CPU-rendered UI; no GPU driver, Wi-Fi, cellular, camera, or many other features. This is not the Exynos S9. |
+| [Negroni / iOSPlus10](https://github.com/akshaynexus/iOSPlus10) — OnePlus 10 Pro, SM8450 | iOS 16 home screen; project notes report GPU-rendered UI and USB log tooling | Experimental; many peripherals/features remain incomplete. OnePlus 10 Pro work is paused; iOS 26 is a separate WIP track. |
+| [Sweet](https://github.com/dipa-studio/ios-sweet) — Redmi Note 10 Pro, SM7150 | iOS 16.7.16 home screen, touch, and buttons | CPU-rendered UI; Wi-Fi, cellular, audio, camera, and many services unavailable. |
+| [Flame](https://github.com/NWylynko/ios-flame) — Pixel 4, SM8150 | iOS 16 UI, touch, USB tools, and GPU-rendered UI through the documented Metal/Vulkan path | Experimental; audio, cellular, camera, sensors, and other services remain incomplete. |
+| [Galaxy S9 Snapdragon](https://github.com/syncmodz/ios-s9) — SM-G9600/SDM845 | iOS 16.7.16 home screen, panic hold, and persistent logs | CPU-rendered UI; no GPU driver, Wi-Fi, cellular, camera, or many other features. This is not the Exynos S9. |
 | [Lavender](https://github.com/Chromitsune/UniXNU-Lavender) — Redmi Note 7, SDM660 | Custom UEFI/UniXNU boot chain and fixture payload reported device-tested | XNU/iOS handover, OrangeFox BCB behavior, and panic-log recovery are not verified; prior panic-recovery run was inconclusive. |
 
 Use the port-specific `AGENTS.md`, README, and handoff for the exact source revision and current status. Portsmith must update this table only with dated evidence and must not turn upstream claims into “supported” guarantees.
