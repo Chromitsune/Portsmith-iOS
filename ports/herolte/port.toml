@@ -1,0 +1,30 @@
+[port]
+name = "herolte"
+model = "Samsung Galaxy S7 (Exynos)"
+codename = "herolte"
+soc = "Samsung Exynos 8890"
+source = "ports/herolte/repo"
+upstream = "https://github.com/wardevsa/ios-a5xelte"
+branch = "herolte"
+upstream_commit = "d6b6c7bbb4b2ab063ae833812db2efef094f834b"
+status = "upstream reports iOS 16.7.16 home screen with Mali-T880 OpenGL ES rendering; experimental"
+
+[hardware]
+gpu = "ARM Mali-T880 MP12"
+
+[reported]
+home_screen = true
+touch = true
+gpu_opengles_panfrost = true
+wifi = "not working"
+cellular = "not started"
+bluetooth = "not working"
+audio = "not working"
+camera = "not started"
+sensors = "not started"
+sleep = "not started"
+
+[safety]
+license = "not recognized by GitHub for this fork; inspect notices before reuse"
+userdata_erased_by_upstream_install = true
+flash_requires_explicit_authorization = true

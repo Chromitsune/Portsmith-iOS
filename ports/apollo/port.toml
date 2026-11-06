@@ -1,0 +1,30 @@
+[port]
+name = "apollo"
+model = "Xiaomi Mi 10T / Mi 10T Pro / Redmi K30S"
+codename = "apollo"
+soc = "Qualcomm SM8250 / Snapdragon 865"
+source = "ports/apollo/repo"
+upstream = "https://github.com/aTechGeekDev/ios-apollo"
+branch = "main"
+upstream_commit = "1f75f381e31da96de537653fbac2252d2eb80418"
+status = "upstream reports iOS 16 home screen and several drivers; experimental"
+
+[hardware]
+gpu = "Adreno 650"
+
+[reported]
+home_screen = true
+touch = true
+wifi = "reported working"
+bluetooth = "reported working"
+audio = "speaker/microphone paths reported; details incomplete"
+gpu_opengles = "reported working"
+metal = "in progress"
+camera = "not started"
+cellular = "not started"
+sleep = "not started"
+
+[safety]
+userdata_erased_by_upstream_install = true
+flash_requires_explicit_authorization = true
+license = "MIT"

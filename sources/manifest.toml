@@ -77,3 +77,53 @@ source_mode = "vendored-snapshot"
 maintainer = "superboyyy"
 role = "Xiaomi 15 / SM8750 iOS 26 arm64e port; Adreno 830 Metal translation and bring-up reference"
 license = "Mixed; see ports/dada/repo/NOTICE.md and LICENSES/"
+
+[[source]]
+name = "ios-sweet-guacamole"
+revision = "e66b14a9a2c8b576e7e179db4f26393698e5e49f"
+path = "ports/guacamole/repo"
+upstream = "https://github.com/OtVaL228/ios-sweet"
+branch = "guacamole"
+maintainer = "OtVaL228 (fork of dipa-studio/ios-sweet)"
+role = "OnePlus 7 Pro / SM8150 port with Adreno 640 Mesa/freedreno GLES path"
+license = "No recognized license metadata for fork; based on MIT ios-sweet; check branch additions before reuse"
+
+[[source]]
+name = "ios-lemonadep"
+revision = "d952f7d97ea075de9f6686cbbafbd55db6517e65"
+path = "ports/lemonadep/repo"
+upstream = "https://github.com/popovluka/ios-lemonadep"
+branch = "lemonadep"
+maintainer = "popovluka (fork of dipa-studio/ios-sweet; HackiOS-based newer track)"
+role = "OnePlus 9 Pro / SM8350 port; standalone iOS 16.5 and GPU/network work"
+license = "No recognized license metadata; preserve upstream notices and verify before copying additions"
+
+[[source]]
+name = "ios-sweet-dc28088"
+revision = "67448d2151ef7520a8c4417a62a85823c62b30b5"
+path = "ports/sweet-native-metal/repo"
+upstream = "https://github.com/DC28088/ios-sweet"
+branch = "codex/native-adreno-metal"
+maintainer = "DC28088 (fork of dipa-studio/ios-sweet)"
+role = "Redmi Note 10 Pro / SM7150 Metal-to-Vulkan UI with experimental direct Adreno 618 Metal backend"
+license = "No recognized license metadata for fork; base is MIT ios-sweet; verify branch additions before reuse"
+
+[[source]]
+name = "ios-apollo"
+revision = "1f75f381e31da96de537653fbac2252d2eb80418"
+path = "ports/apollo/repo"
+upstream = "https://github.com/aTechGeekDev/ios-apollo"
+branch = "main"
+maintainer = "aTechGeekDev"
+role = "Mi 10T family / SM8250 port with Wi-Fi, Bluetooth, audio and Adreno graphics work"
+license = "MIT"
+
+[[source]]
+name = "ios-herolte"
+revision = "d6b6c7bbb4b2ab063ae833812db2efef094f834b"
+path = "ports/herolte/repo"
+upstream = "https://github.com/wardevsa/ios-a5xelte"
+branch = "herolte"
+maintainer = "wardevsa (fork of orhunnx/ios-a5xelte)"
+role = "Galaxy S7 Exynos 8890 / herolte port with Mali-T880 GLES/Panfrost path; repository also includes A5XELTE work"
+license = "No recognized license metadata for fork; preserve original notices and verify before reuse"

@@ -1,0 +1,25 @@
+[port]
+name = "guacamole"
+model = "OnePlus 7 Pro"
+codename = "guacamole"
+soc = "Qualcomm SM8150 / Snapdragon 855"
+source = "ports/guacamole/repo"
+upstream = "https://github.com/OtVaL228/ios-sweet"
+branch = "guacamole"
+upstream_commit = "e66b14a9a2c8b576e7e179db4f26393698e5e49f"
+status = "upstream reports iOS 16 UI with Adreno 640 OpenGL ES acceleration; experimental"
+
+[hardware]
+gpu = "Adreno 640"
+
+[reported]
+home_screen = true
+touch = true
+gpu_opengles = true
+wifi = "not working"
+audio = "not working"
+cellular = "not working"
+
+[safety]
+userdata_erased_by_upstream_install = true
+flash_requires_explicit_authorization = true

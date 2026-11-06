@@ -9,6 +9,11 @@ The top-level README's status table is a short summary of upstream reports, not 
 - `sweet/` — Redmi Note 10 Pro, SM7150/Snapdragon 732G.
 - `flame/` — Google Pixel 4, SM8150/Snapdragon 855.
 - `galaxy-s9-snapdragon/` — Samsung Galaxy S9 Snapdragon variant, SM-G9600/SDM845.
-- `dada/` — Xiaomi 15, SM8750/Snapdragon 8 Elite; iOS 26 arm64e research port (vendored source snapshot).
+- `dada/` — Xiaomi 15, SM8750/Snapdragon 8 Elite; iOS 26 arm64e research port (vendored snapshot).
+- `guacamole/` — OnePlus 7 Pro, SM8150/Snapdragon 855.
+- `lemonadep/` — OnePlus 9 Pro, SM8350/Snapdragon 888.
+- `sweet-native-metal/` — Redmi Note 10 Pro, SM7150; DC28088 native-Metal development branch.
+- `apollo/` — Xiaomi Mi 10T family, SM8250/Snapdragon 865.
+- `herolte/` — Samsung Galaxy S7 Exynos 8890 (branch name; repository also contains A5XELTE work).
 
 The common UniXNU framework is in `sources/UniXNU`; it is not a device port. Do not copy board configuration or drivers across ports without a source-level compatibility review.

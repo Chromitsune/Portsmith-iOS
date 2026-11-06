@@ -1,0 +1,29 @@
+[port]
+name = "lemonadep"
+model = "OnePlus 9 Pro"
+codename = "lemonadep"
+soc = "Qualcomm SM8350 / Snapdragon 888"
+source = "ports/lemonadep/repo"
+upstream = "https://github.com/popovluka/ios-lemonadep"
+branch = "lemonadep"
+upstream_commit = "d952f7d97ea075de9f6686cbbafbd55db6517e65"
+status = "upstream reports iOS 16.5 standalone UI; experimental"
+
+[hardware]
+gpu = "Adreno 660"
+
+[reported]
+home_screen = true
+touch = true
+gpu_opengles = true
+wifi = "reported working"
+safari = "reported working"
+metal_window_server = "not working"
+audio = "incomplete"
+bluetooth = "not working"
+cellular = "not started"
+camera = "not started"
+
+[safety]
+upstream_install_overwrites_boot_and_userdata = true
+flash_requires_explicit_authorization = true

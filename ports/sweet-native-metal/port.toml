@@ -1,0 +1,29 @@
+[port]
+name = "sweet-native-metal"
+model = "Xiaomi Redmi Note 10 Pro"
+codename = "sweet"
+soc = "Qualcomm SM7150 / Snapdragon 732G"
+source = "ports/sweet-native-metal/repo"
+upstream = "https://github.com/DC28088/ios-sweet"
+branch = "codex/native-adreno-metal"
+upstream_commit = "67448d2151ef7520a8c4417a62a85823c62b30b5"
+status = "upstream reports working Metal-to-Vulkan/Turnip UI path; direct native-Metal backend remains experimental"
+
+[hardware]
+gpu = "Adreno 618"
+
+[reported]
+home_screen = true
+touch = true
+metal2vulkan_turnip_ui = "reported working"
+native_metal_backend = "experimental; hardware draw validation still in progress"
+wifi = "reported working"
+bluetooth = "reported working"
+usb_debugging = "reported working"
+battery = "reported working"
+limitations = "not consistently smooth; audio/video/camera/cellular/sensors and security incomplete"
+
+[safety]
+license = "not recognized by GitHub for this fork; verify before copying code"
+userdata_erased_by_upstream_install = true
+flash_requires_explicit_authorization = true

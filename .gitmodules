@@ -22,3 +22,23 @@
 	path = ports/lavender/repo
 	url = https://github.com/Chromitsune/UniXNU-Lavender.git
 	branch = main
+[submodule "ports/guacamole/repo"]
+	path = ports/guacamole/repo
+	url = https://github.com/OtVaL228/ios-sweet.git
+	branch = guacamole
+[submodule "ports/lemonadep/repo"]
+	path = ports/lemonadep/repo
+	url = https://github.com/popovluka/ios-lemonadep.git
+	branch = lemonadep
+[submodule "ports/sweet-native-metal/repo"]
+	path = ports/sweet-native-metal/repo
+	url = https://github.com/DC28088/ios-sweet.git
+	branch = codex/native-adreno-metal
+[submodule "ports/apollo/repo"]
+	path = ports/apollo/repo
+	url = https://github.com/aTechGeekDev/ios-apollo.git
+	branch = main
+[submodule "ports/herolte/repo"]
+	path = ports/herolte/repo
+	url = https://github.com/wardevsa/ios-a5xelte.git
+	branch = herolte
