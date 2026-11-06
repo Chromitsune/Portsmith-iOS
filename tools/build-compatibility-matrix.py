@@ -1,0 +1,152 @@
+#!/usr/bin/env python3
+"""Render the Markdown and interactive HTML compatibility checklist from JSON."""
+from __future__ import annotations
+import argparse, html, json, sys, tomllib
+from pathlib import Path
+ROOT=Path(__file__).resolve().parents[1]
+DATA=ROOT/"compatibility/ports.json"
+MARKDOWN=ROOT/"compatibility/MATRIX.md"
+PAGE=ROOT/"docs/compatibility-matrix.html"
+SYMBOL={
+ "reported_working":"✅", "partial":"🟡", "in_progress":"🔵",
+ "reported_unavailable":"🔴", "not_tested":"☐", "not_applicable":"—"
+}
+SHORT={
+ "reported_working":"Reported", "partial":"Partial", "in_progress":"WIP",
+ "reported_unavailable":"Unavailable", "not_tested":"Not tested", "not_applicable":"N/A"
+}
+def load():
+ data=json.loads(DATA.read_text())
+ feature_ids={x['id'] for x in data['features']}
+ state_ids={x['id'] for x in data['statuses']}
+ source_data=tomllib.loads((ROOT/'sources/manifest.toml').read_text())['source']
+ sources={x['path']:x for x in source_data}
+ expected_ports={tomllib.loads(p.read_text())['port']['name'] for p in (ROOT/'ports').glob('*/port.toml')}
+ seen=set()
+ for row in data['ports']:
+  if row['id'] in seen: raise ValueError(f"duplicate port id: {row['id']}")
+  seen.add(row['id'])
+  if set(row.get('features',{}))-feature_ids: raise ValueError(f"{row['id']}: unknown feature")
+  source=sources.get(row.get('repo_path'))
+  if not source: raise ValueError(f"{row['id']}: repo_path is not in sources/manifest.toml")
+  if source.get('revision')!=row.get('revision') or source.get('upstream','').removesuffix('.git').rstrip('/')!=row.get('repo_url','').removesuffix('.git').rstrip('/') or source.get('branch')!=row.get('branch') or source.get('source_mode','submodule')!=row.get('source_mode','submodule'):
+   raise ValueError(f"{row['id']}: source URL/revision differs from sources/manifest.toml")
+  for key,cell in row.get('features',{}).items():
+   if cell.get('state') not in state_ids: raise ValueError(f"{row['id']}.{key}: invalid status {cell.get('state')}")
+   if cell.get('state')!='not_tested' and not cell.get('detail'):
+    raise ValueError(f"{row['id']}.{key}: reported status needs evidence detail")
+ if seen!=expected_ports:
+  raise ValueError(f"matrix ports differ from ports/*/port.toml: missing={sorted(expected_ports-seen)}, extra={sorted(seen-expected_ports)}")
+ return data
+
+def markdown(data):
+ features=data['features']
+ header=['Device']+[f['label'] for f in features]
+ out=["# Compatibility checklist", "", data['description'], "", "| "+" | ".join(header)+" |", "|"+"|".join(["---"]*len(header))+"|"]
+ for row in data['ports']:
+  specs=[row.get('soc','')]+[x for x in (row.get('storage'),row.get('gpu')) if x and x!='unknown']
+  if row.get('source_mode')=='vendored-snapshot': specs.append('vendored snapshot')
+  elif row.get('branch') and row.get('branch')!='main': specs.append('branch '+row['branch'])
+  dev=f"[{row['device']} / `{row['id']}`]({row['evidence_url']})<br><sub>{' · '.join(specs)}</sub>"
+  cells=[dev]
+  for f in features:
+   cell=row.get('features',{}).get(f['id'],{'state':'not_tested'})
+   state=cell['state']; cells.append(f"{SYMBOL[state]} {SHORT[state]}")
+  out.append("| "+" | ".join(cells)+" |")
+ out += ["", "## Legend", "", "| Mark | Meaning |", "|---|---|"]
+ for s in data['statuses']: out.append(f"| {SYMBOL[s['id']]} | {s['label']} |")
+ out += ["", "**Evidence rule:** `Reported working` and `Reported unavailable` mean the pinned upstream project's own report—not independent Portsmith verification. `Not tested` means this checklist has no comparable evidence recorded; it does not mean the feature is broken. Details and source pins are on each device's `AGENTS.md`/README and at the linked upstream revision.", "", "The interactive page lets you try statuses locally. Browser edits are stored only in local storage and are not committed. A permanent change requires editing `compatibility/ports.json` with an evidence note, exact source revision, and review."]
+ return "\n".join(out)+"\n"
+
+def page(data):
+ payload=json.dumps(data,ensure_ascii=False,separators=(',',':')).replace('</','<\\/')
+ status_json=json.dumps(data['statuses'],ensure_ascii=False)
+ labels=json.dumps([{'id':f['id'],'label':f['label']} for f in data['features']],ensure_ascii=False)
+ return f'''<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{html.escape(data['title'])}</title>
+<style>
+:root{{--bg:#101216;--panel:#171a20;--line:#343a44;--text:#e7eaf0;--muted:#a7afbb;--link:#80b6ff}}
+*{{box-sizing:border-box}}body{{margin:0;background:var(--bg);color:var(--text);font:14px/1.45 system-ui,-apple-system,Segoe UI,sans-serif}}
+main{{padding:24px;max-width:1800px;margin:auto}}h1{{font-size:24px;margin:0 0 6px}}p{{color:var(--muted);max-width:1100px}}
+.toolbar{{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0}}button{{background:#242a33;color:var(--text);border:1px solid #49515d;border-radius:6px;padding:8px 12px;cursor:pointer}}button:hover{{background:#313946}}
+.note{{border-left:3px solid #4b91ed;padding:8px 12px;background:#171e28;margin:14px 0 18px}}
+.scroller{{overflow:auto;border:1px solid var(--line);border-radius:8px;background:#14171c}}
+table{{border-collapse:collapse;min-width:1450px;width:100%}}th,td{{border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:8px;text-align:center;white-space:nowrap}}th{{position:sticky;top:0;background:#1a1e25;z-index:2;font-weight:600}}th:first-child,td:first-child{{position:sticky;left:0;text-align:left;background:#171a20;z-index:3;min-width:220px}}thead th:first-child{{z-index:4}}tbody tr:hover td{{background:#1b2028}}tbody tr:hover td:first-child{{background:#1d222b}}
+.device a{{color:var(--link);text-decoration:none;font-weight:650}}.meta{{display:block;font-size:11px;color:var(--muted);margin-top:3px}}.meta a{{color:var(--muted);font-weight:400}}
+select{{background:#222730;color:var(--text);border:1px solid #454c57;border-radius:6px;padding:5px 6px;max-width:125px;font-size:11px;cursor:pointer}}
+select.state-reported_working{{border-color:#31c66a;color:#91e8b0}}select.state-partial{{border-color:#e1b51d;color:#ffe176}}select.state-in_progress{{border-color:#3498ff;color:#98c8ff}}select.state-reported_unavailable{{border-color:#ef553d;color:#ff9b8e}}select.state-not_tested{{border-color:#77808d;color:#d9dde3}}select.state-not_applicable{{border-color:#555b64;color:#a5aab1}}
+.legend{{display:flex;gap:18px;flex-wrap:wrap;margin:12px 0;color:var(--muted);font-size:12px}}.legend span{{white-space:nowrap}}.dot{{font-size:16px;vertical-align:-1px}}
+#localState{{color:#9cc9ff;font-size:12px;margin-left:auto}}footer{{color:#818a96;font-size:12px;margin-top:14px}}
+@media(max-width:700px){{main{{padding:12px}}h1{{font-size:20px}}}}
+</style></head><body><main>
+<h1>{html.escape(data['title'])}</h1><p>{html.escape(data['description'])}</p>
+<div class="note"><b>Important:</b> every filled status below is an upstream report unless its note says otherwise. It is not Portsmith device verification. Cells with no evidence default to “Not tested,” not “not working.” Changes made in this page stay in this browser only.</div>
+<div class="toolbar"><button id="reset">Reset local edits</button><button id="export">Export local edits</button><span id="localState">Published checklist</span></div>
+<div class="scroller"><table><thead><tr id="head"></tr></thead><tbody id="body"></tbody></table></div>
+<div class="legend" id="legend"></div>
+<footer>For a permanent status change, edit <code>compatibility/ports.json</code>, record the exact source revision and evidence, then submit a reviewed pull request. The upstream watcher only flags new commits; it never marks a feature “working” automatically.</footer>
+<script id="matrix-data" type="application/json">{payload}</script>
+<script>
+const data=JSON.parse(document.getElementById('matrix-data').textContent);
+const states=Object.fromEntries(data.statuses.map(s=>[s.id,s]));
+const key='portsmith.compatibility.overrides.v1';
+let overrides={{}};
+try{{overrides=JSON.parse(localStorage.getItem(key)||'{{}}')}}catch{{overrides={{}}}}
+const head=document.getElementById('head'), body=document.getElementById('body');
+function esc(s){{return String(s).replace(/[&<>"']/g,c=>({{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}}[c]))}}
+function build(){{
+ head.innerHTML='<th>Device / source</th>'+data.features.map(f=>'<th>'+esc(f.label)+'</th>').join('');
+ body.innerHTML='';
+ for(const row of data.ports){{
+  const tr=document.createElement('tr');
+  const first=document.createElement('td'); first.className='device';
+  const branchNote=row.source_mode==='vendored-snapshot'?'vendored snapshot':(row.branch&&row.branch!=='main'?'branch '+row.branch:null);
+  const specs=[row.soc,row.storage,row.gpu!=='unknown'?row.gpu:null,branchNote].filter(Boolean).join(' · ');
+  first.innerHTML='<a href="'+esc(row.repo_url)+'" target="_blank" rel="noreferrer">'+esc(row.device)+'</a><span class="meta">'+esc(specs)+' · '+esc(row.id)+'</span><span class="meta"><a href="'+esc(row.evidence_url)+'" target="_blank" rel="noreferrer">pinned evidence '+esc(row.revision.slice(0,12))+'</a></span>';
+  tr.appendChild(first);
+  for(const f of data.features){{
+    const base=row.features[f.id]||{{state:'not_tested',detail:'No comparable upstream evidence is recorded in this checklist.'}};
+    const value=overrides[row.id+'.'+f.id]||base.state;
+    const td=document.createElement('td');
+    const sel=document.createElement('select'); sel.className='state-'+value; sel.dataset.port=row.id; sel.dataset.feature=f.id;
+    sel.setAttribute('aria-label',row.device+' — '+f.label+': '+states[value].label);
+    sel.title=(base.detail||'')+'\\nEvidence source: '+row.evidence_url+'\\nPinned revision: '+row.revision;
+    for(const s of data.statuses){{const opt=document.createElement('option'); opt.value=s.id; opt.textContent=s.symbol+' '+s.label; sel.appendChild(opt)}}
+    sel.value=value;
+    sel.addEventListener('change',()=>{{
+      const k=row.id+'.'+f.id;
+      if(sel.value===base.state) delete overrides[k]; else overrides[k]=sel.value;
+      localStorage.setItem(key,JSON.stringify(overrides)); sel.className='state-'+sel.value;
+      sel.setAttribute('aria-label',row.device+' — '+f.label+': '+states[sel.value].label);
+      document.getElementById('localState').textContent=Object.keys(overrides).length+' local edit(s), not saved to repo';
+    }});
+    td.appendChild(sel); tr.appendChild(td);
+  }}
+  body.appendChild(tr);
+ }}
+ const legend=document.getElementById('legend'); legend.innerHTML=data.statuses.map(s=>'<span><b class="dot" style="color:'+esc(s.color)+'">'+esc(s.symbol)+'</b> '+esc(s.label)+'</span>').join('');
+ document.getElementById('localState').textContent=Object.keys(overrides).length?Object.keys(overrides).length+' local edit(s), not saved to repo':'Published checklist';
+}}
+document.getElementById('reset').addEventListener('click',()=>{{overrides={{}};localStorage.removeItem(key);build()}});
+document.getElementById('export').addEventListener('click',()=>{{
+ const out={{schema_version:1,source:'local browser overrides; add evidence before committing',overrides}};
+ const blob=new Blob([JSON.stringify(out,null,2)+'\\n'],{{type:'application/json'}}); const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='compatibility-overrides.json';a.click();URL.revokeObjectURL(a.href);
+}});
+build();
+</script></main></body></html>'''
+
+def main():
+ ap=argparse.ArgumentParser();ap.add_argument('--check',action='store_true');a=ap.parse_args();data=load()
+ outputs={MARKDOWN:markdown(data),PAGE:page(data)}
+ mismatch=[]
+ for path,content in outputs.items():
+  if a.check:
+   if not path.exists() or path.read_text()!=content:mismatch.append(str(path.relative_to(ROOT)))
+  else:
+   path.parent.mkdir(parents=True,exist_ok=True);path.write_text(content,encoding='utf-8')
+ if mismatch: print('Generated compatibility files are stale: '+', '.join(mismatch),file=sys.stderr);return 1
+ if a.check: print('Compatibility matrix outputs are current.')
+ else: print(f'Wrote {len(data["ports"])}-port checklist to compatibility/MATRIX.md and docs/compatibility-matrix.html')
+ return 0
+if __name__=='__main__':raise SystemExit(main())

@@ -212,7 +212,7 @@ def cmd_check(_: argparse.Namespace) -> int:
             warnings.append(f"{path}: .gitmodules URL is {url}, manifest upstream is {upstream}")
         marker = full / ".git"
         if not marker.exists():
-            warnings.append(f"{path}: submodule is not initialized locally (run git submodule update --init --recursive)")
+            warnings.append(f"{path}: submodule is not initialized locally (run git submodule update --init (without --recursive; see sources/README.md))")
         else:
             head = git("rev-parse", "HEAD", cwd=full, check=False)
             if head.returncode == 0 and head.stdout.strip() != oid:

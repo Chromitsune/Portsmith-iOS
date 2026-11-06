@@ -1,0 +1,51 @@
+name: Validate Portsmith metadata
+
+on:
+  push:
+    paths:
+      - 'ports/**'
+      - 'components/**'
+      - 'sources/manifest.toml'
+      - 'compatibility/**'
+      - 'docs/compatibility-matrix.html'
+      - 'tools/portsmith.py'
+      - 'tools/build-compatibility-matrix.py'
+      - '.github/workflows/validate.yml'
+  pull_request:
+    paths:
+      - 'ports/**'
+      - 'components/**'
+      - 'sources/manifest.toml'
+      - 'compatibility/**'
+      - 'docs/compatibility-matrix.html'
+      - 'tools/portsmith.py'
+      - 'tools/build-compatibility-matrix.py'
+      - '.github/workflows/validate.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validate source/component manifests
+        run: python3 tools/portsmith.py check
+      - name: Validate generated checklist views
+        run: python3 tools/build-compatibility-matrix.py --check
+      - name: Validate JSON and Python syntax
+        run: |
+          python3 -m json.tool compatibility/ports.json >/dev/null
+          python3 -m py_compile tools/portsmith.py tools/build-compatibility-matrix.py tools/watch-upstreams.py
+          python3 - <<'PY'
+          from pathlib import Path
+          page = Path('docs/compatibility-matrix.html').read_text()
+          start = page.index('<script>') + len('<script>')
+          end = page.index('</script>', start)
+          Path('/tmp/compatibility-matrix.js').write_text(page[start:end])
+          PY
+          node --check /tmp/compatibility-matrix.js

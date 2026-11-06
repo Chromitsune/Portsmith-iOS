@@ -1,0 +1,36 @@
+name: Watch upstream port updates
+
+on:
+  schedule:
+    - cron: '41 9 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  watch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Compare upstream branches with pinned sources
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: python3 tools/watch-upstreams.py --output compatibility/upstream-watch.json
+      - name: Open a review PR if upstream pins have moved
+        uses: peter-evans/create-pull-request@v7
+        with:
+          token: ${{ github.token }}
+          branch: automation/upstream-port-watch
+          delete-branch: true
+          add-paths: compatibility/upstream-watch.json
+          commit-message: 'chore: refresh upstream source watch'
+          title: 'chore: review upstream port updates'
+          body: |
+            The scheduled watcher found one or more upstream branch heads that differ from Portsmith's pinned commits.
+
+            This PR updates only `compatibility/upstream-watch.json` with pins, remote heads, compare links, and changed compatibility-related files where available. **It does not change any compatibility status.** Review the source diff and its hardware evidence before editing `compatibility/ports.json`.

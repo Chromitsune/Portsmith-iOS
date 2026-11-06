@@ -1,0 +1,113 @@
+{
+  "purpose": "upstream source-change review only; compatibility states are never changed by this report",
+  "schema_version": 1,
+  "sources": [
+    {
+      "branch": "main",
+      "path": "ports/apollo/repo",
+      "pinned_revision": "1f75f381e31da96de537653fbac2252d2eb80418",
+      "remote_head": "1f75f381e31da96de537653fbac2252d2eb80418",
+      "repository": "https://github.com/aTechGeekDev/ios-apollo",
+      "state": "pin-current"
+    },
+    {
+      "branch": "main",
+      "path": "ports/flame/repo",
+      "pinned_revision": "745c4341af86089efb0df851fa8a27fb8face624",
+      "remote_head": "745c4341af86089efb0df851fa8a27fb8face624",
+      "repository": "https://github.com/NWylynko/ios-flame",
+      "state": "pin-current"
+    },
+    {
+      "branch": "main",
+      "path": "ports/galaxy-s9-snapdragon/repo",
+      "pinned_revision": "646570b679b8d9147557f993ebc3ae9500ab9cfd",
+      "remote_head": "646570b679b8d9147557f993ebc3ae9500ab9cfd",
+      "repository": "https://github.com/syncmodz/ios-s9",
+      "state": "pin-current"
+    },
+    {
+      "branch": "guacamole",
+      "path": "ports/guacamole/repo",
+      "pinned_revision": "e66b14a9a2c8b576e7e179db4f26393698e5e49f",
+      "remote_head": "e66b14a9a2c8b576e7e179db4f26393698e5e49f",
+      "repository": "https://github.com/OtVaL228/ios-sweet",
+      "state": "pin-current"
+    },
+    {
+      "branch": "herolte",
+      "path": "ports/herolte/repo",
+      "pinned_revision": "d6b6c7bbb4b2ab063ae833812db2efef094f834b",
+      "remote_head": "d6b6c7bbb4b2ab063ae833812db2efef094f834b",
+      "repository": "https://github.com/wardevsa/ios-a5xelte",
+      "state": "pin-current"
+    },
+    {
+      "branch": "main",
+      "path": "ports/lavender/repo",
+      "pinned_revision": "b74f2cff0321a1440a4ecc24bd7485d21512985f",
+      "remote_head": "b74f2cff0321a1440a4ecc24bd7485d21512985f",
+      "repository": "https://github.com/Chromitsune/UniXNU-Lavender",
+      "state": "pin-current"
+    },
+    {
+      "branch": "lemonadep",
+      "path": "ports/lemonadep/repo",
+      "pinned_revision": "d952f7d97ea075de9f6686cbbafbd55db6517e65",
+      "remote_head": "d952f7d97ea075de9f6686cbbafbd55db6517e65",
+      "repository": "https://github.com/popovluka/ios-lemonadep",
+      "state": "pin-current"
+    },
+    {
+      "branch": "main",
+      "path": "ports/negroni/repo",
+      "pinned_revision": "146e889430bab755329dde7104cc0fa002f44bfb",
+      "remote_head": "146e889430bab755329dde7104cc0fa002f44bfb",
+      "repository": "https://github.com/akshaynexus/iOSPlus10",
+      "state": "pin-current"
+    },
+    {
+      "branch": "main",
+      "compare": {
+        "ahead_by": 35,
+        "changed_files": 37,
+        "compatibility_files": [
+          "porting.toml",
+          "reports/ipados27-bluetooth-native.md",
+          "reports/ipados27-bluetooth-startup.md"
+        ],
+        "status": "compared"
+      },
+      "compare_url": "https://github.com/UniXNU/UniXNU-sheng/compare/460179565a018c741b93e0b1efa07c55d4de497a...2d4b58b797bb03e953ed16cebe388c993d0baa5e",
+      "path": "ports/sheng/repo",
+      "pinned_revision": "460179565a018c741b93e0b1efa07c55d4de497a",
+      "remote_head": "2d4b58b797bb03e953ed16cebe388c993d0baa5e",
+      "repository": "https://github.com/UniXNU/UniXNU-sheng",
+      "state": "review-required"
+    },
+    {
+      "branch": "codex/native-adreno-metal",
+      "path": "ports/sweet-native-metal/repo",
+      "pinned_revision": "67448d2151ef7520a8c4417a62a85823c62b30b5",
+      "remote_head": "67448d2151ef7520a8c4417a62a85823c62b30b5",
+      "repository": "https://github.com/DC28088/ios-sweet",
+      "state": "pin-current"
+    },
+    {
+      "branch": "main",
+      "path": "ports/sweet/repo",
+      "pinned_revision": "45263bee51df4a0f55cdf9c649af886399488ddb",
+      "remote_head": "45263bee51df4a0f55cdf9c649af886399488ddb",
+      "repository": "https://github.com/dipa-studio/ios-sweet",
+      "state": "pin-current"
+    },
+    {
+      "branch": "main",
+      "path": "sources/UniXNU",
+      "pinned_revision": "e2fdae4312d0acc3d8a52bc457101e7918095e6a",
+      "remote_head": "e2fdae4312d0acc3d8a52bc457101e7918095e6a",
+      "repository": "https://github.com/UniXNU/UniXNU",
+      "state": "pin-current"
+    }
+  ]
+}
