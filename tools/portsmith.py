@@ -1,0 +1,205 @@
+#!/usr/bin/env python3
+"""Read-only Portsmith workspace inventory, pin validation, and host-tool check."""
+from __future__ import annotations
+
+import argparse
+import shutil
+import subprocess
+import sys
+import textwrap
+import tomllib
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+
+
+def read_toml(path: Path) -> dict:
+    with path.open("rb") as f:
+        return tomllib.load(f)
+
+
+def git(*args: str, cwd: Path = ROOT, check: bool = True) -> subprocess.CompletedProcess[str]:
+    return subprocess.run(
+        ["git", *args], cwd=cwd, text=True, stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE, check=check,
+    )
+
+
+def norm_url(url: str) -> str:
+    return url.removesuffix(".git").rstrip("/")
+
+
+def port_records(root: Path = ROOT) -> list[tuple[Path, dict]]:
+    out = []
+    for path in sorted((root / "ports").glob("*/port.toml")):
+        data = read_toml(path).get("port", {})
+        out.append((path, data))
+    return out
+
+
+def cmd_ports(_: argparse.Namespace) -> int:
+    records = port_records()
+    if not records:
+        print("No port.toml files found.")
+        return 0
+    print("Port catalog (status is upstream-reported, not independently verified)")
+    for path, p in records:
+        name = p.get("name", path.parent.name)
+        device = p.get("model", "?")
+        soc = p.get("soc", "?")
+        status = p.get("status", "status not recorded")
+        print(f"{name} — {device} ({soc})")
+        print(textwrap.fill(f"Status: {status}", width=100, subsequent_indent="  "))
+        print()
+    return 0
+
+
+def source_index(root: Path = ROOT) -> dict[str, dict]:
+    data = read_toml(root / "sources/manifest.toml")
+    return {s["path"]: s for s in data.get("source", [])}
+
+
+def gitlink_oid(path: str) -> tuple[str | None, str | None]:
+    result = git("ls-files", "-s", "--", path, check=False)
+    if result.returncode:
+        return None, result.stderr.strip()
+    for line in result.stdout.splitlines():
+        meta, sep, name = line.partition("\t")
+        fields = meta.split()
+        if sep and name == path and len(fields) >= 3 and fields[0] == "160000":
+            return fields[1], None
+    return None, None
+
+
+def submodule_url(path: str) -> str | None:
+    result = git("config", "-f", ".gitmodules", "--get", f"submodule.{path}.url", check=False)
+    return result.stdout.strip() if result.returncode == 0 else None
+
+
+def cmd_sources(_: argparse.Namespace) -> int:
+    failures = 0
+    print(f"{'PATH':40} {'PIN':12} {'KIND':18} UPSTREAM")
+    print("-" * 125)
+    for path, item in source_index().items():
+        expected = item.get("revision", "?")
+        mode = item.get("source_mode", "submodule")
+        upstream = item.get("upstream", "?")
+        if mode == "vendored-snapshot":
+            pin, state = expected[:12], "snapshot"
+            if not (ROOT / path / "README.md").is_file():
+                state = "snapshot?"
+                failures += 1
+        else:
+            oid, _ = gitlink_oid(path)
+            pin = (oid or "not-pinned")[:12]
+            if oid != expected:
+                state = "pin-mismatch"
+                failures += 1
+            else:
+                state = "submodule"
+        print(f"{path:40} {pin:12} {state:18} {upstream}")
+    return 1 if failures else 0
+
+
+def cmd_check(_: argparse.Namespace) -> int:
+    errors: list[str] = []
+    warnings: list[str] = []
+    ports = port_records()
+    if not ports:
+        errors.append("no ports/*/port.toml manifests found")
+    required_port = {"name", "model", "codename", "soc", "source", "status"}
+    for file, p in ports:
+        missing = sorted(required_port - p.keys())
+        if missing:
+            errors.append(f"{file.relative_to(ROOT)} missing [port] fields: {', '.join(missing)}")
+        source_path = p.get("source")
+        if source_path and not (ROOT / source_path).exists():
+            errors.append(f"{file.relative_to(ROOT)} source path does not exist: {source_path}")
+
+    for path, item in source_index().items():
+        full = ROOT / path
+        if not full.exists():
+            errors.append(f"source path missing: {path}")
+            continue
+        expected = item.get("revision")
+        mode = item.get("source_mode", "submodule")
+        if mode == "vendored-snapshot":
+            if not expected:
+                errors.append(f"{path}: snapshot has no recorded revision")
+            if not (full / "README.md").is_file():
+                errors.append(f"{path}: vendored snapshot is missing README.md")
+            if not (full / "NOTICE.md").is_file() and not (full / "LICENSE").is_file():
+                warnings.append(f"{path}: no top-level NOTICE.md or LICENSE; review per-component licenses")
+            continue
+
+        oid, _ = gitlink_oid(path)
+        if oid is None:
+            errors.append(f"{path}: manifest expects a submodule, but the Git index has no gitlink")
+            continue
+        if expected and oid != expected:
+            errors.append(f"{path}: manifest revision {expected} != Git submodule pin {oid}")
+        url = submodule_url(path)
+        upstream = item.get("upstream")
+        if url and upstream and norm_url(url) != norm_url(upstream):
+            warnings.append(f"{path}: .gitmodules URL is {url}, manifest upstream is {upstream}")
+        marker = full / ".git"
+        if not marker.exists():
+            warnings.append(f"{path}: submodule is not initialized locally (run git submodule update --init --recursive)")
+        else:
+            head = git("rev-parse", "HEAD", cwd=full, check=False)
+            if head.returncode == 0 and head.stdout.strip() != oid:
+                errors.append(f"{path}: checkout {head.stdout.strip()} != pinned gitlink {oid}")
+            dirty = git("status", "--porcelain", cwd=full, check=False)
+            if dirty.stdout.strip():
+                warnings.append(f"{path}: submodule has local modifications")
+
+    for message in warnings:
+        print(f"WARN: {message}", file=sys.stderr)
+    for message in errors:
+        print(f"ERROR: {message}", file=sys.stderr)
+    if errors:
+        return 1
+    print(f"PASS: {len(ports)} port manifests and {len(source_index())} source pins checked")
+    return 0
+
+
+def cmd_doctor(_: argparse.Namespace) -> int:
+    """Report host tools only; does not probe or control a phone."""
+    required = ("git", "python3")
+    optional = ("cargo", "tmux", "adb", "fastboot", "clang", "mtools")
+    missing_required = []
+    for name in required + optional:
+        path = shutil.which(name)
+        label = "required" if name in required else "optional"
+        if path is None:
+            print(f"{name:10} not found ({label})")
+            if name in required:
+                missing_required.append(name)
+            continue
+        if name == "cargo":
+            version = subprocess.run([path, "--version"], text=True, stdout=subprocess.PIPE,
+                                     stderr=subprocess.STDOUT, check=False)
+            detail = version.stdout.strip() if version.returncode == 0 else "Rust toolchain not configured"
+        else:
+            detail = path
+        print(f"{name:10} {detail} ({label})")
+    return 1 if missing_required else 0
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser(description=__doc__)
+    sub = parser.add_subparsers(dest="command", required=True)
+    for name, func, help_text in (
+        ("ports", cmd_ports, "list port manifests and upstream-reported status"),
+        ("sources", cmd_sources, "show pinned source revisions and upstream URLs"),
+        ("check", cmd_check, "validate manifests, source pins, and local checkouts"),
+        ("doctor", cmd_doctor, "check host tools only; never probes a device"),
+    ):
+        p = sub.add_parser(name, help=help_text)
+        p.set_defaults(func=func)
+    args = parser.parse_args()
+    return args.func(args)
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
