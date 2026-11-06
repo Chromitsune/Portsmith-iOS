@@ -11,7 +11,7 @@
 - **Not tested / no evidence** — Portsmith's current source notes do not provide a comparable result. It does not mean broken.
 - **Not applicable** — only when the capability genuinely does not apply to that device.
 
-Each port row includes its source URL and exact pinned revision. Filled cells include a short evidence note; the source link resolves to the pinned README/NOTES/porting record. A reported XNU/UI boot is enough to mark CPU execution as reported-working, but not to claim SMP/core-count or sustained-performance qualification. Do not infer storage, power, or stability support from a successful UI alone, and do not mark a capability working from a compile or source implementation alone.
+Each port row includes its source URL and exact pinned revision. Filled cells include a short evidence note; the source link resolves to the pinned README/NOTES/porting record. Do not infer storage, power, or stability support from a successful UI alone, and do not mark a capability working from a compile or source implementation alone.
 
 ## Sweet source distinction
 

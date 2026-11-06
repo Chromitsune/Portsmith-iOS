@@ -37,10 +37,6 @@ def load():
    if cell.get('state') not in state_ids: raise ValueError(f"{row['id']}.{key}: invalid status {cell.get('state')}")
    if cell.get('state')!='not_tested' and not cell.get('detail'):
     raise ValueError(f"{row['id']}.{key}: reported status needs evidence detail")
-  boot=row.get('features',{}).get('boot',{}).get('state')
-  cpu=row.get('features',{}).get('cpu',{}).get('state','not_tested')
-  if boot=='reported_working' and cpu!='reported_working':
-   raise ValueError(f"{row['id']}: a reported XNU/UI boot must record CPU execution as reported-working")
  if seen!=expected_ports:
   raise ValueError(f"matrix ports differ from ports/*/port.toml: missing={sorted(expected_ports-seen)}, extra={sorted(seen-expected_ports)}")
  return data
