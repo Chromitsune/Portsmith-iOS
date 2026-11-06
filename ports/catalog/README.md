@@ -1,6 +1,6 @@
 # UniXNU device catalog snapshot
 
-This is a machine-readable snapshot of the entries listed on [unixnu.com/devices](https://unixnu.com/devices/), copied from `UniXNU/devices.toml` at commit `e2fdae4312d0acc3d8a52bc457101e7918095e6a`. It preserves all 265 repository records, URLs (stored upstream as `owner/repository`), revision pins, board/SoC metadata, component lists, and record states. The 79 records marked `available` have 73 reachable pinned source references: 72 optional Git submodules under [`available/`](available/) and one matching sheng record that reuses the curated `ports/sheng/repo`. Six inaccessible revisions remain metadata-only. These are submodule pointers to original repositories, not code copied into the Portsmith superproject, and they are **not** Portsmith verification.
+This is a machine-readable snapshot of the entries listed on [unixnu.com/devices](https://unixnu.com/devices/), copied from `UniXNU/devices.toml` at commit `e2fdae4312d0acc3d8a52bc457101e7918095e6a`. It preserves all 265 repository records, URLs (stored upstream as `owner/repository`), revision pins, board/SoC metadata, component lists, and record states. The 79 records marked `available` have 73 reachable pinned source references: 72 optional Git submodules under top-level `ports/<name>/repo` and one matching sheng record that reuses the curated `ports/sheng/repo`. Six inaccessible revisions remain metadata-only. These are submodule pointers to original repositories, not code copied into the Portsmith superproject, and they are **not** Portsmith verification.
 
 ## Snapshot size and identity
 
@@ -28,7 +28,7 @@ python3 tools/portsmith.py device-catalog --state available
 python3 tools/portsmith.py device-catalog --soc SM8550 --search sheng --all
 ```
 
-The curated, fully indexed Portsmith ports remain separate under `ports/<port>/`. `portsmith.py ports --group-by <vendor|soc|storage|gpu|bootloader>` lists only those Portsmith-managed ports. Additional full source repos should be materialized only after a device/source is selected and its evidence, duplicate identity, safety, and license have been reviewed.
+Each reachable `available` record has an external, pinned source submodule under `ports/<name>/repo`, with generated Portsmith metadata/compatibility notes. The 12 manually curated ports remain distinguished by `catalog_record` being absent; catalog-derived wrappers do not imply independent validation. `portsmith.py ports --group-by <vendor|soc|storage|gpu|bootloader>` lists both sets. The six unavailable pins have generated metadata-only wrappers under `ports/<name>/` (no source repo or compatibility evidence). Additional full code copies/adapters should only be made after source, duplicate identity, safety and per-file license review.
 
 To review the import plan, run `python3 tools/import-unixnu-available-sources.py --dry-run`; `--apply` refreshes the audited submodule pointers and their manifest records. Do not use a newer catalog revision with this audit map until the repositories, exact commits, licenses, and notices have been reviewed again.
 

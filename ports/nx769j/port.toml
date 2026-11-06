@@ -1,0 +1,31 @@
+[port]
+name = "nx769j"
+model = "nubia RedMagic 9 Pro / 9 Pro+ / 9S Pro / 9S Pro+ (NX769J)"
+codename = "nx769j"
+soc = "SM8650"
+source = "ports/nx769j/repo"
+status = "Catalog-derived UniXNU format-2 record marked available; this validates its record only, not a build/boot/device result."
+catalog_record = true
+catalog_format = 2
+catalog_only = false
+
+[hardware]
+vendor = "Nothing"
+soc_vendor = "Qualcomm"
+storage = "UFS (upstream component selection; board-specific)"
+gpu_family = "Unknown"
+gpu = "unknown"
+
+[upstream]
+repository = "https://github.com/Asultop/UniXNU-NX769J"
+revision = "2a265afdbd95d45e4a90664157e793c3bfee3755"
+catalog_record_state = "available"
+catalog_snapshot_revision = "e2fdae4312d0acc3d8a52bc457101e7918095e6a"
+license_status = "No root license/notice found at the pinned commit; source pointer only, no reuse permission asserted."
+board = "nx769j"
+os_profile = "ios-16.5-20F66"
+components = ["ArmDTPlatform", "ArmCpu", "SoftwareAES", "XnuPrelink", "DarwinBoot", "ShengUfs", "VirtioMmioBlock", "VerifiedRoot", "GopFramebuffer"]
+
+[safety]
+flash_requires_explicit_current_authorization = true
+code_reuse_requires_per_repository_license_review = true

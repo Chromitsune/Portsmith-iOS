@@ -47,218 +47,218 @@
 	url = https://github.com/UniXNU/UniXNU-sheng.git
 	branch = main
 [submodule "ports/catalog/available/alioth/repo"]
-	path = ports/catalog/available/alioth/repo
+	path = ports/alioth/repo
 	url = https://github.com/FFT-infra/UniXNU-alioth.git
 [submodule "ports/catalog/available/alioth-taishang1024/repo"]
-	path = ports/catalog/available/alioth-taishang1024/repo
+	path = ports/alioth-taishang1024/repo
 	url = https://github.com/Taishang1024/UniXNU-alioth.git
 [submodule "ports/catalog/available/asteroids/repo"]
-	path = ports/catalog/available/asteroids/repo
+	path = ports/asteroids/repo
 	url = https://github.com/rootstockos/UniXNU-asteroids.git
 [submodule "ports/catalog/available/camellia/repo"]
-	path = ports/catalog/available/camellia/repo
+	path = ports/camellia/repo
 	url = https://github.com/stanveyjiang/UniXNU-camellia.git
 [submodule "ports/catalog/available/cas/repo"]
-	path = ports/catalog/available/cas/repo
+	path = ports/cas/repo
 	url = https://github.com/ht94911/UniXNU-cas.git
 [submodule "ports/catalog/available/elden/repo"]
-	path = ports/catalog/available/elden/repo
+	path = ports/elden/repo
 	url = https://github.com/jerry-2009/UNIXNU_elden.git
 [submodule "ports/catalog/available/evb10/repo"]
-	path = ports/catalog/available/evb10/repo
+	path = ports/evb10/repo
 	url = https://github.com/Ken-u/UniXNU-evb10.git
 [submodule "ports/catalog/available/fuxi/repo"]
-	path = ports/catalog/available/fuxi/repo
+	path = ports/fuxi/repo
 	url = https://github.com/matejkoo217/UniXNU-fuxi.git
 [submodule "ports/catalog/available/fuxi-kkkpc/repo"]
-	path = ports/catalog/available/fuxi-kkkpc/repo
+	path = ports/fuxi-kkkpc/repo
 	url = https://github.com/kkkpc/UniXNU-fuxi.git
 [submodule "ports/catalog/available/fuxi-mouse233/repo"]
-	path = ports/catalog/available/fuxi-mouse233/repo
+	path = ports/fuxi-mouse233/repo
 	url = https://github.com/mouse233/unixnu-fuxi.git
 [submodule "ports/catalog/available/fuxi-oddlylabs/repo"]
-	path = ports/catalog/available/fuxi-oddlylabs/repo
+	path = ports/fuxi-oddlylabs/repo
 	url = https://github.com/OddlyLabs/unixnu-fuxi.git
 [submodule "ports/catalog/available/gta4l-gta4lunix/repo"]
-	path = ports/catalog/available/gta4l-gta4lunix/repo
+	path = ports/gta4l-gta4lunix/repo
 	url = https://github.com/gta4lunix/UniXNU-gta4l.git
 [submodule "ports/catalog/available/hero2lte/repo"]
-	path = ports/catalog/available/hero2lte/repo
+	path = ports/hero2lte/repo
 	url = https://github.com/DokuroMitsukai/UniXNU-hero2lte.git
 [submodule "ports/catalog/available/ishtar/repo"]
-	path = ports/catalog/available/ishtar/repo
+	path = ports/ishtar/repo
 	url = https://github.com/peter8889/UniXNU-ishtar.git
 [submodule "ports/catalog/available/j716f/repo"]
-	path = ports/catalog/available/j716f/repo
+	path = ports/j716f/repo
 	url = https://github.com/Denis0x00/UniXNU-j716f.git
 [submodule "ports/catalog/available/kebab-stevedang67889/repo"]
-	path = ports/catalog/available/kebab-stevedang67889/repo
+	path = ports/kebab-stevedang67889/repo
 	url = https://github.com/stevedang67889/UniXNU-kebab.git
 [submodule "ports/catalog/available/luming-infinityex-rsxq/repo"]
-	path = ports/catalog/available/luming-infinityex-rsxq/repo
+	path = ports/luming-infinityex-rsxq/repo
 	url = https://github.com/infinityEX-RSXQ/UniXNU-luming-f2-ci.git
 [submodule "ports/catalog/available/marble/repo"]
-	path = ports/catalog/available/marble/repo
+	path = ports/marble/repo
 	url = https://github.com/sing0626/UniXNU-marble.git
 [submodule "ports/catalog/available/marble-milacy/repo"]
-	path = ports/catalog/available/marble-milacy/repo
+	path = ports/marble-milacy/repo
 	url = https://github.com/MiLacy/UniXNU-marble.git
 [submodule "ports/catalog/available/meizu21/repo"]
-	path = ports/catalog/available/meizu21/repo
+	path = ports/meizu21/repo
 	url = https://github.com/loolooc/UniXNU-meizu21.git
 [submodule "ports/catalog/available/miatoll/repo"]
-	path = ports/catalog/available/miatoll/repo
+	path = ports/miatoll/repo
 	url = https://github.com/qdizax-w/UniXNU-miatoll.git
 [submodule "ports/catalog/available/merlinx-gytis283123/repo"]
-	path = ports/catalog/available/merlinx-gytis283123/repo
+	path = ports/merlinx-gytis283123/repo
 	url = https://github.com/Gytis283123/UniXNU-merlinx.git
 [submodule "ports/catalog/available/mondrian-mzyxsl/repo"]
-	path = ports/catalog/available/mondrian-mzyxsl/repo
+	path = ports/mondrian-mzyxsl/repo
 	url = https://github.com/mzyxsl/UniXNU-mondrian.git
 [submodule "ports/catalog/available/mondrian/repo"]
-	path = ports/catalog/available/mondrian/repo
+	path = ports/mondrian/repo
 	url = https://github.com/Emilelu/UniXNU-mondrian.git
 [submodule "ports/catalog/available/mondrian-wohusaixing/repo"]
-	path = ports/catalog/available/mondrian-wohusaixing/repo
+	path = ports/mondrian-wohusaixing/repo
 	url = https://github.com/wohusaixing/UniXNU-mondrian.git
 [submodule "ports/catalog/available/munch-erodenine/repo"]
-	path = ports/catalog/available/munch-erodenine/repo
+	path = ports/munch-erodenine/repo
 	url = https://github.com/ErodeNine/unixnu-munch.git
 [submodule "ports/catalog/available/nabu-zzweiqing/repo"]
-	path = ports/catalog/available/nabu-zzweiqing/repo
+	path = ports/nabu-zzweiqing/repo
 	url = https://github.com/zzweiqing/UniXNU-nabu.git
 [submodule "ports/catalog/available/nx769j/repo"]
-	path = ports/catalog/available/nx769j/repo
+	path = ports/nx769j/repo
 	url = https://github.com/Asultop/UniXNU-NX769J.git
 [submodule "ports/catalog/available/odin/repo"]
-	path = ports/catalog/available/odin/repo
+	path = ports/odin/repo
 	url = https://github.com/qine233/UniXNU-odin.git
 [submodule "ports/catalog/available/odin3/repo"]
-	path = ports/catalog/available/odin3/repo
+	path = ports/odin3/repo
 	url = https://github.com/darkplace/UniXNU-Odin3.git
 [submodule "ports/catalog/available/oneplus13t/repo"]
-	path = ports/catalog/available/oneplus13t/repo
+	path = ports/oneplus13t/repo
 	url = https://github.com/IssacL04/UniXNU-Pagani_SM8750.git
 [submodule "ports/catalog/available/oneplus13t-shad0w23333/repo"]
-	path = ports/catalog/available/oneplus13t-shad0w23333/repo
+	path = ports/oneplus13t-shad0w23333/repo
 	url = https://github.com/Shad0w23333/UniXNU-Pagani_SM8750.git
 [submodule "ports/catalog/available/orangepi5/repo"]
-	path = ports/catalog/available/orangepi5/repo
+	path = ports/orangepi5/repo
 	url = https://github.com/Ken-u/UniXNU-orangepi5.git
 [submodule "ports/catalog/available/pong/repo"]
-	path = ports/catalog/available/pong/repo
+	path = ports/pong/repo
 	url = https://github.com/Chengdong-Yu/UniXNU-pong.git
 [submodule "ports/catalog/available/pong-agxmx666/repo"]
-	path = ports/catalog/available/pong-agxmx666/repo
+	path = ports/pong-agxmx666/repo
 	url = https://github.com/AGXMX666/UniXNU-pong.git
 [submodule "ports/catalog/available/pudding/repo"]
-	path = ports/catalog/available/pudding/repo
+	path = ports/pudding/repo
 	url = https://github.com/daisukiKaffuChino/UniXNU-pudding.git
 [submodule "ports/catalog/available/rmx1971/repo"]
-	path = ports/catalog/available/rmx1971/repo
+	path = ports/rmx1971/repo
 	url = https://github.com/AppleCampus/UniXNU-rmx1971.git
 [submodule "ports/catalog/available/raphael-guowenye/repo"]
-	path = ports/catalog/available/raphael-guowenye/repo
+	path = ports/raphael-guowenye/repo
 	url = https://github.com/guowenye/UniXNU-raphael.git
 [submodule "ports/catalog/available/rmx3823/repo"]
-	path = ports/catalog/available/rmx3823/repo
+	path = ports/rmx3823/repo
 	url = https://github.com/Janit8r/UniXNU-rmx3823-new.git
 [submodule "ports/catalog/available/rmx3551/repo"]
-	path = ports/catalog/available/rmx3551/repo
+	path = ports/rmx3551/repo
 	url = https://github.com/Axiang-dev/UniXNU-rmx3551.git
 [submodule "ports/catalog/available/ruby/repo"]
-	path = ports/catalog/available/ruby/repo
+	path = ports/ruby/repo
 	url = https://github.com/lky005/UniXNU-ruby.git
 [submodule "ports/catalog/available/sheng-airalex002/repo"]
-	path = ports/catalog/available/sheng-airalex002/repo
+	path = ports/sheng-airalex002/repo
 	url = https://github.com/airalex002/UniXNU-sheng.git
 [submodule "ports/catalog/available/sheng-bai805/repo"]
-	path = ports/catalog/available/sheng-bai805/repo
+	path = ports/sheng-bai805/repo
 	url = https://github.com/bai805/UniXNU-sheng.git
 [submodule "ports/catalog/available/sheng-chenjin1494/repo"]
-	path = ports/catalog/available/sheng-chenjin1494/repo
+	path = ports/sheng-chenjin1494/repo
 	url = https://github.com/chenjin1494/UniXNU-sheng.git
 [submodule "ports/catalog/available/sheng-enlixk/repo"]
-	path = ports/catalog/available/sheng-enlixk/repo
+	path = ports/sheng-enlixk/repo
 	url = https://github.com/Enlixk/UniXNU-sheng.git
 [submodule "ports/catalog/available/sheng-fft-infra/repo"]
-	path = ports/catalog/available/sheng-fft-infra/repo
+	path = ports/sheng-fft-infra/repo
 	url = https://github.com/FFT-infra/UniXNU-alioth-sheng-template.git
 [submodule "ports/catalog/available/sheng-gkxqh/repo"]
-	path = ports/catalog/available/sheng-gkxqh/repo
+	path = ports/sheng-gkxqh/repo
 	url = https://github.com/gkxqh/UniXNU-sheng.git
 [submodule "ports/catalog/available/sheng-ht94911/repo"]
-	path = ports/catalog/available/sheng-ht94911/repo
+	path = ports/sheng-ht94911/repo
 	url = https://github.com/ht94911/UniXNU-sheng.git
 [submodule "ports/catalog/available/sheng-hxzbaka/repo"]
-	path = ports/catalog/available/sheng-hxzbaka/repo
+	path = ports/sheng-hxzbaka/repo
 	url = https://github.com/hxzbaka/UniXNU-sheng.git
 [submodule "ports/catalog/available/sheng-jsongmax/repo"]
-	path = ports/catalog/available/sheng-jsongmax/repo
+	path = ports/sheng-jsongmax/repo
 	url = https://github.com/jsongmax/UniXNU-sheng.git
 [submodule "ports/catalog/available/sheng-ks114514/repo"]
-	path = ports/catalog/available/sheng-ks114514/repo
+	path = ports/sheng-ks114514/repo
 	url = https://github.com/ks114514/UniXNU-sheng.git
 [submodule "ports/catalog/available/sheng-lithosss/repo"]
-	path = ports/catalog/available/sheng-lithosss/repo
+	path = ports/sheng-lithosss/repo
 	url = https://github.com/Lithosss/UniXNU-sheng.git
 [submodule "ports/catalog/available/sheng-soneoylys/repo"]
-	path = ports/catalog/available/sheng-soneoylys/repo
+	path = ports/sheng-soneoylys/repo
 	url = https://github.com/Soneoylys/UniXNU-sheng.git
 [submodule "ports/catalog/available/sheng-thearchitectengineer/repo"]
-	path = ports/catalog/available/sheng-thearchitectengineer/repo
+	path = ports/sheng-thearchitectengineer/repo
 	url = https://github.com/TheArchitectEngineer/UniXNU-sheng.git
 [submodule "ports/catalog/available/sheng-tkings4chan/repo"]
-	path = ports/catalog/available/sheng-tkings4chan/repo
+	path = ports/sheng-tkings4chan/repo
 	url = https://github.com/tkings4chan/UniXNU-sheng.git
 [submodule "ports/catalog/available/sheng-v1-727/repo"]
-	path = ports/catalog/available/sheng-v1-727/repo
+	path = ports/sheng-v1-727/repo
 	url = https://github.com/v1-727/UniXNU-sheng.git
 [submodule "ports/catalog/available/sirius/repo"]
-	path = ports/catalog/available/sirius/repo
+	path = ports/sirius/repo
 	url = https://github.com/57UU/UniXNU-sirius.git
 [submodule "ports/catalog/available/sirius-huajifruit/repo"]
-	path = ports/catalog/available/sirius-huajifruit/repo
+	path = ports/sirius-huajifruit/repo
 	url = https://github.com/HuajiFruit/UniXNU-sirius.git
 [submodule "ports/catalog/available/sirius-yooglery/repo"]
-	path = ports/catalog/available/sirius-yooglery/repo
+	path = ports/sirius-yooglery/repo
 	url = https://github.com/Yooglery/UniXNU-sirius.git
 [submodule "ports/catalog/available/starlte/repo"]
-	path = ports/catalog/available/starlte/repo
+	path = ports/starlte/repo
 	url = https://github.com/Scion-Project/scion-starlte.git
 [submodule "ports/catalog/available/tb365fc/repo"]
-	path = ports/catalog/available/tb365fc/repo
+	path = ports/tb365fc/repo
 	url = https://github.com/LittleStar-OuO/UniXNU-tb365fc.git
 [submodule "ports/catalog/available/sm-t970/repo"]
-	path = ports/catalog/available/sm-t970/repo
+	path = ports/sm-t970/repo
 	url = https://github.com/CakeAL/UniXNU-sm-t970.git
 [submodule "ports/catalog/available/uke/repo"]
-	path = ports/catalog/available/uke/repo
+	path = ports/uke/repo
 	url = https://github.com/Allenwdk/UniXNU-uke.git
 [submodule "ports/catalog/available/uke-imposterissus13/repo"]
-	path = ports/catalog/available/uke-imposterissus13/repo
+	path = ports/uke-imposterissus13/repo
 	url = https://github.com/IMPOSTERiSSUS13/UniXNU-uke.git
 [submodule "ports/catalog/available/uke-tonghuaqwq/repo"]
-	path = ports/catalog/available/uke-tonghuaqwq/repo
+	path = ports/uke-tonghuaqwq/repo
 	url = https://github.com/TongHuaQWQ/UniXNU-uke.git
 [submodule "ports/catalog/available/umi-jopangjovan/repo"]
-	path = ports/catalog/available/umi-jopangjovan/repo
+	path = ports/umi-jopangjovan/repo
 	url = https://github.com/JopangJovan/UniXNU-umi.git
 [submodule "ports/catalog/available/venus/repo"]
-	path = ports/catalog/available/venus/repo
+	path = ports/venus/repo
 	url = https://github.com/Sulee7z/UniXNU-venus.git
 [submodule "ports/catalog/available/yunluo/repo"]
-	path = ports/catalog/available/yunluo/repo
+	path = ports/yunluo/repo
 	url = https://github.com/woaphone/UniXNU-yunluo.git
 [submodule "ports/catalog/available/zizhan/repo"]
-	path = ports/catalog/available/zizhan/repo
+	path = ports/zizhan/repo
 	url = https://github.com/qiumochen/UniXNU-zizhan.git
 [submodule "ports/catalog/available/zorn/repo"]
-	path = ports/catalog/available/zorn/repo
+	path = ports/zorn/repo
 	url = https://github.com/kerrinz/UniXNU-zorn.git
 [submodule "ports/catalog/available/mondrian-xtom0706/repo"]
-	path = ports/catalog/available/mondrian-xtom0706/repo
+	path = ports/mondrian-xtom0706/repo
 	url = https://github.com/XTOM0706/UniXNU-mondrian.git
 [submodule "ports/catalog/available/sirius-dddqmmx/repo"]
-	path = ports/catalog/available/sirius-dddqmmx/repo
+	path = ports/sirius-dddqmmx/repo
 	url = https://github.com/dddqmmx/UniXNU-sirius.git

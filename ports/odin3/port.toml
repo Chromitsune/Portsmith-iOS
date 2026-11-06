@@ -1,0 +1,31 @@
+[port]
+name = "odin3"
+model = "AYN Odin 3 (Dragonwing Q8, SM8750), 16 GiB"
+codename = "odin3"
+soc = "SM8750"
+source = "ports/odin3/repo"
+status = "Catalog-derived UniXNU format-2 record marked available; this validates its record only, not a build/boot/device result."
+catalog_record = true
+catalog_format = 2
+catalog_only = false
+
+[hardware]
+vendor = "Nothing"
+soc_vendor = "Qualcomm"
+storage = "unknown"
+gpu_family = "Unknown"
+gpu = "unknown"
+
+[upstream]
+repository = "https://github.com/darkplace/UniXNU-Odin3"
+revision = "6d58c09d1529fb22dba8e3d6f74d8d4c7f9f8306"
+catalog_record_state = "available"
+catalog_snapshot_revision = "e2fdae4312d0acc3d8a52bc457101e7918095e6a"
+license_status = "NOTICE identifies separately licensed OpenABL GPL-3.0-or-later (reported not redistributed), EDK2/Mu, Linux reference material and XNU patches; retain/inspect notice."
+board = "odin3"
+os_profile = "ipados-17.7.11-21H461"
+components = ["BootProgress", "PaganiDarwinBoot", "PaganiArmCpu", "PaganiArmDTPlatform", "Sm8750Platform", "SoftwareAES", "ShengPlatformPower", "NativePrelink", "PaganiVerifiedRoot", "NativeVirtioBlock", "NativeRamBlock", "NativeMobileDisplay"]
+
+[safety]
+flash_requires_explicit_current_authorization = true
+code_reuse_requires_per_repository_license_review = true

@@ -91,13 +91,28 @@ def gitlink_oid(path: str) -> tuple[str | None, str | None]:
     return None, None
 
 
+def submodule_name(path: str) -> str | None:
+    result = git("config", "-f", ".gitmodules", "--get-regexp", r"^submodule\..*\.path$", check=False)
+    for line in result.stdout.splitlines():
+        key, _, value = line.partition(" ")
+        if value.strip() == path:
+            return key.removesuffix(".path")
+    return None
+
+
 def submodule_url(path: str) -> str | None:
-    result = git("config", "-f", ".gitmodules", "--get", f"submodule.{path}.url", check=False)
+    name = submodule_name(path)
+    if not name:
+        return None
+    result = git("config", "-f", ".gitmodules", "--get", f"{name}.url", check=False)
     return result.stdout.strip() if result.returncode == 0 else None
 
 
 def submodule_branch(path: str) -> str | None:
-    result = git("config", "-f", ".gitmodules", "--get", f"submodule.{path}.branch", check=False)
+    name = submodule_name(path)
+    if not name:
+        return None
+    result = git("config", "-f", ".gitmodules", "--get", f"{name}.branch", check=False)
     return result.stdout.strip() if result.returncode == 0 else None
 
 
@@ -223,7 +238,7 @@ def cmd_check(_: argparse.Namespace) -> int:
             errors.append(f"{path}: .gitmodules branch {configured_branch!r} != manifest branch {expected_branch!r}")
         marker = full / ".git"
         if not marker.exists():
-            if path.startswith("ports/catalog/available/"):
+            if item.get("catalog_record") or path.startswith("ports/catalog/available/"):
                 uninitialized_catalog_sources += 1
             else:
                 warnings.append(f"{path}: submodule is not initialized locally (run tools/checkout-sources.py --curated; do not use --recursive)")
@@ -355,7 +370,7 @@ def cmd_device_catalog(args: argparse.Namespace) -> int:
         repo = d.get("repository", "?")
         rev = d.get("revision", "?")
         components = ", ".join(d.get("components", []))
-        catalog_path = f"ports/catalog/available/{d.get('name', '?')}/repo"
+        catalog_path = f"ports/{d.get('name', '?')}/repo"
         source_map = source_index()
         checkout = catalog_path if catalog_path in source_map else "metadata only"
         if checkout == "metadata only":

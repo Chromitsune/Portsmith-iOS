@@ -1,0 +1,32 @@
+[port]
+name = "hero2lte"
+model = "Samsung Galaxy S7 Edge (hero2lte)"
+codename = "hero2lte"
+soc = "Exynos 8890"
+source = "ports/hero2lte/repo"
+status = "Catalog-derived UniXNU format-2 record marked available; this validates its record only, not a build/boot/device result."
+catalog_record = true
+catalog_format = 2
+catalog_only = false
+
+[hardware]
+vendor = "Samsung"
+soc_vendor = "Samsung"
+storage = "unknown"
+gpu_family = "Unknown"
+gpu = "unknown"
+
+[upstream]
+repository = "https://github.com/DokuroMitsukai/UniXNU-hero2lte"
+revision = "33ca6933fc94aeced28610b9e1fe5743e7f172dd"
+catalog_record_state = "available"
+catalog_snapshot_revision = "e2fdae4312d0acc3d8a52bc457101e7918095e6a"
+license_status = "No root license/notice found at the pinned commit; source pointer only, no reuse permission asserted."
+board = "hero2lte"
+os_profile = "ipados-17.7.11-21H461"
+components = ["ArmDTPlatform", "ArmCpu", "SoftwareAES", "XnuPrelink", "DarwinBoot"]
+summary = "Integrated firmware builds; GICv2 and hardware boot pending"
+
+[safety]
+flash_requires_explicit_current_authorization = true
+code_reuse_requires_per_repository_license_review = true

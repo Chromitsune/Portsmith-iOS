@@ -1,0 +1,30 @@
+[port]
+name = "ruby"
+model = "Xiaomi Redmi Note 12 Pro 5G (ruby, MediaTek Dimensity 1080 / MT6877)"
+codename = "ruby"
+soc = "MT6877"
+source = "ports/ruby/repo"
+status = "Catalog-derived UniXNU format-2 record marked available; this validates its record only, not a build/boot/device result."
+catalog_record = true
+catalog_format = 2
+catalog_only = false
+
+[hardware]
+vendor = "Xiaomi"
+soc_vendor = "MediaTek"
+storage = "unknown"
+gpu_family = "Unknown"
+gpu = "unknown"
+
+[upstream]
+repository = "https://github.com/lky005/UniXNU-ruby"
+revision = "d321b43deae0fba70f3fd566fa25d41648b7bf82"
+catalog_record_state = "available"
+catalog_snapshot_revision = "e2fdae4312d0acc3d8a52bc457101e7918095e6a"
+license_status = "LICENSE scopes MIT to original material and excludes XNU patches; it references a NOTICE absent at the pin. Preserve/review per-file terms."
+board = "ruby"
+os_profile = "ios-16.7.16-20H392"
+
+[safety]
+flash_requires_explicit_current_authorization = true
+code_reuse_requires_per_repository_license_review = true

@@ -47,13 +47,18 @@ def main()->int:
  args=ap.parse_args()
  import tomllib
  with (ROOT/"sources/manifest.toml").open('rb') as f: srcs=tomllib.load(f).get("source",[])
- managed_paths={tomllib.loads(p.read_text()).get("port",{}).get("source") for p in (ROOT/"ports").glob("*/port.toml")}
+ old_entries={}
+ if args.output:
+  old_path=args.output if args.output.is_absolute() else ROOT/args.output
+  if old_path.is_file():
+   try: old_entries={x.get("path"):x for x in json.loads(old_path.read_text()).get("sources",[])}
+   except (ValueError, OSError): old_entries={}
  watched=[]; errors=[]
  for s in srcs:
   path=s.get("path","")
-  # The compatibility watch follows Portsmith-managed ports/framework only;
-  # the 79 discovery-only catalog checkouts are not feature-status claims.
-  if path not in managed_paths and path!="sources/UniXNU": continue
+  # Watch all curated and catalog-derived device source refs, but not vendored
+  # snapshots; a changed head prompts review and never updates a status itself.
+  if not path.startswith("ports/") and path!="sources/UniXNU": continue
   if s.get("source_mode")=="vendored-snapshot": continue
   url=s.get("upstream")
   if not url: continue
@@ -67,7 +72,13 @@ def main()->int:
    repo=github_repo(url)
    if head!=pin:
     entry["compare_url"]=(f"https://github.com/{repo}/compare/{pin}...{head}" if repo else None)
-    entry["compare"]=(compare_files(repo,pin,head) if repo and not args.no_compare_api else {"status":"skipped","compatibility_files":[]})
+    if repo and not args.no_compare_api:
+     entry["compare"]=compare_files(repo,pin,head)
+    elif old_entries.get(path,{}).get("pinned_revision")==pin and old_entries.get(path,{}).get("remote_head")==head and old_entries.get(path,{}).get("compare"):
+     entry["compare"]=old_entries[path]["compare"]
+     entry["compare_url"]=old_entries[path].get("compare_url",entry["compare_url"])
+    else:
+     entry["compare"]={"status":"skipped","compatibility_files":[]}
    watched.append(entry)
   except Exception as e:
    errors.append(f"{path}: {e}")

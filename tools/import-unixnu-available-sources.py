@@ -39,7 +39,7 @@ def run(cmd,cwd=ROOT,check=True):
  return subprocess.run(cmd,cwd=cwd,text=True,stdout=subprocess.PIPE,stderr=subprocess.STDOUT,check=check)
 def audit_record(d):
  name=d['name']; repository=d['repository']; revision=d['revision']
- path=f"ports/catalog/available/{name}/repo"
+ path=f"ports/{name}/repo"
  if name in UNREACHABLE:
   return {"name":name,"repository":repository,"revision":revision,"checkout":"metadata-only","license":"unresolved","license_status":UNREACHABLE[name],"source_path":None}
  if name in NO_ROOT_LICENSE:
@@ -65,7 +65,7 @@ def import_one(d,dry):
  # Reuse a curated path only when the same owner/repository and exact commit
  # are already part of a hand-managed port; do not confuse catalog paths with
  # curated ones merely because they are present in the source manifest.
- reused=next((x for x in sources if not x.get("path","").startswith("ports/catalog/available/") and x.get("revision")==rev and x.get("upstream","").removesuffix(".git").rstrip("/")==url.removesuffix(".git").rstrip("/")),None)
+ reused=next((x for x in sources if not x.get("catalog_record",False) and x.get("revision")==rev and x.get("upstream","").removesuffix(".git").rstrip("/")==url.removesuffix(".git").rstrip("/")),None)
  if reused:
   item["checkout"]="existing-curated";item["source_path"]=reused["path"]
   print(f"reuse {name}: {reused['path']} at {rev}");return item
@@ -109,7 +109,7 @@ def write_source_manifest(items):
   if x.get("source_path") is None or x.get("checkout") not in ("submodule-reference","already-pinned"): continue
   if x.get("checkout")=="existing-curated": continue
   d=next(d for d in AVAILABLE if d['name']==x['name'])
-  block += ["", "[[source]]",f"name = {q('UniXNU-device-'+x['name'])}",f"revision = {q(x['revision'])}",f"path = {q(x['source_path'])}",f"upstream = {q('https://github.com/'+x['repository'])}",f"maintainer = {q(x['repository'].split('/')[0])}",f"role = {q(d.get('title','')+'; upstream device catalog record '+x['name'])}",f"license = {q(x['license'])}",f"license_status = {q(x['license_status'])}","catalog_state = \"available\""]
+  block += ["", "[[source]]",f"name = {q('UniXNU-device-'+x['name'])}",f"revision = {q(x['revision'])}",f"path = {q(x['source_path'])}",f"upstream = {q('https://github.com/'+x['repository'])}",f"maintainer = {q(x['repository'].split('/')[0])}",f"role = {q(d.get('title','')+'; upstream device catalog record '+x['name'])}",f"license = {q(x['license'])}",f"license_status = {q(x['license_status'])}","catalog_state = \"available\"","catalog_record = true"]
  block += ["",end]
  new=text.rstrip()+"\n\n"+"\n".join(block)+"\n"
  if suffix.strip(): new += "\n"+suffix.strip()+"\n"
@@ -125,7 +125,7 @@ def write_audit_files(items):
  root_licenses=sum(x.get("checkout") not in ("metadata-only",) and not x["license"].startswith(("unresolved — no root","GPL-2.0 text","MIT for original","Mixed per-file")) for x in items)
  no_root=sum(x["license"].startswith("unresolved — no root") for x in items)
  ambiguous=sum(x["license"].startswith(("GPL-2.0 text","MIT for original","Mixed per-file")) for x in items)
- readme=["# UniXNU available device source references","",f"The pinned UniXNU device catalog has **{len(items)}** records marked `available`; exact revision fetches succeeded for **{ready}** and **{missing}** remain metadata-only because the recorded repository/revision was inaccessible during the pinned-source audit.","",f"There are **{catalog_refs}** pinned Git submodule refs under `ports/catalog/available/<name>/repo`; the `sheng` record reuses the curated source at `ports/sheng/repo`. The parent repository does not vendor these device source files. After a plain clone, initialize one source with `python3 tools/checkout-sources.py --name <record-name>` or initialize the accessible set with `python3 tools/checkout-sources.py --available` (no recursive submodule initialization).","",f"Root-license inventory: {root_licenses} repositories have an identifiable root license (some with scoped/third-party terms), {no_root} have no root license/notice, {ambiguous} have mixed or unclear scope, and {missing} pins were inaccessible. A source pointer is not permission to reuse code. Review per-file, nested-submodule, firmware and transitive terms before adapting code.","","`available` describes UniXNU port-record validation, not a successful build or boot. Source checkouts are discovery references; license status is recorded per repository below and in `sources/manifest.toml`. These catalog-only sources are not counted as Portsmith-managed `ports/*/port.toml` ports.","","See [`LICENSE-AUDIT.md`](LICENSE-AUDIT.md) for all pinned root-license and reachability findings."]
+ readme=["# UniXNU available device source references","",f"The pinned UniXNU device catalog has **{len(items)}** records marked `available`; exact revision fetches succeeded for **{ready}** and **{missing}** remain metadata-only because the recorded repository/revision was inaccessible during the pinned-source audit.","",f"There are **{catalog_refs}** pinned Git submodule refs under `ports/<name>/repo`; the `sheng` record reuses the curated source at `ports/sheng/repo`. The {missing} inaccessible exact pins also have metadata-only `ports/<name>/` wrappers, with no device source checkout or feature evidence. The parent repository does not vendor these device source files. After a plain clone, initialize one source with `python3 tools/checkout-sources.py --name <record-name>` or initialize the accessible set with `python3 tools/checkout-sources.py --available` (no recursive submodule initialization).","",f"Root-license inventory: {root_licenses} repositories have an identifiable root license (some with scoped/third-party terms), {no_root} have no root license/notice, {ambiguous} have mixed or unclear scope, and {missing} pins were inaccessible. A source pointer is not permission to reuse code. Review per-file, nested-submodule, firmware and transitive terms before adapting code.","","`available` describes UniXNU port-record validation, not a successful build or boot. Source checkouts are discovery references; license status is recorded per repository below and in `sources/manifest.toml`. These generated `port.toml` wrappers are catalog-derived, not curated or verified Portsmith ports.","","See [`LICENSE-AUDIT.md`](LICENSE-AUDIT.md) for all pinned root-license and reachability findings."]
  (out/"README.md").write_text("\n".join(readme)+"\n",encoding="utf-8")
  root_licenses=sum(x.get("checkout") != "metadata-only" and not x["license"].startswith(("unresolved — no root","GPL-2.0 text","MIT for original","Mixed per-file")) for x in items)
  no_root=sum(x["license"].startswith("unresolved — no root") for x in items)

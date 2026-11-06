@@ -17,7 +17,7 @@
       "checkout": "already-pinned",
       "license": "unresolved — no root LICENSE/COPYING/NOTICE found",
       "license_status": "No root license/notice found at the pinned commit; source pointer only, no reuse permission asserted.",
-      "source_path": "ports/catalog/available/alioth/repo"
+      "source_path": "ports/alioth/repo"
     },
     {
       "name": "alioth-taishang1024",
@@ -26,7 +26,7 @@
       "checkout": "already-pinned",
       "license": "unresolved — no root LICENSE/COPYING/NOTICE found",
       "license_status": "No root license/notice found at the pinned commit; source pointer only, no reuse permission asserted.",
-      "source_path": "ports/catalog/available/alioth-taishang1024/repo"
+      "source_path": "ports/alioth-taishang1024/repo"
     },
     {
       "name": "asteroids",
@@ -35,7 +35,7 @@
       "checkout": "already-pinned",
       "license": "BSD-2-Clause-Patent",
       "license_status": "Root LICENSE identified at the exact pinned revision; preserve all original notices and inspect per-file/transitive terms before reuse.",
-      "source_path": "ports/catalog/available/asteroids/repo"
+      "source_path": "ports/asteroids/repo"
     },
     {
       "name": "camellia",
@@ -44,7 +44,7 @@
       "checkout": "already-pinned",
       "license": "BSD-2-Clause-Patent",
       "license_status": "Root LICENSE identified at the exact pinned revision; preserve all original notices and inspect per-file/transitive terms before reuse.",
-      "source_path": "ports/catalog/available/camellia/repo"
+      "source_path": "ports/camellia/repo"
     },
     {
       "name": "cas",
@@ -53,7 +53,7 @@
       "checkout": "already-pinned",
       "license": "BSD-2-Clause-Patent",
       "license_status": "Root LICENSE identified at the exact pinned revision; preserve all original notices and inspect per-file/transitive terms before reuse.",
-      "source_path": "ports/catalog/available/cas/repo"
+      "source_path": "ports/cas/repo"
     },
     {
       "name": "elden",
@@ -62,7 +62,7 @@
       "checkout": "already-pinned",
       "license": "unresolved — no root LICENSE/COPYING/NOTICE found",
       "license_status": "No root license/notice found at the pinned commit; source pointer only, no reuse permission asserted.",
-      "source_path": "ports/catalog/available/elden/repo"
+      "source_path": "ports/elden/repo"
     },
     {
       "name": "erhai-xingxing19035",
@@ -80,7 +80,7 @@
       "checkout": "already-pinned",
       "license": "BSD-2-Clause-Patent",
       "license_status": "Root LICENSE identified at the exact pinned revision; preserve all original notices and inspect per-file/transitive terms before reuse.",
-      "source_path": "ports/catalog/available/evb10/repo"
+      "source_path": "ports/evb10/repo"
     },
     {
       "name": "fuxi",
@@ -89,7 +89,7 @@
       "checkout": "already-pinned",
       "license": "BSD-2-Clause-Patent",
       "license_status": "Root LICENSE identified at the exact pinned revision; preserve all original notices and inspect per-file/transitive terms before reuse.",
-      "source_path": "ports/catalog/available/fuxi/repo"
+      "source_path": "ports/fuxi/repo"
     },
     {
       "name": "fuxi-kkkpc",
@@ -98,7 +98,7 @@
       "checkout": "already-pinned",
       "license": "unresolved — no root LICENSE/COPYING/NOTICE found",
       "license_status": "No root license/notice found at the pinned commit; source pointer only, no reuse permission asserted.",
-      "source_path": "ports/catalog/available/fuxi-kkkpc/repo"
+      "source_path": "ports/fuxi-kkkpc/repo"
     },
     {
       "name": "fuxi-mouse233",
@@ -107,7 +107,7 @@
       "checkout": "already-pinned",
       "license": "BSD-2-Clause-Patent",
       "license_status": "Root LICENSE identified at the exact pinned revision; preserve all original notices and inspect per-file/transitive terms before reuse.",
-      "source_path": "ports/catalog/available/fuxi-mouse233/repo"
+      "source_path": "ports/fuxi-mouse233/repo"
     },
     {
       "name": "fuxi-oddlylabs",
@@ -116,7 +116,7 @@
       "checkout": "already-pinned",
       "license": "BSD-2-Clause-Patent",
       "license_status": "Root LICENSE identified at the exact pinned revision; preserve all original notices and inspect per-file/transitive terms before reuse.",
-      "source_path": "ports/catalog/available/fuxi-oddlylabs/repo"
+      "source_path": "ports/fuxi-oddlylabs/repo"
     },
     {
       "name": "gta4l-gta4lunix",
@@ -125,7 +125,7 @@
       "checkout": "already-pinned",
       "license": "unresolved — no root LICENSE/COPYING/NOTICE found",
       "license_status": "No root license/notice found at the pinned commit; source pointer only, no reuse permission asserted.",
-      "source_path": "ports/catalog/available/gta4l-gta4lunix/repo"
+      "source_path": "ports/gta4l-gta4lunix/repo"
     },
     {
       "name": "hero2lte",
@@ -134,7 +134,7 @@
       "checkout": "already-pinned",
       "license": "unresolved — no root LICENSE/COPYING/NOTICE found",
       "license_status": "No root license/notice found at the pinned commit; source pointer only, no reuse permission asserted.",
-      "source_path": "ports/catalog/available/hero2lte/repo"
+      "source_path": "ports/hero2lte/repo"
     },
     {
       "name": "instantnoodlep",
@@ -161,7 +161,7 @@
       "checkout": "already-pinned",
       "license": "BSD-2-Clause-Patent",
       "license_status": "Root LICENSE identified at the exact pinned revision; preserve all original notices and inspect per-file/transitive terms before reuse.",
-      "source_path": "ports/catalog/available/ishtar/repo"
+      "source_path": "ports/ishtar/repo"
     },
     {
       "name": "j716f",
@@ -170,7 +170,7 @@
       "checkout": "already-pinned",
       "license": "BSD-2-Clause-Patent",
       "license_status": "Root LICENSE identified at the exact pinned revision; preserve all original notices and inspect per-file/transitive terms before reuse.",
-      "source_path": "ports/catalog/available/j716f/repo"
+      "source_path": "ports/j716f/repo"
     },
     {
       "name": "j716f-emptyghost",
@@ -188,7 +188,7 @@
       "checkout": "already-pinned",
       "license": "unresolved — no root LICENSE/COPYING/NOTICE found",
       "license_status": "No root license/notice found at the pinned commit; source pointer only, no reuse permission asserted.",
-      "source_path": "ports/catalog/available/kebab-stevedang67889/repo"
+      "source_path": "ports/kebab-stevedang67889/repo"
     },
     {
       "name": "luming-infinityex-rsxq",
@@ -197,7 +197,7 @@
       "checkout": "already-pinned",
       "license": "BSD-2-Clause-Patent",
       "license_status": "Root LICENSE identified at the exact pinned revision; preserve all original notices and inspect per-file/transitive terms before reuse.",
-      "source_path": "ports/catalog/available/luming-infinityex-rsxq/repo"
+      "source_path": "ports/luming-infinityex-rsxq/repo"
     },
     {
       "name": "marble",
@@ -206,7 +206,7 @@
       "checkout": "already-pinned",
       "license": "MIT (Marble-authored files/docs only)",
       "license_status": "LICENSE and LICENSING.md limit MIT to Marble-authored material; XNU/Apple, BearSSL and other upstream code keep their own terms; review file-by-file.",
-      "source_path": "ports/catalog/available/marble/repo"
+      "source_path": "ports/marble/repo"
     },
     {
       "name": "marble-milacy",
@@ -215,7 +215,7 @@
       "checkout": "already-pinned",
       "license": "BSD-2-Clause-Patent (root); BSD-2-Clause for ShengUfs component",
       "license_status": "Keep the separate drivers/ShengUfs/LICENSE and review component provenance.",
-      "source_path": "ports/catalog/available/marble-milacy/repo"
+      "source_path": "ports/marble-milacy/repo"
     },
     {
       "name": "meizu21",
@@ -224,7 +224,7 @@
       "checkout": "already-pinned",
       "license": "unresolved — no root LICENSE/COPYING/NOTICE found",
       "license_status": "No root license/notice found at the pinned commit; source pointer only, no reuse permission asserted.",
-      "source_path": "ports/catalog/available/meizu21/repo"
+      "source_path": "ports/meizu21/repo"
     },
     {
       "name": "merlinx-gytis283123",
@@ -233,7 +233,7 @@
       "checkout": "already-pinned",
       "license": "BSD-2-Clause-Patent",
       "license_status": "Root LICENSE identified at the exact pinned revision; preserve all original notices and inspect per-file/transitive terms before reuse.",
-      "source_path": "ports/catalog/available/merlinx-gytis283123/repo"
+      "source_path": "ports/merlinx-gytis283123/repo"
     },
     {
       "name": "miatoll",
@@ -242,7 +242,7 @@
       "checkout": "already-pinned",
       "license": "BSD-2-Clause-Patent",
       "license_status": "Root LICENSE identified at the exact pinned revision; preserve all original notices and inspect per-file/transitive terms before reuse.",
-      "source_path": "ports/catalog/available/miatoll/repo"
+      "source_path": "ports/miatoll/repo"
     },
     {
       "name": "mondrian",
@@ -251,7 +251,7 @@
       "checkout": "already-pinned",
       "license": "BSD-2-Clause-Patent",
       "license_status": "Root LICENSE identified at the exact pinned revision; preserve all original notices and inspect per-file/transitive terms before reuse.",
-      "source_path": "ports/catalog/available/mondrian/repo"
+      "source_path": "ports/mondrian/repo"
     },
     {
       "name": "mondrian-mzyxsl",
@@ -260,7 +260,7 @@
       "checkout": "already-pinned",
       "license": "BSD-2-Clause-Patent",
       "license_status": "Root LICENSE identified at the exact pinned revision; preserve all original notices and inspect per-file/transitive terms before reuse.",
-      "source_path": "ports/catalog/available/mondrian-mzyxsl/repo"
+      "source_path": "ports/mondrian-mzyxsl/repo"
     },
     {
       "name": "mondrian-wohusaixing",
@@ -269,7 +269,7 @@
       "checkout": "already-pinned",
       "license": "BSD-2-Clause-Patent",
       "license_status": "Root LICENSE identified at the exact pinned revision; preserve all original notices and inspect per-file/transitive terms before reuse.",
-      "source_path": "ports/catalog/available/mondrian-wohusaixing/repo"
+      "source_path": "ports/mondrian-wohusaixing/repo"
     },
     {
       "name": "mondrian-xtom0706",
@@ -278,7 +278,7 @@
       "checkout": "already-pinned",
       "license": "BSD-2-Clause-Patent",
       "license_status": "Root LICENSE identified at the exact pinned revision; preserve all original notices and inspect per-file/transitive terms before reuse.",
-      "source_path": "ports/catalog/available/mondrian-xtom0706/repo"
+      "source_path": "ports/mondrian-xtom0706/repo"
     },
     {
       "name": "munch-erodenine",
@@ -287,7 +287,7 @@
       "checkout": "already-pinned",
       "license": "MIT",
       "license_status": "Root LICENSE is MIT; separately licensed upstream material remains separate.",
-      "source_path": "ports/catalog/available/munch-erodenine/repo"
+      "source_path": "ports/munch-erodenine/repo"
     },
     {
       "name": "nabu-zzweiqing",
@@ -296,7 +296,7 @@
       "checkout": "already-pinned",
       "license": "BSD-2-Clause-Patent",
       "license_status": "Root LICENSE identified at the exact pinned revision; preserve all original notices and inspect per-file/transitive terms before reuse.",
-      "source_path": "ports/catalog/available/nabu-zzweiqing/repo"
+      "source_path": "ports/nabu-zzweiqing/repo"
     },
     {
       "name": "nx769j",
@@ -305,7 +305,7 @@
       "checkout": "already-pinned",
       "license": "unresolved — no root LICENSE/COPYING/NOTICE found",
       "license_status": "No root license/notice found at the pinned commit; source pointer only, no reuse permission asserted.",
-      "source_path": "ports/catalog/available/nx769j/repo"
+      "source_path": "ports/nx769j/repo"
     },
     {
       "name": "odin",
@@ -314,7 +314,7 @@
       "checkout": "already-pinned",
       "license": "unresolved — no root LICENSE/COPYING/NOTICE found",
       "license_status": "No root license/notice found at the pinned commit; source pointer only, no reuse permission asserted.",
-      "source_path": "ports/catalog/available/odin/repo"
+      "source_path": "ports/odin/repo"
     },
     {
       "name": "odin3",
@@ -323,7 +323,7 @@
       "checkout": "already-pinned",
       "license": "BSD-2-Clause-Patent (root); third-party terms in NOTICE.md",
       "license_status": "NOTICE identifies separately licensed OpenABL GPL-3.0-or-later (reported not redistributed), EDK2/Mu, Linux reference material and XNU patches; retain/inspect notice.",
-      "source_path": "ports/catalog/available/odin3/repo"
+      "source_path": "ports/odin3/repo"
     },
     {
       "name": "oneplus13t",
@@ -332,7 +332,7 @@
       "checkout": "already-pinned",
       "license": "BSD-2-Clause-Patent",
       "license_status": "Root LICENSE identified at the exact pinned revision; preserve all original notices and inspect per-file/transitive terms before reuse.",
-      "source_path": "ports/catalog/available/oneplus13t/repo"
+      "source_path": "ports/oneplus13t/repo"
     },
     {
       "name": "oneplus13t-shad0w23333",
@@ -341,7 +341,7 @@
       "checkout": "already-pinned",
       "license": "BSD-2-Clause-Patent",
       "license_status": "Root LICENSE identified at the exact pinned revision; preserve all original notices and inspect per-file/transitive terms before reuse.",
-      "source_path": "ports/catalog/available/oneplus13t-shad0w23333/repo"
+      "source_path": "ports/oneplus13t-shad0w23333/repo"
     },
     {
       "name": "orangepi5",
@@ -350,7 +350,7 @@
       "checkout": "already-pinned",
       "license": "BSD-2-Clause-Patent",
       "license_status": "Root LICENSE identified at the exact pinned revision; preserve all original notices and inspect per-file/transitive terms before reuse.",
-      "source_path": "ports/catalog/available/orangepi5/repo"
+      "source_path": "ports/orangepi5/repo"
     },
     {
       "name": "picasso-suzukir1n",
@@ -368,7 +368,7 @@
       "checkout": "already-pinned",
       "license": "BSD-2-Clause-Patent (root); see THIRD_PARTY_NOTICES.md",
       "license_status": "Notice says core/modules retain per-file/upstream licenses; Apple restore assets are fetched separately and not included.",
-      "source_path": "ports/catalog/available/pong/repo"
+      "source_path": "ports/pong/repo"
     },
     {
       "name": "pong-agxmx666",
@@ -377,7 +377,7 @@
       "checkout": "already-pinned",
       "license": "BSD-2-Clause-Patent (root); see THIRD_PARTY_NOTICES.md",
       "license_status": "Notice identifies HackiOS userland with its own license; preserve component-level terms.",
-      "source_path": "ports/catalog/available/pong-agxmx666/repo"
+      "source_path": "ports/pong-agxmx666/repo"
     },
     {
       "name": "pudding",
@@ -386,7 +386,7 @@
       "checkout": "already-pinned",
       "license": "BSD-2-Clause-Patent",
       "license_status": "Root LICENSE identified at the exact pinned revision; preserve all original notices and inspect per-file/transitive terms before reuse.",
-      "source_path": "ports/catalog/available/pudding/repo"
+      "source_path": "ports/pudding/repo"
     },
     {
       "name": "raphael-guowenye",
@@ -395,7 +395,7 @@
       "checkout": "already-pinned",
       "license": "BSD-2-Clause-Patent",
       "license_status": "Root LICENSE identified at the exact pinned revision; preserve all original notices and inspect per-file/transitive terms before reuse.",
-      "source_path": "ports/catalog/available/raphael-guowenye/repo"
+      "source_path": "ports/raphael-guowenye/repo"
     },
     {
       "name": "rmx1971",
@@ -404,7 +404,7 @@
       "checkout": "already-pinned",
       "license": "GPL-2.0 text present; license scope unresolved",
       "license_status": "Root GPL v2 text does not state its scope clearly; do not reuse without maintainer clarification.",
-      "source_path": "ports/catalog/available/rmx1971/repo"
+      "source_path": "ports/rmx1971/repo"
     },
     {
       "name": "rmx3551",
@@ -413,7 +413,7 @@
       "checkout": "already-pinned",
       "license": "unresolved — no root LICENSE/COPYING/NOTICE found",
       "license_status": "No root license/notice found at the pinned commit; source pointer only, no reuse permission asserted.",
-      "source_path": "ports/catalog/available/rmx3551/repo"
+      "source_path": "ports/rmx3551/repo"
     },
     {
       "name": "rmx3823",
@@ -422,7 +422,7 @@
       "checkout": "already-pinned",
       "license": "unresolved — no root LICENSE/COPYING/NOTICE found",
       "license_status": "No root license/notice found at the pinned commit; source pointer only, no reuse permission asserted.",
-      "source_path": "ports/catalog/available/rmx3823/repo"
+      "source_path": "ports/rmx3823/repo"
     },
     {
       "name": "ruby",
@@ -431,7 +431,7 @@
       "checkout": "already-pinned",
       "license": "MIT for original code/docs; APSL-2.0 XNU patches",
       "license_status": "LICENSE scopes MIT to original material and excludes XNU patches; it references a NOTICE absent at the pin. Preserve/review per-file terms.",
-      "source_path": "ports/catalog/available/ruby/repo"
+      "source_path": "ports/ruby/repo"
     },
     {
       "name": "sheng-ad1095445",
@@ -449,7 +449,7 @@
       "checkout": "already-pinned",
       "license": "BSD-2-Clause-Patent",
       "license_status": "Root LICENSE identified at the exact pinned revision; preserve all original notices and inspect per-file/transitive terms before reuse.",
-      "source_path": "ports/catalog/available/sheng-airalex002/repo"
+      "source_path": "ports/sheng-airalex002/repo"
     },
     {
       "name": "sheng-bai805",
@@ -458,7 +458,7 @@
       "checkout": "already-pinned",
       "license": "BSD-2-Clause-Patent",
       "license_status": "Root LICENSE identified at the exact pinned revision; preserve all original notices and inspect per-file/transitive terms before reuse.",
-      "source_path": "ports/catalog/available/sheng-bai805/repo"
+      "source_path": "ports/sheng-bai805/repo"
     },
     {
       "name": "sheng-chenjin1494",
@@ -467,7 +467,7 @@
       "checkout": "already-pinned",
       "license": "BSD-2-Clause-Patent",
       "license_status": "Root LICENSE identified at the exact pinned revision; preserve all original notices and inspect per-file/transitive terms before reuse.",
-      "source_path": "ports/catalog/available/sheng-chenjin1494/repo"
+      "source_path": "ports/sheng-chenjin1494/repo"
     },
     {
       "name": "sheng-enlixk",
@@ -476,7 +476,7 @@
       "checkout": "already-pinned",
       "license": "BSD-2-Clause-Patent",
       "license_status": "Root LICENSE identified at the exact pinned revision; preserve all original notices and inspect per-file/transitive terms before reuse.",
-      "source_path": "ports/catalog/available/sheng-enlixk/repo"
+      "source_path": "ports/sheng-enlixk/repo"
     },
     {
       "name": "sheng-fft-infra",
@@ -485,7 +485,7 @@
       "checkout": "already-pinned",
       "license": "BSD-2-Clause-Patent",
       "license_status": "Root LICENSE identified at the exact pinned revision; preserve all original notices and inspect per-file/transitive terms before reuse.",
-      "source_path": "ports/catalog/available/sheng-fft-infra/repo"
+      "source_path": "ports/sheng-fft-infra/repo"
     },
     {
       "name": "sheng-gkxqh",
@@ -494,7 +494,7 @@
       "checkout": "already-pinned",
       "license": "BSD-2-Clause-Patent",
       "license_status": "Root LICENSE identified at the exact pinned revision; preserve all original notices and inspect per-file/transitive terms before reuse.",
-      "source_path": "ports/catalog/available/sheng-gkxqh/repo"
+      "source_path": "ports/sheng-gkxqh/repo"
     },
     {
       "name": "sheng-ht94911",
@@ -503,7 +503,7 @@
       "checkout": "already-pinned",
       "license": "BSD-2-Clause-Patent",
       "license_status": "Root LICENSE identified at the exact pinned revision; preserve all original notices and inspect per-file/transitive terms before reuse.",
-      "source_path": "ports/catalog/available/sheng-ht94911/repo"
+      "source_path": "ports/sheng-ht94911/repo"
     },
     {
       "name": "sheng-hxzbaka",
@@ -512,7 +512,7 @@
       "checkout": "already-pinned",
       "license": "BSD-2-Clause-Patent",
       "license_status": "Root LICENSE identified at the exact pinned revision; preserve all original notices and inspect per-file/transitive terms before reuse.",
-      "source_path": "ports/catalog/available/sheng-hxzbaka/repo"
+      "source_path": "ports/sheng-hxzbaka/repo"
     },
     {
       "name": "sheng-jsongmax",
@@ -521,7 +521,7 @@
       "checkout": "already-pinned",
       "license": "BSD-2-Clause-Patent",
       "license_status": "Root LICENSE identified at the exact pinned revision; preserve all original notices and inspect per-file/transitive terms before reuse.",
-      "source_path": "ports/catalog/available/sheng-jsongmax/repo"
+      "source_path": "ports/sheng-jsongmax/repo"
     },
     {
       "name": "sheng-ks114514",
@@ -530,7 +530,7 @@
       "checkout": "already-pinned",
       "license": "BSD-2-Clause-Patent",
       "license_status": "Root LICENSE identified at the exact pinned revision; preserve all original notices and inspect per-file/transitive terms before reuse.",
-      "source_path": "ports/catalog/available/sheng-ks114514/repo"
+      "source_path": "ports/sheng-ks114514/repo"
     },
     {
       "name": "sheng-lithosss",
@@ -539,7 +539,7 @@
       "checkout": "already-pinned",
       "license": "BSD-2-Clause-Patent",
       "license_status": "Root LICENSE identified at the exact pinned revision; preserve all original notices and inspect per-file/transitive terms before reuse.",
-      "source_path": "ports/catalog/available/sheng-lithosss/repo"
+      "source_path": "ports/sheng-lithosss/repo"
     },
     {
       "name": "sheng-soneoylys",
@@ -548,7 +548,7 @@
       "checkout": "already-pinned",
       "license": "BSD-2-Clause-Patent",
       "license_status": "Root LICENSE identified at the exact pinned revision; preserve all original notices and inspect per-file/transitive terms before reuse.",
-      "source_path": "ports/catalog/available/sheng-soneoylys/repo"
+      "source_path": "ports/sheng-soneoylys/repo"
     },
     {
       "name": "sheng-thearchitectengineer",
@@ -557,7 +557,7 @@
       "checkout": "already-pinned",
       "license": "BSD-2-Clause-Patent",
       "license_status": "Root LICENSE identified at the exact pinned revision; preserve all original notices and inspect per-file/transitive terms before reuse.",
-      "source_path": "ports/catalog/available/sheng-thearchitectengineer/repo"
+      "source_path": "ports/sheng-thearchitectengineer/repo"
     },
     {
       "name": "sheng-tkings4chan",
@@ -566,7 +566,7 @@
       "checkout": "already-pinned",
       "license": "BSD-2-Clause-Patent",
       "license_status": "Root LICENSE identified at the exact pinned revision; preserve all original notices and inspect per-file/transitive terms before reuse.",
-      "source_path": "ports/catalog/available/sheng-tkings4chan/repo"
+      "source_path": "ports/sheng-tkings4chan/repo"
     },
     {
       "name": "sheng-v1-727",
@@ -575,7 +575,7 @@
       "checkout": "already-pinned",
       "license": "BSD-2-Clause-Patent",
       "license_status": "Root LICENSE identified at the exact pinned revision; preserve all original notices and inspect per-file/transitive terms before reuse.",
-      "source_path": "ports/catalog/available/sheng-v1-727/repo"
+      "source_path": "ports/sheng-v1-727/repo"
     },
     {
       "name": "sirius",
@@ -584,7 +584,7 @@
       "checkout": "already-pinned",
       "license": "BSD-2-Clause-Patent",
       "license_status": "Root LICENSE identified at the exact pinned revision; preserve all original notices and inspect per-file/transitive terms before reuse.",
-      "source_path": "ports/catalog/available/sirius/repo"
+      "source_path": "ports/sirius/repo"
     },
     {
       "name": "sirius-dddqmmx",
@@ -593,7 +593,7 @@
       "checkout": "already-pinned",
       "license": "BSD-2-Clause-Patent",
       "license_status": "Root LICENSE identified at the exact pinned revision; preserve all original notices and inspect per-file/transitive terms before reuse.",
-      "source_path": "ports/catalog/available/sirius-dddqmmx/repo"
+      "source_path": "ports/sirius-dddqmmx/repo"
     },
     {
       "name": "sirius-huajifruit",
@@ -602,7 +602,7 @@
       "checkout": "already-pinned",
       "license": "BSD-2-Clause-Patent",
       "license_status": "Root LICENSE identified at the exact pinned revision; preserve all original notices and inspect per-file/transitive terms before reuse.",
-      "source_path": "ports/catalog/available/sirius-huajifruit/repo"
+      "source_path": "ports/sirius-huajifruit/repo"
     },
     {
       "name": "sirius-yooglery",
@@ -611,7 +611,7 @@
       "checkout": "already-pinned",
       "license": "BSD-2-Clause-Patent",
       "license_status": "Root LICENSE identified at the exact pinned revision; preserve all original notices and inspect per-file/transitive terms before reuse.",
-      "source_path": "ports/catalog/available/sirius-yooglery/repo"
+      "source_path": "ports/sirius-yooglery/repo"
     },
     {
       "name": "sm-t970",
@@ -620,7 +620,7 @@
       "checkout": "already-pinned",
       "license": "unresolved — no root LICENSE/COPYING/NOTICE found",
       "license_status": "No root license/notice found at the pinned commit; source pointer only, no reuse permission asserted.",
-      "source_path": "ports/catalog/available/sm-t970/repo"
+      "source_path": "ports/sm-t970/repo"
     },
     {
       "name": "starlte",
@@ -629,7 +629,7 @@
       "checkout": "already-pinned",
       "license": "Mixed per-file licenses (MIT/BSD/GPL-2.0/Apache-2.0)",
       "license_status": "Mixed license file explicitly describes component-specific terms; firmware redistribution remains to be checked. Keep separate and do not flatten.",
-      "source_path": "ports/catalog/available/starlte/repo"
+      "source_path": "ports/starlte/repo"
     },
     {
       "name": "tb365fc",
@@ -638,7 +638,7 @@
       "checkout": "already-pinned",
       "license": "unresolved — no root LICENSE/COPYING/NOTICE found",
       "license_status": "No root license/notice found at the pinned commit; source pointer only, no reuse permission asserted.",
-      "source_path": "ports/catalog/available/tb365fc/repo"
+      "source_path": "ports/tb365fc/repo"
     },
     {
       "name": "uke",
@@ -647,7 +647,7 @@
       "checkout": "already-pinned",
       "license": "BSD-2-Clause-Patent",
       "license_status": "Root LICENSE identified at the exact pinned revision; preserve all original notices and inspect per-file/transitive terms before reuse.",
-      "source_path": "ports/catalog/available/uke/repo"
+      "source_path": "ports/uke/repo"
     },
     {
       "name": "uke-imposterissus13",
@@ -656,7 +656,7 @@
       "checkout": "already-pinned",
       "license": "BSD-2-Clause-Patent",
       "license_status": "Root LICENSE identified at the exact pinned revision; preserve all original notices and inspect per-file/transitive terms before reuse.",
-      "source_path": "ports/catalog/available/uke-imposterissus13/repo"
+      "source_path": "ports/uke-imposterissus13/repo"
     },
     {
       "name": "uke-tonghuaqwq",
@@ -665,7 +665,7 @@
       "checkout": "already-pinned",
       "license": "BSD-2-Clause-Patent",
       "license_status": "Root LICENSE identified at the exact pinned revision; preserve all original notices and inspect per-file/transitive terms before reuse.",
-      "source_path": "ports/catalog/available/uke-tonghuaqwq/repo"
+      "source_path": "ports/uke-tonghuaqwq/repo"
     },
     {
       "name": "umi-jopangjovan",
@@ -674,7 +674,7 @@
       "checkout": "already-pinned",
       "license": "unresolved — no root LICENSE/COPYING/NOTICE found",
       "license_status": "No root license/notice found at the pinned commit; source pointer only, no reuse permission asserted.",
-      "source_path": "ports/catalog/available/umi-jopangjovan/repo"
+      "source_path": "ports/umi-jopangjovan/repo"
     },
     {
       "name": "venus",
@@ -683,7 +683,7 @@
       "checkout": "already-pinned",
       "license": "unresolved — no root LICENSE/COPYING/NOTICE found",
       "license_status": "No root license/notice found at the pinned commit; source pointer only, no reuse permission asserted.",
-      "source_path": "ports/catalog/available/venus/repo"
+      "source_path": "ports/venus/repo"
     },
     {
       "name": "yunluo",
@@ -692,7 +692,7 @@
       "checkout": "already-pinned",
       "license": "BSD-2-Clause-Patent",
       "license_status": "Root LICENSE identified at the exact pinned revision; preserve all original notices and inspect per-file/transitive terms before reuse.",
-      "source_path": "ports/catalog/available/yunluo/repo"
+      "source_path": "ports/yunluo/repo"
     },
     {
       "name": "zizhan",
@@ -701,7 +701,7 @@
       "checkout": "already-pinned",
       "license": "BSD-2-Clause-Patent (root); per-file terms in THIRD_PARTY_NOTICES.md",
       "license_status": "NOTICE identifies third-party sources and APSL-2.0 XNU patches; preserve and review per-file terms.",
-      "source_path": "ports/catalog/available/zizhan/repo"
+      "source_path": "ports/zizhan/repo"
     },
     {
       "name": "zorn",
@@ -710,7 +710,7 @@
       "checkout": "already-pinned",
       "license": "BSD-2-Clause-Patent",
       "license_status": "Root LICENSE identified at the exact pinned revision; preserve all original notices and inspect per-file/transitive terms before reuse.",
-      "source_path": "ports/catalog/available/zorn/repo"
+      "source_path": "ports/zorn/repo"
     }
   ]
 }

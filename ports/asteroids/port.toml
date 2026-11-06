@@ -1,0 +1,32 @@
+[port]
+name = "asteroids"
+model = "Nothing Phone (3a) (asteroids)"
+codename = "asteroids"
+soc = "SM7635"
+source = "ports/asteroids/repo"
+status = "Catalog-derived UniXNU format-2 record marked available; this validates its record only, not a build/boot/device result."
+catalog_record = true
+catalog_format = 2
+catalog_only = false
+
+[hardware]
+vendor = "Nothing"
+soc_vendor = "Qualcomm"
+storage = "UFS (upstream component selection; board-specific)"
+gpu_family = "Qualcomm Adreno"
+gpu = "Adreno 740"
+
+[upstream]
+repository = "https://github.com/rootstockos/UniXNU-asteroids"
+revision = "6370e66cc460202756058ae53f73afdb69abd364"
+catalog_record_state = "available"
+catalog_snapshot_revision = "e2fdae4312d0acc3d8a52bc457101e7918095e6a"
+license_status = "Root LICENSE identified at the exact pinned revision; preserve all original notices and inspect per-file/transitive terms before reuse."
+board = "asteroids"
+os_profile = "ipados-17.7.11-21H461"
+components = ["ArmDTPlatform", "ArmCpu", "SoftwareAES", "RamBlock", "XnuPrelink", "DarwinBoot", "GopFramebuffer", "AppleKeyStoreState", "QcomGeniSpi", "AdrenoPM4", "ArmSmmu4K", "AdrenoFirmware", "Adreno740", "ShengUfs", "ShengHidInput", "Sm7635Platform", "QcomPmicRtc"]
+summary = "Eight CPUs, UFS root and userland; display presentation pending"
+
+[safety]
+flash_requires_explicit_current_authorization = true
+code_reuse_requires_per_repository_license_review = true

@@ -1,0 +1,31 @@
+[port]
+name = "orangepi5"
+model = "Orange Pi 5 (Rockchip RK3588S)"
+codename = "orangepi5"
+soc = "RK3588"
+source = "ports/orangepi5/repo"
+status = "Catalog-derived UniXNU format-2 record marked available; this validates its record only, not a build/boot/device result."
+catalog_record = true
+catalog_format = 2
+catalog_only = false
+
+[hardware]
+vendor = "Nothing"
+soc_vendor = "Rockchip"
+storage = "unknown"
+gpu_family = "Unknown"
+gpu = "unknown"
+
+[upstream]
+repository = "https://github.com/Ken-u/UniXNU-orangepi5"
+revision = "f96d273b526254d700bd42bfeadef0359a1d3c46"
+catalog_record_state = "available"
+catalog_snapshot_revision = "e2fdae4312d0acc3d8a52bc457101e7918095e6a"
+license_status = "Root LICENSE identified at the exact pinned revision; preserve all original notices and inspect per-file/transitive terms before reuse."
+board = "orangepi5"
+os_profile = "ipados-17.7.11-21H461"
+components = ["ArmDTPlatform", "ArmCpu", "SoftwareAES", "GopFramebuffer", "AppleKeyStoreState", "XnuPrelink", "DarwinBoot"]
+
+[safety]
+flash_requires_explicit_current_authorization = true
+code_reuse_requires_per_repository_license_review = true

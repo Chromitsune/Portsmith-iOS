@@ -29,10 +29,23 @@ def load():
   if row['id'] in seen: raise ValueError(f"duplicate port id: {row['id']}")
   seen.add(row['id'])
   if set(row.get('features',{}))-feature_ids: raise ValueError(f"{row['id']}: unknown feature")
-  source=sources.get(row.get('repo_path'))
-  if not source: raise ValueError(f"{row['id']}: repo_path is not in sources/manifest.toml")
-  if source.get('revision')!=row.get('revision') or source.get('upstream','').removesuffix('.git').rstrip('/')!=row.get('repo_url','').removesuffix('.git').rstrip('/') or source.get('branch')!=row.get('branch') or source.get('source_mode','submodule')!=row.get('source_mode','submodule'):
-   raise ValueError(f"{row['id']}: source URL/revision differs from sources/manifest.toml")
+  if row.get('source_mode')=='catalog-reference':
+   catalog=tomllib.loads((ROOT/'ports/catalog/unixnu-devices.toml').read_text())['device']
+   record=next((x for x in catalog if x.get('name')==row['id']),None)
+   catalog_source=sources.get('ports/catalog')
+   if row.get('repo_path')!='ports/catalog' or not record or record.get('record_state')!='available' or not catalog_source:
+    raise ValueError(f"{row['id']}: invalid metadata-only catalog reference")
+   if row.get('catalog_snapshot_revision')!=catalog_source.get('revision') or row.get('evidence_file')!='ports/catalog/unixnu-devices.toml':
+    raise ValueError(f"{row['id']}: metadata-only row does not cite the pinned catalog snapshot")
+   if record.get('revision')!=row.get('revision') or ('https://github.com/'+record.get('repository','')).rstrip('/')!=row.get('repo_url','').removesuffix('.git').rstrip('/'):
+    raise ValueError(f"{row['id']}: metadata-only source differs from pinned catalog record")
+   if any(c.get('state')!='not_tested' for c in row.get('features',{}).values()):
+    raise ValueError(f"{row['id']}: metadata-only source cannot carry compatibility claims")
+  else:
+   source=sources.get(row.get('repo_path'))
+   if not source: raise ValueError(f"{row['id']}: repo_path is not in sources/manifest.toml")
+   if source.get('revision')!=row.get('revision') or source.get('upstream','').removesuffix('.git').rstrip('/')!=row.get('repo_url','').removesuffix('.git').rstrip('/') or source.get('branch')!=row.get('branch') or source.get('source_mode','submodule')!=row.get('source_mode','submodule'):
+    raise ValueError(f"{row['id']}: source URL/revision differs from sources/manifest.toml")
   for key,cell in row.get('features',{}).items():
    if cell.get('state') not in state_ids: raise ValueError(f"{row['id']}.{key}: invalid status {cell.get('state')}")
    if cell.get('state')!='not_tested' and not cell.get('detail'):
@@ -49,6 +62,8 @@ def matrix_table(data):
   specs=[row.get('soc','')]+[x for x in (row.get('storage'),row.get('gpu')) if x and x!='unknown']
   if row.get('source_mode')=='vendored-snapshot': specs.append('vendored snapshot')
   elif row.get('branch') and (row.get('branch')!='main' or row.get('show_branch')): specs.append('branch '+row['branch'])
+  if row.get('catalog_record'): specs.append('UniXNU catalog record')
+  if row.get('catalog_only'): specs.append('source unavailable; metadata only')
   dev=f"[{row['device']} / `{row['id']}`]({row['evidence_url']})<br><sub>{' · '.join(specs)}</sub>"
   cells=[dev]
   for f in features:
@@ -110,8 +125,10 @@ function build(){{
   const tr=document.createElement('tr');
   const first=document.createElement('td'); first.className='device';
   const branchNote=row.source_mode==='vendored-snapshot'?'vendored snapshot':(row.branch&&(row.branch!=='main'||row.show_branch)?'branch '+row.branch:null);
-  const specs=[row.soc,row.storage,row.gpu!=='unknown'?row.gpu:null,branchNote].filter(Boolean).join(' · ');
-  first.innerHTML='<a href="'+esc(row.repo_url)+'" target="_blank" rel="noreferrer">'+esc(row.device)+'</a><span class="meta">'+esc(specs)+' · '+esc(row.id)+'</span><span class="meta"><a href="'+esc(row.evidence_url)+'" target="_blank" rel="noreferrer">pinned evidence '+esc(row.revision.slice(0,12))+'</a></span>';
+  const catalogNote=row.catalog_only?'metadata only; source inaccessible':(row.catalog_record?'UniXNU catalog record':null);
+  const specs=[row.soc,row.storage,row.gpu!=='unknown'?row.gpu:null,branchNote,catalogNote].filter(Boolean).join(' · ');
+  const evidenceLabel=row.catalog_only?'catalog record; source unavailable':'pinned evidence '+row.revision.slice(0,12);
+  first.innerHTML='<a href="'+esc(row.catalog_only?row.evidence_url:row.repo_url)+'" target="_blank" rel="noreferrer">'+esc(row.device)+'</a><span class="meta">'+esc(specs)+' · '+esc(row.id)+'</span><span class="meta"><a href="'+esc(row.evidence_url)+'" target="_blank" rel="noreferrer">'+esc(evidenceLabel)+'</a></span>';
   tr.appendChild(first);
   for(const f of data.features){{
     const base=row.features[f.id]||{{state:'not_tested',detail:'No comparable upstream evidence is recorded in this checklist.'}};

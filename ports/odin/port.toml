@@ -1,0 +1,31 @@
+[port]
+name = "odin"
+model = "Xiaomi Mi MIX 4 (odin, Snapdragon 888+ / SM8350)"
+codename = "odin"
+soc = "SM8350"
+source = "ports/odin/repo"
+status = "Catalog-derived UniXNU format-2 record marked available; this validates its record only, not a build/boot/device result."
+catalog_record = true
+catalog_format = 2
+catalog_only = false
+
+[hardware]
+vendor = "Xiaomi"
+soc_vendor = "Qualcomm"
+storage = "unknown"
+gpu_family = "Unknown"
+gpu = "unknown"
+
+[upstream]
+repository = "https://github.com/qine233/UniXNU-odin"
+revision = "3f8df85bc2670da5619240febb33f47c32ba0bcb"
+catalog_record_state = "available"
+catalog_snapshot_revision = "e2fdae4312d0acc3d8a52bc457101e7918095e6a"
+license_status = "No root license/notice found at the pinned commit; source pointer only, no reuse permission asserted."
+board = "odin"
+os_profile = "ipados-17.7.11-21H461"
+components = ["ArmDTPlatform", "ArmCpu", "SoftwareAES", "XnuPrelink", "DarwinBoot"]
+
+[safety]
+flash_requires_explicit_current_authorization = true
+code_reuse_requires_per_repository_license_review = true

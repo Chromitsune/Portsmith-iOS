@@ -1,0 +1,33 @@
+[port]
+name = "sheng-ad1095445"
+model = "Xiaomi Pad 6S Pro (ad1095445)"
+codename = "sheng"
+soc = "SM8550"
+source = "ports/catalog"
+status = "UniXNU record marked available; exact source repository/revision was inaccessible during audit. Metadata only; no build/device support is implied."
+catalog_record = true
+catalog_format = 2
+catalog_only = true
+source_mode = "catalog-reference"
+
+[hardware]
+vendor = "Xiaomi"
+soc_vendor = "Qualcomm"
+storage = "unknown"
+gpu_family = "Unknown"
+gpu = "unknown"
+
+[upstream]
+repository = "https://github.com/ad1095445/UniXNU-sheng_bk"
+revision = "c71707aa7a1f13fd63ee2853ffc6c8c3bfcbc57d"
+catalog_record_state = "available"
+catalog_snapshot_revision = "e2fdae4312d0acc3d8a52bc457101e7918095e6a"
+license_status = "Public GitHub returned Repository not found for the recorded owner/repository."
+checkout_status = "metadata-only; exact repository/revision inaccessible during audit"
+board = "sheng"
+os_profile = "ipados-27.0.1-24A446"
+components = ["ArmDTPlatform", "ArmCpu", "XnuPrelink", "DarwinBoot", "ShengPreflight", "ShengUfs", "RamBlock", "GopFramebuffer", "AppleKeyStoreState", "Adreno740", "AdrenoMetal"]
+
+[safety]
+flash_requires_explicit_current_authorization = true
+code_reuse_requires_per_repository_license_review = true

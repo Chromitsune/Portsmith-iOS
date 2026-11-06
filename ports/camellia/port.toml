@@ -1,0 +1,31 @@
+[port]
+name = "camellia"
+model = "Redmi Note 10 5G (camellia)"
+codename = "camellia"
+soc = "MT6833"
+source = "ports/camellia/repo"
+status = "Catalog-derived UniXNU format-2 record marked available; this validates its record only, not a build/boot/device result."
+catalog_record = true
+catalog_format = 2
+catalog_only = false
+
+[hardware]
+vendor = "Xiaomi"
+soc_vendor = "MediaTek"
+storage = "unknown"
+gpu_family = "Unknown"
+gpu = "unknown"
+
+[upstream]
+repository = "https://github.com/stanveyjiang/UniXNU-camellia"
+revision = "0139bf0315f709e4efbd6f5b44ad19e8c9496087"
+catalog_record_state = "available"
+catalog_snapshot_revision = "e2fdae4312d0acc3d8a52bc457101e7918095e6a"
+license_status = "Root LICENSE identified at the exact pinned revision; preserve all original notices and inspect per-file/transitive terms before reuse."
+board = "camellia"
+os_profile = "ipados-17.7.11-21H461"
+summary = "Bootstrap board and kernel recipe; hardware qualification pending"
+
+[safety]
+flash_requires_explicit_current_authorization = true
+code_reuse_requires_per_repository_license_review = true

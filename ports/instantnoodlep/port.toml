@@ -1,0 +1,34 @@
+[port]
+name = "instantnoodlep"
+model = "OnePlus 8 Pro (instantnoodlep)"
+codename = "instantnoodlep"
+soc = "SM8250"
+source = "ports/catalog"
+status = "UniXNU record marked available; exact source repository/revision was inaccessible during audit. Metadata only; no build/device support is implied."
+catalog_record = true
+catalog_format = 2
+catalog_only = true
+source_mode = "catalog-reference"
+
+[hardware]
+vendor = "OnePlus"
+soc_vendor = "Qualcomm"
+storage = "unknown"
+gpu_family = "Unknown"
+gpu = "unknown"
+
+[upstream]
+repository = "https://github.com/zhangp996/UniXNU-instantnoodlep"
+revision = "6fa011a3531094e6abb6ff66a36af91cd8bfecf1"
+catalog_record_state = "available"
+catalog_snapshot_revision = "e2fdae4312d0acc3d8a52bc457101e7918095e6a"
+license_status = "Exact pinned commit was not reachable from the public GitHub repository during audit."
+checkout_status = "metadata-only; exact repository/revision inaccessible during audit"
+board = "instantnoodlep"
+os_profile = "ipados-17.7.11-21H461"
+components = ["ArmDTPlatform", "ArmCpu", "SoftwareAES", "XnuPrelink", "DarwinBoot"]
+summary = "UEFI platform and kernel baseline; status not documented"
+
+[safety]
+flash_requires_explicit_current_authorization = true
+code_reuse_requires_per_repository_license_review = true

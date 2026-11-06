@@ -1,0 +1,31 @@
+[port]
+name = "rmx3551"
+model = "realme GT2 Master Explorer (RMX3551): UniXNU UEFI bring-up"
+codename = "rmx3551"
+soc = "SM8475"
+source = "ports/rmx3551/repo"
+status = "Catalog-derived UniXNU format-2 record marked available; this validates its record only, not a build/boot/device result."
+catalog_record = true
+catalog_format = 2
+catalog_only = false
+
+[hardware]
+vendor = "Nothing"
+soc_vendor = "Qualcomm"
+storage = "unknown"
+gpu_family = "Unknown"
+gpu = "unknown"
+
+[upstream]
+repository = "https://github.com/Axiang-dev/UniXNU-rmx3551"
+revision = "45c829bf7479a132c9e989fa5ffd5fb6814e706a"
+catalog_record_state = "available"
+catalog_snapshot_revision = "e2fdae4312d0acc3d8a52bc457101e7918095e6a"
+license_status = "No root license/notice found at the pinned commit; source pointer only, no reuse permission asserted."
+board = "rmx3551"
+os_profile = "ipados-18.7.10-22H374"
+components = ["Rmx3551Platform24"]
+
+[safety]
+flash_requires_explicit_current_authorization = true
+code_reuse_requires_per_repository_license_review = true

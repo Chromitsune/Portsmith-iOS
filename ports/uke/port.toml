@@ -1,0 +1,32 @@
+[port]
+name = "uke"
+model = "Xiaomi Pad 7 / POCO Pad X1 (uke)"
+codename = "uke"
+soc = "SM7675"
+source = "ports/uke/repo"
+status = "Catalog-derived UniXNU format-2 record marked available; this validates its record only, not a build/boot/device result."
+catalog_record = true
+catalog_format = 2
+catalog_only = false
+
+[hardware]
+vendor = "Xiaomi"
+soc_vendor = "Qualcomm"
+storage = "UFS (upstream component selection; board-specific)"
+gpu_family = "Qualcomm Adreno"
+gpu = "Adreno 740"
+
+[upstream]
+repository = "https://github.com/Allenwdk/UniXNU-uke"
+revision = "fcf9fd3f31be4618a48d33fd7cf161e0da75b573"
+catalog_record_state = "available"
+catalog_snapshot_revision = "e2fdae4312d0acc3d8a52bc457101e7918095e6a"
+license_status = "Root LICENSE identified at the exact pinned revision; preserve all original notices and inspect per-file/transitive terms before reuse."
+board = "uke"
+os_profile = "ipados-27.0.1-24A446"
+components = ["ArmDTPlatform", "ArmCpu", "XnuPrelink", "DarwinBoot", "AppleKeyStoreState", "Adreno740", "AdrenoMetal", "AdrenoFirmware", "AdrenoPM4", "ArmSmmu4K", "AirNir", "Sm7675Platform", "GopFramebuffer", "QcomGeniSpi", "ShengNovatekTouch", "ShengHidInput", "ShengUfs", "VirtioMmioBlock", "RamBlock", "VerifiedRoot", "SoftwareAES"]
+summary = "Apple logo and early userland; reboot under investigation"
+
+[safety]
+flash_requires_explicit_current_authorization = true
+code_reuse_requires_per_repository_license_review = true

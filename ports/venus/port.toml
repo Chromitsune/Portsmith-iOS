@@ -1,0 +1,31 @@
+[port]
+name = "venus"
+model = "Xiaomi Mi 11 M2011K2C: single-CPU platform bring-up"
+codename = "venus"
+soc = "SM8350"
+source = "ports/venus/repo"
+status = "Catalog-derived UniXNU format-2 record marked available; this validates its record only, not a build/boot/device result."
+catalog_record = true
+catalog_format = 2
+catalog_only = false
+
+[hardware]
+vendor = "Xiaomi"
+soc_vendor = "Qualcomm"
+storage = "unknown"
+gpu_family = "Unknown"
+gpu = "unknown"
+
+[upstream]
+repository = "https://github.com/Sulee7z/UniXNU-venus"
+revision = "9b1402a99d9ee37d8aa4a980eceff18a4c993e02"
+catalog_record_state = "available"
+catalog_snapshot_revision = "e2fdae4312d0acc3d8a52bc457101e7918095e6a"
+license_status = "No root license/notice found at the pinned commit; source pointer only, no reuse permission asserted."
+board = "venus"
+os_profile = "ipados-17.7.11-21H461"
+components = ["ArmDTPlatform", "ArmCpu", "SoftwareAES", "GopFramebuffer", "AppleKeyStoreState", "ShengHidInput", "XnuPrelink", "DarwinBoot"]
+
+[safety]
+flash_requires_explicit_current_authorization = true
+code_reuse_requires_per_repository_license_review = true

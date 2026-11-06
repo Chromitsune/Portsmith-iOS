@@ -1,0 +1,32 @@
+[port]
+name = "zorn"
+model = "Redmi K80 (zorn)"
+codename = "zorn"
+soc = "SM8650"
+source = "ports/zorn/repo"
+status = "Catalog-derived UniXNU format-2 record marked available; this validates its record only, not a build/boot/device result."
+catalog_record = true
+catalog_format = 2
+catalog_only = false
+
+[hardware]
+vendor = "Xiaomi"
+soc_vendor = "Qualcomm"
+storage = "unknown"
+gpu_family = "Unknown"
+gpu = "unknown"
+
+[upstream]
+repository = "https://github.com/kerrinz/UniXNU-zorn"
+revision = "ef13dcc71b9ca97bde15381d51fe74aeff81f854"
+catalog_record_state = "available"
+catalog_snapshot_revision = "e2fdae4312d0acc3d8a52bc457101e7918095e6a"
+license_status = "Root LICENSE identified at the exact pinned revision; preserve all original notices and inspect per-file/transitive terms before reuse."
+board = "zorn"
+os_profile = "ipados-17.7.11-21H461"
+components = ["ArmDTPlatform", "ArmCpu", "SoftwareAES", "AppleKeyStoreState", "RamBlock", "VerifiedRoot", "GopFramebuffer", "XnuPrelink", "DarwinBoot"]
+summary = "Read-only UFS APFS root; user mapping stops at MEND"
+
+[safety]
+flash_requires_explicit_current_authorization = true
+code_reuse_requires_per_repository_license_review = true

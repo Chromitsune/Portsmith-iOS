@@ -1,0 +1,31 @@
+[port]
+name = "pong-agxmx666"
+model = "Nothing Phone (2): UniXNU UEFI bring-up (AGXMX666)"
+codename = "pong"
+soc = "SM8475"
+source = "ports/pong-agxmx666/repo"
+status = "Catalog-derived UniXNU format-2 record marked available; this validates its record only, not a build/boot/device result."
+catalog_record = true
+catalog_format = 2
+catalog_only = false
+
+[hardware]
+vendor = "Nothing"
+soc_vendor = "Qualcomm"
+storage = "unknown"
+gpu_family = "Unknown"
+gpu = "unknown"
+
+[upstream]
+repository = "https://github.com/AGXMX666/UniXNU-pong"
+revision = "ffdad781cb16b42a1fb5c984f77998253b821d8c"
+catalog_record_state = "available"
+catalog_snapshot_revision = "e2fdae4312d0acc3d8a52bc457101e7918095e6a"
+license_status = "Notice identifies HackiOS userland with its own license; preserve component-level terms."
+board = "pong"
+os_profile = "ipados-18.7.10-22H374"
+components = ["PongPlatform24"]
+
+[safety]
+flash_requires_explicit_current_authorization = true
+code_reuse_requires_per_repository_license_review = true

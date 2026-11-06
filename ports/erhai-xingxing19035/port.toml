@@ -1,0 +1,33 @@
+[port]
+name = "erhai-xingxing19035"
+model = "OnePlus Pad 2 Pro (OPD2413) (xingxing19035)"
+codename = "erhai"
+soc = "SM8750"
+source = "ports/catalog"
+status = "UniXNU record marked available; exact source repository/revision was inaccessible during audit. Metadata only; no build/device support is implied."
+catalog_record = true
+catalog_format = 2
+catalog_only = true
+source_mode = "catalog-reference"
+
+[hardware]
+vendor = "OnePlus"
+soc_vendor = "Qualcomm"
+storage = "unknown"
+gpu_family = "Unknown"
+gpu = "unknown"
+
+[upstream]
+repository = "https://github.com/xingxing19035/UniXNU-erhai"
+revision = "1d6a90ee37874082a5bd53bfa92321ead20a52ee"
+catalog_record_state = "available"
+catalog_snapshot_revision = "e2fdae4312d0acc3d8a52bc457101e7918095e6a"
+license_status = "Exact pinned commit was not reachable from the public GitHub repository during audit."
+checkout_status = "metadata-only; exact repository/revision inaccessible during audit"
+board = "erhai"
+os_profile = "ipados-17.7.11-21H461"
+components = ["ArmDTPlatform", "ArmCpu", "SoftwareAES", "XnuPrelink", "DarwinBoot"]
+
+[safety]
+flash_requires_explicit_current_authorization = true
+code_reuse_requires_per_repository_license_review = true

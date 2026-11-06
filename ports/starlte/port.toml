@@ -1,0 +1,30 @@
+[port]
+name = "starlte"
+model = "Samsung Galaxy S9 (starlte, SM-G960F, Exynos 9810): HakiOS, iOS 16.5 on XNU; not built on the UniXNU tree"
+codename = "starlte"
+soc = "Exynos 9810"
+source = "ports/starlte/repo"
+status = "Catalog-derived UniXNU format-2 record marked available; this validates its record only, not a build/boot/device result."
+catalog_record = true
+catalog_format = 2
+catalog_only = false
+
+[hardware]
+vendor = "Samsung"
+soc_vendor = "Samsung"
+storage = "unknown"
+gpu_family = "Unknown"
+gpu = "unknown"
+
+[upstream]
+repository = "https://github.com/Scion-Project/scion-starlte"
+revision = "76bbd6000aeea88c4da5e3e0cdc2225178d1eac0"
+catalog_record_state = "available"
+catalog_snapshot_revision = "e2fdae4312d0acc3d8a52bc457101e7918095e6a"
+license_status = "Mixed license file explicitly describes component-specific terms; firmware redistribution remains to be checked. Keep separate and do not flatten."
+board = "starlte"
+os_profile = "ios-16.5-20F66"
+
+[safety]
+flash_requires_explicit_current_authorization = true
+code_reuse_requires_per_repository_license_review = true

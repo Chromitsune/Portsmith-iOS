@@ -1,0 +1,31 @@
+[port]
+name = "marble"
+model = "Redmi Note 12 Turbo / POCO F5 (marble)"
+codename = "marble"
+soc = "SM7475"
+source = "ports/marble/repo"
+status = "Catalog-derived UniXNU format-2 record marked available; this validates its record only, not a build/boot/device result."
+catalog_record = true
+catalog_format = 2
+catalog_only = false
+
+[hardware]
+vendor = "Xiaomi"
+soc_vendor = "Qualcomm"
+storage = "unknown"
+gpu_family = "Unknown"
+gpu = "unknown"
+
+[upstream]
+repository = "https://github.com/sing0626/UniXNU-marble"
+revision = "a63260314d130ebf02a987f0785f5ae3258c219c"
+catalog_record_state = "available"
+catalog_snapshot_revision = "e2fdae4312d0acc3d8a52bc457101e7918095e6a"
+license_status = "LICENSE and LICENSING.md limit MIT to Marble-authored material; XNU/Apple, BearSSL and other upstream code keep their own terms; review file-by-file."
+board = "marble"
+os_profile = "ios-16.7.16-20H392"
+summary = "Maintainer reports Hello; touch and public reproducible sources pending"
+
+[safety]
+flash_requires_explicit_current_authorization = true
+code_reuse_requires_per_repository_license_review = true

@@ -1,0 +1,33 @@
+[port]
+name = "picasso-suzukir1n"
+model = "Redmi K30 5G targeting iPhone X iOS 16; Darwin 22 ABI and firmware pending (SuzukiR1n)"
+codename = "picasso"
+soc = "SM7250"
+source = "ports/catalog"
+status = "UniXNU record marked available; exact source repository/revision was inaccessible during audit. Metadata only; no build/device support is implied."
+catalog_record = true
+catalog_format = 2
+catalog_only = true
+source_mode = "catalog-reference"
+
+[hardware]
+vendor = "Xiaomi"
+soc_vendor = "Qualcomm"
+storage = "unknown"
+gpu_family = "Unknown"
+gpu = "unknown"
+
+[upstream]
+repository = "https://github.com/SuzukiR1n/UniXNU-Picasso"
+revision = "c9c833a3fd9efaa11b6b98a0778b50a162540698"
+catalog_record_state = "available"
+catalog_snapshot_revision = "e2fdae4312d0acc3d8a52bc457101e7918095e6a"
+license_status = "Public GitHub returned Repository not found for the recorded owner/repository."
+checkout_status = "metadata-only; exact repository/revision inaccessible during audit"
+board = "picasso"
+os_profile = "ios-16.7.16-20H392"
+components = ["XnuPrelink", "DarwinBoot"]
+
+[safety]
+flash_requires_explicit_current_authorization = true
+code_reuse_requires_per_repository_license_review = true

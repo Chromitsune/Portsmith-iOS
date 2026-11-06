@@ -29,8 +29,9 @@ def main()->int:
     if a.curated:
         ports=[]
         for p in (ROOT/"ports").glob("*/port.toml"):
-            src=tomllib.loads(p.read_text()).get("port",{}).get("source")
-            if src and indexed.get(src,{}).get("source_mode","submodule")!="vendored-snapshot":ports.append(src)
+            port=tomllib.loads(p.read_text()).get("port",{})
+            src=port.get("source")
+            if src and not port.get("catalog_record",False) and indexed.get(src,{}).get("source_mode","submodule")!="vendored-snapshot":ports.append(src)
         if "sources/UniXNU" in indexed: ports.append("sources/UniXNU")
         return run(sorted(set(ports)))
     devices=tomllib.loads((ROOT/"ports/catalog/unixnu-devices.toml").read_text()).get("device",[])
@@ -41,7 +42,7 @@ def main()->int:
         if missing: print(f"Unknown catalog names: {', '.join(missing)}",file=sys.stderr);return 2
     paths=[]; skipped=[]; reused=[]
     for d in selected:
-        path=f"ports/catalog/available/{d['name']}/repo"
+        path=f"ports/{d['name']}/repo"
         if path in indexed and indexed[path].get("source_mode","submodule")=="submodule":
             paths.append(path)
             continue

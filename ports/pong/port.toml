@@ -1,0 +1,32 @@
+[port]
+name = "pong"
+model = "Nothing Phone (2) (pong)"
+codename = "pong"
+soc = "SM8475"
+source = "ports/pong/repo"
+status = "Catalog-derived UniXNU format-2 record marked available; this validates its record only, not a build/boot/device result."
+catalog_record = true
+catalog_format = 2
+catalog_only = false
+
+[hardware]
+vendor = "Nothing"
+soc_vendor = "Qualcomm"
+storage = "unknown"
+gpu_family = "Unknown"
+gpu = "unknown"
+
+[upstream]
+repository = "https://github.com/Chengdong-Yu/UniXNU-pong"
+revision = "e0ee6df109b4b5dc706cac660d4f8210dc911dac"
+catalog_record_state = "available"
+catalog_snapshot_revision = "e2fdae4312d0acc3d8a52bc457101e7918095e6a"
+license_status = "Notice says core/modules retain per-file/upstream licenses; Apple restore assets are fetched separately and not included."
+board = "pong"
+os_profile = "ipados-18.7.10-22H374"
+components = ["PongPlatform24"]
+summary = "iOS 16.6.1 home screen with display and touch; UFS and GPU partial"
+
+[safety]
+flash_requires_explicit_current_authorization = true
+code_reuse_requires_per_repository_license_review = true
