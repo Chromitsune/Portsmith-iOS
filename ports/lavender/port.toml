@@ -1,0 +1,20 @@
+[port]
+name = "lavender"
+model = "Xiaomi Redmi Note 7"
+codename = "lavender"
+soc = "Qualcomm SDM660"
+source = "sources/UniXNU-Lavender"
+status = "bring-up; panic recovery not device-verified"
+
+[hardware]
+storage = "eMMC"
+dram_gib = 4
+panel = "NT36672A, 1080x2340"
+bootloader = "Xiaomi ABL; custom EDK2 package derived from this device's XBL"
+reset = "PSCI SMC; DRAM retention across ABL/UEFI path unknown"
+
+[safety]
+flash_requires_explicit_authorization = true
+inspect_phone_before_reset = true
+never_write_logfs = true
+never_guess_register_addresses = true

@@ -1,0 +1,24 @@
+[package]
+name = "portsmith-image-tools"
+version = "0.1.0"
+edition = "2021"
+description = "Cross-port helpers for Android sparse images, IPSWs, IM4P containers, and UEFI firmware volumes"
+license = "MIT"
+
+[dependencies]
+android-sparse = "0.6.0"
+anyhow = "1"
+clap = { version = "4", features = ["derive"] }
+crc32fast = "1"
+flate2 = "1"
+libc = "0.2"
+lzfse_rust = "0.2"
+lzma-rs = "0.3"
+rayon = "1.12.0"
+simple_asn1 = "0.6.4"
+ureq = "2"
+zip = { version = "9.1.0", default-features = false, features = ["deflate-flate2"] }
+
+[profile.release]
+opt-level = 3
+lto = "thin"

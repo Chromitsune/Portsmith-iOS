@@ -1,0 +1,68 @@
+# Portsmith's initial, human-reviewed source set. The superproject gitlinks are the exact pins.
+# Update a source pin only after inspecting its diff, license, and port-specific evidence.
+
+[[source]]
+name = "iOSPlus10"
+revision = "505ae76ba72f82c336e2a194b47a3145cdbbcf17"
+path = "sources/iOSPlus10"
+upstream = "https://github.com/akshaynexus/iOSPlus10"
+fork = "https://github.com/Chromitsune/iOSPlus10"
+branch = "lavender-panic-recovery"
+maintainer = "akshaynexus"
+role = "OnePlus 10 Pro XNU/UEFI port; agent workflow and generic binary tools"
+license = "MIT for repository-owned docs/scripts/tools; submodules retain their licenses"
+
+[[source]]
+name = "UniXNU"
+revision = "e2fdae4312d0acc3d8a52bc457101e7918095e6a"
+path = "sources/UniXNU"
+upstream = "https://github.com/UniXNU/UniXNU"
+fork = "https://github.com/Chromitsune/UniXNU"
+branch = "main"
+maintainer = "UniXNU contributors"
+role = "Shared UEFI, ARM64, build system and driver framework"
+license = "BSD-2-Clause-Patent"
+
+[[source]]
+name = "ios-sweet"
+revision = "45263bee51df4a0f55cdf9c649af886399488ddb"
+path = "sources/ios-sweet"
+upstream = "https://github.com/dipa-studio/ios-sweet"
+fork = "https://github.com/Chromitsune/ios-sweet"
+branch = "main"
+maintainer = "dipa-studio"
+role = "iOS 16/XNU bring-up on Redmi Note 10 Pro (SM7150); persistent console logs"
+license = "MIT"
+
+[[source]]
+name = "ios-flame"
+revision = "745c4341af86089efb0df851fa8a27fb8face624"
+path = "sources/ios-flame"
+upstream = "https://github.com/NWylynko/ios-flame"
+fork = "https://github.com/Chromitsune/ios-flame"
+branch = "main"
+maintainer = "NWylynko"
+role = "Pixel 4/SM8150 port; GPU-accelerated iOS UI and Metal-to-Vulkan reference"
+license = "MIT"
+
+[[source]]
+name = "ios-s9"
+revision = "646570b679b8d9147557f993ebc3ae9500ab9cfd"
+path = "sources/ios-s9"
+upstream = "https://github.com/syncmodz/ios-s9"
+fork = "https://github.com/Chromitsune/ios-s9"
+branch = "main"
+maintainer = "syncmodz (based on dipa-studio/ios-sweet)"
+role = "Snapdragon Galaxy S9 port; panic hold, USB console and persistent-log tooling"
+license = "MIT (repository LICENSE retains dipa-studio copyright notice)"
+
+[[source]]
+name = "UniXNU-Lavender"
+revision = "b74f2cff0321a1440a4ecc24bd7485d21512985f"
+path = "sources/UniXNU-Lavender"
+upstream = "https://github.com/Chromitsune/UniXNU-Lavender"
+fork = "https://github.com/Chromitsune/UniXNU-Lavender"
+branch = "main"
+maintainer = "Chromitsune"
+role = "Lavender/SDM660 board bring-up and panic-recovery experiments"
+license = "See repository license and per-component licenses"

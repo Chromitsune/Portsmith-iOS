@@ -1,0 +1,34 @@
+# Generated work products and logs
+/out/
+/logs/
+/build/
+/artifacts/
+
+# Device-private material (never commit)
+/backups/
+/device-private/
+/private/
+*.ipsw
+*.dmg
+*.simg
+*.macho
+*.img
+*.img4
+*.im4p
+*.dtb
+*.dtbo
+*.fd
+*.efi
+*.key
+*.pem
+*.p12
+*.pfx
+
+# Host/editor noise
+.DS_Store
+__pycache__/
+*.py[cod]
+
+# Language/tool build outputs
+/target/
+**/target/
