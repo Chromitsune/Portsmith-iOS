@@ -22,7 +22,3 @@
 	path = ports/lavender/repo
 	url = https://github.com/Chromitsune/UniXNU-Lavender.git
 	branch = main
-[submodule "ports/superboyyy/hakios-arm64e-dada"]
-	path = ports/superboyyy/hakios-arm64e-dada
-	url = https://github.com/superboyyy/hakios-arm64e-dada.git
-	branch = main

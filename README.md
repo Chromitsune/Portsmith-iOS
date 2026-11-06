@@ -22,7 +22,7 @@ git clone --recurse-submodules https://github.com/Chromitsune/Portsmith-iOS.git
 
 - `AGENTS.md` — workspace instructions for agents.
 - `docs/architecture.md` — repository boundaries, evidence labels, and source/license rules.
-- `ports/` — per-device `AGENTS.md`/manifests plus each complete source repository as a pinned Git submodule; its original README and history remain intact.
+- `ports/` — per-device `AGENTS.md`/manifests plus complete port source under `repo/`. Most ports are pinned Git submodules; Dada is a vendored snapshot with its original README, notices, and licenses retained.
 - `sources/` — shared framework references (currently UniXNU), not device-specific ports.
 - `skills/` — reusable task playbooks.
 - `tools/` — cross-port utilities. `tools/portsmith-image-tools` contains a reviewed, MIT-licensed subset adapted from iOSPlus10's generic image/IPSW tooling; Negroni-only `ctl` and `bootlog` commands are intentionally excluded.
@@ -30,7 +30,7 @@ git clone --recurse-submodules https://github.com/Chromitsune/Portsmith-iOS.git
 
 ## Initial source set
 
-See [`ports/README.md`](ports/README.md), [`sources/README.md`](sources/README.md), and [`sources/manifest.toml`](sources/manifest.toml) for port folders, upstream maintainers, licenses, and pinned revisions. Each port folder contains a complete source-repository submodule with its original README.
+See [`ports/README.md`](ports/README.md), [`sources/README.md`](sources/README.md), and [`sources/manifest.toml`](sources/manifest.toml) for port folders, upstream maintainers, licenses, and pinned revisions. Each port folder contains its original README; most codebases are pinned submodules, while Dada is a vendored snapshot with an upstream commit recorded.
 
 ## Port catalog: upstream-reported support
 
@@ -42,6 +42,7 @@ These are **reports from the pinned upstream projects**, not independent Portsmi
 | [Sweet](https://github.com/dipa-studio/ios-sweet) — Redmi Note 10 Pro, SM7150 | iOS 16.7.16 home screen, touch, and buttons | CPU-rendered UI; Wi-Fi, cellular, audio, camera, and many services unavailable. |
 | [Flame](https://github.com/NWylynko/ios-flame) — Pixel 4, SM8150 | iOS 16 UI, touch, USB tools, and GPU-rendered UI through the documented Metal/Vulkan path | Experimental; audio, cellular, camera, sensors, and other services remain incomplete. |
 | [Galaxy S9 Snapdragon](https://github.com/syncmodz/ios-s9) — SM-G9600/SDM845 | iOS 16.7.16 home screen, panic hold, and persistent logs | CPU-rendered UI; no GPU driver, Wi-Fi, cellular, camera, or many other features. This is not the Exynos S9. |
+| [Dada](https://github.com/superboyyy/hakios-arm64e-dada) — Xiaomi 15, SM8750/Snapdragon 8 Elite | Upstream reports iOS 26 arm64e home screen, touch, Adreno 830 Metal translation via metal2vulkan/Turnip, and Bluetooth | Experimental; Wi-Fi is unreliable, audio is partial, camera/HDR/modem are not started. Vendored snapshot at `f1ae906`; not independently verified. |
 | [Lavender](https://github.com/Chromitsune/UniXNU-Lavender) — Redmi Note 7, SDM660 | Custom UEFI/UniXNU boot chain and fixture payload reported device-tested | XNU/iOS handover, OrangeFox BCB behavior, and panic-log recovery are not verified; prior panic-recovery run was inconclusive. |
 
 Use the port-specific `AGENTS.md`, README, and handoff for the exact source revision and current status. Portsmith must update this table only with dated evidence and must not turn upstream claims into “supported” guarantees.
@@ -56,6 +57,6 @@ Use the port-specific `AGENTS.md`, README, and handoff for the exact source revi
 
 ## Credits and contributors
 
-Upstream project authors and maintainers: **akshaynexus** (iOSPlus10), the **UniXNU contributors**, **dipa-studio** (ios-sweet), **NWylynko** (ios-flame), and **syncmodz** (ios-s9), plus **Chromitsune** (Lavender port and Portsmith workspace). Detailed project/license provenance is in [`CREDITS.md`](CREDITS.md); original contributor histories and acknowledgements remain in each port repository.
+Upstream project authors and maintainers: **akshaynexus** (iOSPlus10), the **UniXNU contributors**, **dipa-studio** (ios-sweet), **NWylynko** (ios-flame), **syncmodz** (ios-s9), and **superboyyy** (Dada), plus Dada acknowledgements to **OOSEX GANG/HakiOS**, **ShueiTsuki/Data A Live**, **steelbrain/metal2vulkan**, **Mesa**, **Project Silicium**, **7Night-kqx**, and the Linux MSM/ath12k/QCOM driver contributors. **Chromitsune** maintains the Lavender port and Portsmith workspace. Detailed project/license provenance is in [`CREDITS.md`](CREDITS.md); original contributor histories and acknowledgements remain in each port repository.
 
 These upstream authors are **not represented as Portsmith contributors** unless they actually contribute to this repository. GitHub's Contributors view is generated from commits; our README credits upstream work accurately without implying endorsement or direct contribution.

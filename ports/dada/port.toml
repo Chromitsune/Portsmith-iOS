@@ -1,0 +1,27 @@
+[port]
+name = "dada"
+model = "Xiaomi 15"
+codename = "dada"
+soc = "Qualcomm SM8750 / Snapdragon 8 Elite"
+source = "ports/dada/repo"
+upstream = "https://github.com/superboyyy/hakios-arm64e-dada"
+upstream_commit = "f1ae906fcc43ba8f763663257724ba938fb820ab"
+status = "upstream reports iOS 26 home screen; experimental"
+
+[hardware]
+architecture = "arm64e; hardware pointer authentication"
+gpu = "Adreno 830"
+
+[reported]
+touch = true
+home_screen = true
+gpu_metal_translation = true
+bluetooth = true
+wifi = "incomplete; firmware fails in most runs"
+audio = "speaker path reported; system sounds/microphones in progress"
+camera = "not started"
+modem = "not started"
+
+[safety]
+unlocked_bootloader_required = true
+flash_requires_explicit_authorization = true
