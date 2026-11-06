@@ -23,9 +23,10 @@ git clone --recurse-submodules https://github.com/Chromitsune/Portsmith-iOS.git
 - `AGENTS.md` — workspace instructions for agents.
 - `docs/architecture.md` — repository boundaries, evidence labels, and source/license rules.
 - `ports/` — per-device `AGENTS.md`/manifests plus complete port source under `repo/`. Most ports are pinned Git submodules; Dada is a vendored snapshot with its original README, notices, and licenses retained.
+- `components/` — cross-port catalog of storage/GPU/boot families and compatibility boundaries; not a bucket for unreviewed code copies.
 - `sources/` — shared framework references (currently UniXNU), not device-specific ports.
 - `skills/` — reusable task playbooks.
-- `tools/` — cross-port utilities. `tools/portsmith.py` inventories ports, checks source pins, and reports host tools without touching a device. `tools/portsmith-image-tools` contains a reviewed, MIT-licensed subset adapted from iOSPlus10's generic image/IPSW tooling; Negroni-only `ctl` and `bootlog` commands are intentionally excluded.
+- `tools/` — cross-port utilities. `tools/portsmith.py` inventories ports, groups them by vendor/SoC/storage/GPU/bootloader, lists shared components, checks source pins, and reports host tools without touching a device. `tools/portsmith-image-tools` contains a reviewed, MIT-licensed subset adapted from iOSPlus10's generic image/IPSW tooling; Negroni-only `ctl` and `bootlog` commands are intentionally excluded.
 - `docs/` — design notes and contribution/evidence conventions.
 
 ## Initial source set

@@ -10,6 +10,12 @@ upstream_commit = "1f75f381e31da96de537653fbac2252d2eb80418"
 status = "upstream reports iOS 16 home screen and several drivers; experimental"
 
 [hardware]
+vendor = "Xiaomi"
+soc_vendor = "Qualcomm"
+storage = "UFS"
+gpu_family = "Qualcomm Adreno"
+boot_family = "Xiaomi bootloader"
+boot_chain = "Xiaomi bootloader → fastboot shim"
 gpu = "Adreno 650"
 
 [reported]

@@ -10,6 +10,12 @@ upstream_commit = "e66b14a9a2c8b576e7e179db4f26393698e5e49f"
 status = "upstream reports iOS 16 UI with Adreno 640 OpenGL ES acceleration; experimental"
 
 [hardware]
+vendor = "OnePlus"
+soc_vendor = "Qualcomm"
+storage = "UFS"
+gpu_family = "Qualcomm Adreno"
+boot_family = "OnePlus ABL"
+boot_chain = "OnePlus ABL → fastboot shim"
 gpu = "Adreno 640"
 
 [reported]

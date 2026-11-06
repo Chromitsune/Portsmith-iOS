@@ -1,0 +1,48 @@
+# Reuse catalog. References point to source locations; no driver code is copied here.
+
+[[component]]
+id = "storage.emmc-sdhci"
+category = "storage"
+media = "eMMC / SDHCI"
+ports = ["lavender"]
+related_reference = "ports/herolte/repo (separate A5XELTE experiment; do not assume same SoC)"
+shared_layer = "block I/O interface, GPT and filesystem glue"
+board_specific = "SDHCI registers, clocks, voltage/tuning, DMA/SMMU and reset"
+status = "Lavender XNU block-storage driver is not yet device-verified"
+
+[[component]]
+id = "storage.ufs"
+category = "storage"
+media = "UFS"
+ports = ["sweet", "sweet-native-metal", "flame", "starqltechn", "guacamole", "lemonadep", "apollo", "negroni", "herolte", "dada"]
+shared_layer = "block I/O interface, LUN/GPT handling and filesystem glue"
+board_specific = "UFSHCI revision, PHY, clocks, resets, SMMU/DMA, firmware and bootloader handoff"
+status = "Multiple port-specific implementations; no universal UFS driver has been qualified across this set"
+
+[[component]]
+id = "storage.ramblock-virtio"
+category = "storage"
+media = "RAM block device / virtio-mmio block"
+ports = ["lavender"]
+source_paths = ["sources/UniXNU/drivers/RamBlock", "sources/UniXNU/drivers/VirtioMmioBlock"]
+shared_layer = "test-root and block-device interfaces"
+board_specific = "memory ownership, UEFI/virtio transport, DMA mapping and lifetime"
+status = "Shared UniXNU components; per-board selection and memory contract still required"
+
+[[component]]
+id = "graphics.adreno"
+category = "gpu"
+media = "Qualcomm Adreno"
+ports = ["sweet", "sweet-native-metal", "flame", "guacamole", "lemonadep", "apollo", "negroni", "dada"]
+shared_layer = "possible common command/shader translation concepts (Mesa/freedreno/Turnip); verify GPU generation and ABI"
+board_specific = "GMU, firmware, clocks, SMMU, memory pools, command processor and display integration"
+status = "Generation-specific paths; API translation does not make hardware drivers interchangeable"
+
+[[component]]
+id = "graphics.mali"
+category = "gpu"
+media = "ARM Mali"
+ports = ["herolte"]
+shared_layer = "Mesa/Panfrost concepts"
+board_specific = "Mali generation, firmware, MMU, display and memory interfaces"
+status = "Herolte upstream reports GLES/Panfrost UI rendering; device verification belongs to that port"

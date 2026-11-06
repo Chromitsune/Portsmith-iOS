@@ -10,6 +10,12 @@ upstream_commit = "d6b6c7bbb4b2ab063ae833812db2efef094f834b"
 status = "upstream reports iOS 16.7.16 home screen with Mali-T880 OpenGL ES rendering; experimental"
 
 [hardware]
+vendor = "Samsung"
+soc_vendor = "Samsung Exynos"
+storage = "UFS"
+gpu_family = "ARM Mali"
+boot_family = "Samsung S-Boot"
+boot_chain = "Samsung S-Boot → BOOT loader"
 gpu = "ARM Mali-T880 MP12"
 
 [reported]

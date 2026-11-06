@@ -2,7 +2,7 @@
 
 ## Workspace inventory and preflight
 
-`python3 tools/portsmith.py ports` lists ports and their upstream-reported status; `sources` prints commit pins and upstream URLs; `check` validates port/source metadata and flags dirty or uninitialized checkouts; `doctor` reports host tools without probing or controlling a phone. These commands are read-only.
+`python3 tools/portsmith.py ports` lists ports; add `--group-by vendor|soc|storage|gpu|bootloader` to group them. `components` lists shared families and compatibility notes; `sources` prints commit pins and upstream URLs; `check` validates port/source/component metadata and flags dirty or uninitialized checkouts; `doctor` reports host tools without probing or controlling a phone. These commands are read-only.
 
 ## Jobs
 

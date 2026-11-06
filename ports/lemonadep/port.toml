@@ -10,6 +10,12 @@ upstream_commit = "d952f7d97ea075de9f6686cbbafbd55db6517e65"
 status = "upstream reports iOS 16.5 standalone UI; experimental"
 
 [hardware]
+vendor = "OnePlus"
+soc_vendor = "Qualcomm"
+storage = "UFS"
+gpu_family = "Qualcomm Adreno"
+boot_family = "OnePlus bootloader"
+boot_chain = "OnePlus bootloader → UEFI/XNU loader"
 gpu = "Adreno 660"
 
 [reported]

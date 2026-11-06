@@ -32,26 +32,45 @@ def norm_url(url: str) -> str:
 def port_records(root: Path = ROOT) -> list[tuple[Path, dict]]:
     out = []
     for path in sorted((root / "ports").glob("*/port.toml")):
-        data = read_toml(path).get("port", {})
-        out.append((path, data))
+        out.append((path, read_toml(path)))
     return out
 
 
-def cmd_ports(_: argparse.Namespace) -> int:
+def port_section(data: dict) -> dict:
+    return data.get("port", {})
+
+
+def cmd_ports(args: argparse.Namespace) -> int:
     records = port_records()
     if not records:
         print("No port.toml files found.")
         return 0
     print("Port catalog (status is upstream-reported, not independently verified)")
-    for path, p in records:
-        name = p.get("name", path.parent.name)
-        device = p.get("model", "?")
-        soc = p.get("soc", "?")
-        status = p.get("status", "status not recorded")
-        print(f"{name} — {device} ({soc})")
-        print(textwrap.fill(f"Status: {status}", width=100, subsequent_indent="  "))
-        print()
+    field = {"vendor": "vendor", "soc": "soc", "storage": "storage", "gpu": "gpu_family", "bootloader": "boot_family"}.get(args.group_by)
+    if field:
+        groups: dict[str, list[tuple[Path, dict]]] = {}
+        for path, data in records:
+            p = port_section(data)
+            group = p.get("soc", "Unknown") if args.group_by == "soc" else data.get("hardware", {}).get(field, "Unknown")
+            groups.setdefault(group, []).append((path, data))
+        for group, items in sorted(groups.items(), key=lambda item: item[0].casefold()):
+            print(f"\n## {args.group_by}: {group}")
+            for path, data in items:
+                _print_port(path, data)
+    else:
+        for path, p in records:
+            _print_port(path, p)
     return 0
+
+
+def _print_port(path: Path, data: dict) -> None:
+    p = port_section(data)
+    name = p.get("name", path.parent.name)
+    device = p.get("model", "?")
+    soc = p.get("soc", "?")
+    status = p.get("status", "status not recorded")
+    print(f"- {name}: {device} ({soc})")
+    print(textwrap.fill(f"Status: {status}", width=100, subsequent_indent="  "))
 
 
 def source_index(root: Path = ROOT) -> dict[str, dict]:
@@ -108,7 +127,8 @@ def cmd_check(_: argparse.Namespace) -> int:
     if not ports:
         errors.append("no ports/*/port.toml manifests found")
     required_port = {"name", "model", "codename", "soc", "source", "status"}
-    for file, p in ports:
+    for file, data in ports:
+        p = port_section(data)
         missing = sorted(required_port - p.keys())
         if missing:
             errors.append(f"{file.relative_to(ROOT)} missing [port] fields: {', '.join(missing)}")
@@ -153,6 +173,17 @@ def cmd_check(_: argparse.Namespace) -> int:
             if dirty.stdout.strip():
                 warnings.append(f"{path}: submodule has local modifications")
 
+    port_ids = {port_section(data).get("name", file.parent.name) for file, data in ports}
+    for c in component_records():
+        if not c.get("id") or not c.get("category"):
+            errors.append("components/manifest.toml: each component needs id and category")
+        missing = sorted(set(c.get("ports", [])) - port_ids)
+        if missing:
+            errors.append(f"component {c.get('id', '?')}: unknown port ids: {', '.join(missing)}")
+        for ref in c.get("source_paths", []):
+            if not (ROOT / ref).exists():
+                errors.append(f"component {c.get('id', '?')}: missing source reference {ref}")
+
     for message in warnings:
         print(f"WARN: {message}", file=sys.stderr)
     for message in errors:
@@ -160,6 +191,22 @@ def cmd_check(_: argparse.Namespace) -> int:
     if errors:
         return 1
     print(f"PASS: {len(ports)} port manifests and {len(source_index())} source pins checked")
+    return 0
+
+
+def component_records(root: Path = ROOT) -> list[dict]:
+    return read_toml(root / "components/manifest.toml").get("component", [])
+
+
+def cmd_components(_: argparse.Namespace) -> int:
+    ports = {port_section(p).get("name", path.parent.name) for path, p in port_records()}
+    for c in component_records():
+        missing = sorted(set(c.get("ports", [])) - ports)
+        print(f"{c.get('id', '?')} [{c.get('category', '?')}] — {c.get('media', '?')}")
+        print(f"  ports: {', '.join(c.get('ports', [])) or 'none'}")
+        print(textwrap.fill(c.get("status", "status not recorded"), width=100, initial_indent="  ", subsequent_indent="  "))
+        if missing:
+            print(f"  WARN: unknown port ids in catalog: {', '.join(missing)}")
     return 0
 
 
@@ -190,12 +237,16 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     sub = parser.add_subparsers(dest="command", required=True)
     for name, func, help_text in (
-        ("ports", cmd_ports, "list port manifests and upstream-reported status"),
+        ("ports", cmd_ports, "list ports, optionally grouped by hardware family"),
         ("sources", cmd_sources, "show pinned source revisions and upstream URLs"),
-        ("check", cmd_check, "validate manifests, source pins, and local checkouts"),
+        ("components", cmd_components, "list shared component families and compatible ports"),
+        ("check", cmd_check, "validate manifests, source pins, component references, and local checkouts"),
         ("doctor", cmd_doctor, "check host tools only; never probes a device"),
     ):
         p = sub.add_parser(name, help=help_text)
+        if name == "ports":
+            p.add_argument("--group-by", choices=("vendor", "soc", "storage", "gpu", "bootloader"),
+                           help="group port manifests by a hardware field")
         p.set_defaults(func=func)
     args = parser.parse_args()
     return args.func(args)

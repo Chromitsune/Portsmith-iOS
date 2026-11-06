@@ -7,7 +7,12 @@ source = "ports/lavender/repo"
 status = "bring-up; panic recovery not device-verified"
 
 [hardware]
+vendor = "Xiaomi"
+soc_vendor = "Qualcomm"
 storage = "eMMC"
+gpu_family = "Qualcomm Adreno"
+boot_family = "Xiaomi ABL"
+boot_chain = "Xiaomi ABL → custom EDK2"
 dram_gib = 4
 panel = "NT36672A, 1080x2340"
 bootloader = "Xiaomi ABL; custom EDK2 package derived from this device's XBL"

@@ -3,7 +3,7 @@
 ## Context loading
 
 1. Start with `README.md` and `sources/manifest.toml`.
-2. For a device task, read only the relevant `ports/<device>/AGENTS.md`, the referenced source's own instructions, and its current handoff/status notes.
+2. Use `python3 tools/portsmith.py ports --group-by soc|vendor|storage|gpu|bootloader` and `python3 tools/portsmith.py components` to find related ports. For a device task, read only the relevant `ports/<device>/AGENTS.md`, the referenced source's own instructions, and its current handoff/status notes.
 3. Before coding, inspect `git status`, source pins, and existing generated outputs. Keep builds/logs outside tracked source.
 4. At the end, update the device status with facts, commands, hashes, tests, and unresolved questions so the next agent can resume without reconstructing the session.
 
@@ -17,7 +17,7 @@
 
 ## Port boundaries
 
-- Treat each `ports/<device>` as a separate hardware/boot contract. Do not copy addresses, memory maps, reset paths, display timings, storage drivers, or firmware assumptions across devices without evidence.
+- Treat each `ports/<device>` as a separate hardware/boot contract. Use `components/manifest.toml` to discover candidate shared storage/GPU/boot concepts, not as proof that an implementation is interchangeable. Do not copy addresses, memory maps, reset paths, display timings, storage drivers, or firmware assumptions across devices without evidence.
 - Device repositories live under `ports/<port>/repo/`: most are pinned submodules, while Dada is a vendored snapshot with its exact upstream commit recorded. Shared framework references are under `sources/`. Preserve history and licensing; make port-specific changes in the correct source repository, not as an unreviewed flattened merge.
 - Before borrowing code, check its license and record its original repository/path/commit in `CREDITS.md` or the component's `UPSTREAM.md`.
 - Do not call something “working” from compilation alone. Separate `host-verified`, `device-verified`, inference, and unknown.

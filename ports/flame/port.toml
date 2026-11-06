@@ -7,7 +7,12 @@ source = "ports/flame/repo"
 status = "upstream reports iOS 16 UI and GPU-rendered interface; experimental"
 
 [hardware]
+vendor = "Google"
+soc_vendor = "Qualcomm"
 storage = "UFS"
+gpu_family = "Qualcomm Adreno"
+boot_family = "Google ABL"
+boot_chain = "Google ABL → fastboot shim"
 gpu = "Adreno 640"
 
 [safety]

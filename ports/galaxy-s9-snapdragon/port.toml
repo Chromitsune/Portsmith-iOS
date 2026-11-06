@@ -7,7 +7,12 @@ source = "ports/galaxy-s9-snapdragon/repo"
 status = "upstream reports iOS 16.7.16 home screen; CPU render, no GPU driver"
 
 [hardware]
+vendor = "Samsung"
+soc_vendor = "Qualcomm"
 storage = "UFS"
+gpu_family = "Qualcomm Adreno"
+boot_family = "Samsung S-Boot"
+boot_chain = "Samsung S-Boot → BOOT loader"
 gpu = "Adreno 630"
 
 [safety]

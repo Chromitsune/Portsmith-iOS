@@ -7,7 +7,12 @@ source = "ports/sweet/repo"
 status = "upstream reports iOS 16.7.16 reaching home screen; experimental"
 
 [hardware]
+vendor = "Xiaomi"
+soc_vendor = "Qualcomm"
 storage = "UFS"
+gpu_family = "Qualcomm Adreno"
+boot_family = "Xiaomi ABL"
+boot_chain = "Xiaomi ABL → fastboot shim"
 gpu = "Adreno 618"
 
 [safety]

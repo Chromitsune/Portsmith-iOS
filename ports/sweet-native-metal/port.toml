@@ -10,6 +10,12 @@ upstream_commit = "67448d2151ef7520a8c4417a62a85823c62b30b5"
 status = "upstream reports working Metal-to-Vulkan/Turnip UI path; direct native-Metal backend remains experimental"
 
 [hardware]
+vendor = "Xiaomi"
+soc_vendor = "Qualcomm"
+storage = "UFS"
+gpu_family = "Qualcomm Adreno"
+boot_family = "Xiaomi ABL"
+boot_chain = "Xiaomi ABL → fastboot shim"
 gpu = "Adreno 618"
 
 [reported]

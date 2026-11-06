@@ -7,7 +7,12 @@ source = "ports/negroni/repo"
 status = "separate device port; see its pinned status/handoff docs"
 
 [hardware]
+vendor = "OnePlus"
+soc_vendor = "Qualcomm"
 storage = "UFS"
+gpu_family = "Qualcomm Adreno"
+boot_family = "OnePlus ABL"
+boot_chain = "OnePlus ABL → Mu-Silicium UEFI"
 bootloader = "OnePlus ABL with Mu-Silicium UEFI path"
 
 [safety]
