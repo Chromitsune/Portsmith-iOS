@@ -156,6 +156,10 @@
         "stability": {
           "state": "partial",
           "detail": "Experimental; no standardized stability qualification reported."
+        },
+        "cpu": {
+          "state": "reported_working",
+          "detail": "Upstream reports the XNU/iOS UI or desktop booting, which establishes CPU execution. Core count/SMP stress, sustained performance and thermals are not separately qualified."
         }
       },
       "branch": "main",
@@ -214,6 +218,10 @@
         "stability": {
           "state": "partial",
           "detail": "Experimental; upstream reports unreliable Wi-Fi and partial services."
+        },
+        "cpu": {
+          "state": "reported_working",
+          "detail": "Upstream reports the XNU/iOS UI or desktop booting, which establishes CPU execution. Core count/SMP stress, sustained performance and thermals are not separately qualified."
         }
       },
       "branch": "main",
@@ -268,6 +276,10 @@
         "stability": {
           "state": "partial",
           "detail": "Experimental; no standardized stability qualification reported."
+        },
+        "cpu": {
+          "state": "reported_working",
+          "detail": "Upstream reports the XNU/iOS UI or desktop booting, which establishes CPU execution. Core count/SMP stress, sustained performance and thermals are not separately qualified."
         }
       },
       "branch": "main",
@@ -314,6 +326,10 @@
         "stability": {
           "state": "partial",
           "detail": "Experimental; panic hold/persistent logs are reported, not a stability qualification."
+        },
+        "cpu": {
+          "state": "reported_working",
+          "detail": "Upstream reports the XNU/iOS UI or desktop booting, which establishes CPU execution. Core count/SMP stress, sustained performance and thermals are not separately qualified."
         }
       },
       "branch": "main",
@@ -364,6 +380,10 @@
         "stability": {
           "state": "partial",
           "detail": "Experimental; no standardized stability qualification reported."
+        },
+        "cpu": {
+          "state": "reported_working",
+          "detail": "Upstream reports the XNU/iOS UI or desktop booting, which establishes CPU execution. Core count/SMP stress, sustained performance and thermals are not separately qualified."
         }
       },
       "branch": "guacamole",
@@ -422,6 +442,10 @@
         "stability": {
           "state": "partial",
           "detail": "Experimental; many peripherals remain unavailable."
+        },
+        "cpu": {
+          "state": "reported_working",
+          "detail": "Upstream reports the XNU/iOS UI or desktop booting, which establishes CPU execution. Core count/SMP stress, sustained performance and thermals are not separately qualified."
         }
       },
       "branch": "herolte",
@@ -452,6 +476,10 @@
         "stability": {
           "state": "in_progress",
           "detail": "Panic-recovery outcome remains inconclusive; no stability claim."
+        },
+        "cpu": {
+          "state": "in_progress",
+          "detail": "The fixture/UEFI stage ran, but XNU/iOS handover is not verified; CPU execution in XNU is therefore still pending."
         }
       },
       "branch": "main",
@@ -510,6 +538,10 @@
         "stability": {
           "state": "partial",
           "detail": "Experimental; upstream notes installation overwrites boot/data."
+        },
+        "cpu": {
+          "state": "reported_working",
+          "detail": "Upstream reports the XNU/iOS UI or desktop booting, which establishes CPU execution. Core count/SMP stress, sustained performance and thermals are not separately qualified."
         }
       },
       "branch": "lemonadep",
@@ -548,6 +580,10 @@
         "stability": {
           "state": "partial",
           "detail": "Project is experimental and paused for the OnePlus 10 Pro track."
+        },
+        "cpu": {
+          "state": "reported_working",
+          "detail": "Upstream reports the XNU/iOS UI or desktop booting, which establishes CPU execution. Core count/SMP stress, sustained performance and thermals are not separately qualified."
         }
       },
       "branch": "main",
@@ -598,6 +634,10 @@
         "stability": {
           "state": "partial",
           "detail": "Upstream records a Jetsam event, icon issues and touch/App Switcher problems; no Portsmith stability test."
+        },
+        "cpu": {
+          "state": "reported_working",
+          "detail": "Upstream reports the XNU/iOS UI or desktop booting, which establishes CPU execution. Core count/SMP stress, sustained performance and thermals are not separately qualified."
         }
       },
       "branch": "main",
@@ -652,6 +692,10 @@
         "stability": {
           "state": "partial",
           "detail": "Experimental; not reported as a daily-use system."
+        },
+        "cpu": {
+          "state": "reported_working",
+          "detail": "Upstream reports the XNU/iOS UI or desktop booting, which establishes CPU execution. Core count/SMP stress, sustained performance and thermals are not separately qualified."
         }
       },
       "branch": "main",
@@ -714,6 +758,10 @@
         "audio": {
           "state": "in_progress",
           "detail": "Upstream lists audio among incomplete services."
+        },
+        "cpu": {
+          "state": "reported_working",
+          "detail": "Upstream reports the XNU/iOS UI or desktop booting, which establishes CPU execution. Core count/SMP stress, sustained performance and thermals are not separately qualified."
         }
       },
       "branch": "codex/native-adreno-metal",

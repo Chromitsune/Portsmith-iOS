@@ -1,6 +1,6 @@
 # Compatibility checklist workflow
 
-`ports.json` is the source of truth for the per-feature checklist. The generated [`MATRIX.md`](MATRIX.md) works in GitHub's Markdown view; [`../docs/compatibility-matrix.html`](../docs/compatibility-matrix.html) is a dependency-free interactive view with editable dropdowns. The HTML stores edits in that browser's local storage and can export them, but it does not write to GitHub or alter the checked-in source data. Open the HTML file in a browser, or serve the repository with `python3 -m http.server` and visit `/docs/compatibility-matrix.html`.
+`ports.json` is the source of truth; the rendered checklist is embedded directly in the repository's root README. [`../docs/compatibility-matrix.html`](../docs/compatibility-matrix.html) is an optional dependency-free interactive view with editable dropdowns. The HTML stores edits in that browser's local storage and can export them, but it does not write to GitHub or alter the checked-in source data. Open the HTML file in a browser, or serve the repository with `python3 -m http.server` and visit `/docs/compatibility-matrix.html`.
 
 ## Status vocabulary
 
@@ -11,7 +11,7 @@
 - **Not tested / no evidence** — Portsmith's current source notes do not provide a comparable result. It does not mean broken.
 - **Not applicable** — only when the capability genuinely does not apply to that device.
 
-Each port row includes its source URL and exact pinned revision. Filled cells include a short evidence note; the source link resolves to the pinned README/NOTES/porting record. Avoid inferring storage, CPU, power, or stability support from a successful UI alone. Do not mark a capability “working” from a compile or source implementation alone.
+Each port row includes its source URL and exact pinned revision. Filled cells include a short evidence note; the source link resolves to the pinned README/NOTES/porting record. A reported XNU/UI boot is enough to mark CPU execution as reported-working, but not to claim SMP/core-count or sustained-performance qualification. Do not infer storage, power, or stability support from a successful UI alone, and do not mark a capability working from a compile or source implementation alone.
 
 ## Sweet source distinction
 
