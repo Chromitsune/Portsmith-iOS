@@ -455,3 +455,29 @@ upstream_file = "UPSTREAM.toml"
 source_mode = "vendored-snapshot"
 
 # END generated component source pins
+
+[[source]]
+name = "UniXNU-devices-catalog"
+revision = "e2fdae4312d0acc3d8a52bc457101e7918095e6a"
+path = "ports/catalog"
+upstream = "https://github.com/UniXNU/UniXNU"
+source_mode = "vendored-snapshot"
+source_file = "unixnu-devices.toml"
+upstream_file = "UPSTREAM.toml"
+license_file = "LICENSE"
+license = "BSD-2-Clause-Patent"
+maintainer = "UniXNU contributors"
+role = "Metadata snapshot of all 265 UniXNU device-catalog repository records; not device verification or source code imports"
+
+[[source]]
+name = "UniXNU-devices-catalog"
+revision = "e2fdae4312d0acc3d8a52bc457101e7918095e6a"
+path = "ports/catalog"
+upstream = "https://github.com/UniXNU/UniXNU"
+source_mode = "vendored-snapshot"
+source_file = "unixnu-devices.toml"
+upstream_file = "UPSTREAM.toml"
+license_file = "LICENSE"
+license = "BSD-2-Clause-Patent"
+maintainer = "UniXNU contributors"
+role = "Snapshot of all 265 UniXNU device-catalog repo records; metadata only, not source code imports or Portsmith verification"

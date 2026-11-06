@@ -1,0 +1,6 @@
+[upstream]
+repository = "https://github.com/UniXNU/UniXNU"
+revision = "e2fdae4312d0acc3d8a52bc457101e7918095e6a"
+source_path = "devices.toml"
+license = "BSD-2-Clause-Patent"
+source_mode = "vendored-snapshot"

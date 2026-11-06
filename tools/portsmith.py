@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
-"""Read-only Portsmith workspace inventory, pin validation, and host-tool check."""
+"""Read-only Portsmith port/device catalog, pin validation, and host-tool check."""
 from __future__ import annotations
 
 import argparse
+from collections import Counter
 import shutil
 import subprocess
 import sys
@@ -277,6 +278,81 @@ def cmd_components(_: argparse.Namespace) -> int:
     return 0
 
 
+
+def device_catalog_records(root: Path = ROOT) -> list[dict]:
+    path = root / "ports/catalog/unixnu-devices.toml"
+    return read_toml(path).get("device", [])
+
+
+def cmd_device_catalog(args: argparse.Namespace) -> int:
+    records = device_catalog_records()
+    states: dict[str, int] = {}
+    formats: dict[str, int] = {}
+    boards: set[str] = set()
+    board_counts: dict[str, int] = {}
+    socs: set[str] = set()
+    repositories: set[str] = set()
+    owners: set[str] = set()
+    repo_basenames: Counter[str] = Counter()
+    unlabelled_soc = 0
+    missing_board = 0
+    for d in records:
+        state = d.get("record_state") or "unspecified"
+        states[state] = states.get(state, 0) + 1
+        fmt = str(d.get("format", "unknown"))
+        formats[fmt] = formats.get(fmt, 0) + 1
+        repo = str(d.get("repository", "")).casefold()
+        if repo:
+            repositories.add(repo)
+            owner, _, basename = repo.partition("/")
+            owners.add(owner)
+            repo_basenames[basename or owner] += 1
+        if d.get("soc"):
+            socs.add(d["soc"])
+        else:
+            unlabelled_soc += 1
+        if d.get("board"):
+            boards.add(d["board"])
+            board_counts[d["board"]] = board_counts.get(d["board"], 0) + 1
+        else:
+            missing_board += 1
+    if args.summary or not (args.state or args.soc or args.search):
+        print(f"UniXNU device-catalog snapshot: {len(records)} repository records, {len(socs)} named SoC labels ({unlabelled_soc} unlabeled), {len(boards)} board/codename values ({missing_board} records omit board)")
+        print("Formats: " + ", ".join(f"{k}={v}" for k, v in sorted(formats.items())))
+        print("Record state counts: " + ", ".join(f"{k}={v}" for k, v in sorted(states.items())))
+        print(f"Repository identities: {len(repositories)} unique URLs, {len(owners)} owners, {len(repo_basenames)} short names; repeated short names: {sum(v > 1 for v in repo_basenames.values())}")
+        print(f"Boards with multiple repository records: {sum(v > 1 for v in board_counts.values())}")
+        print("Upstream `available` is catalog metadata only, not a Portsmith build/boot/verification result.")
+        if not (args.state or args.soc or args.search):
+            print("Filter with --state, --soc, or --search to list repository records.")
+            return 0
+    query = (args.search or "").casefold()
+    matches = []
+    for d in records:
+        state = d.get("record_state") or "unspecified"
+        if args.state and state != args.state:
+            continue
+        if args.soc and args.soc.casefold() not in str(d.get("soc", "")).casefold():
+            continue
+        haystack = " ".join(str(d.get(k, "")) for k in ("name", "title", "board", "soc", "repository"))
+        if query and query not in haystack.casefold():
+            continue
+        matches.append(d)
+    print(f"Matches: {len(matches)}")
+    limit = None if args.all else args.limit
+    for d in matches[:limit]:
+        state = d.get("record_state") or "unspecified"
+        repo = d.get("repository", "?")
+        rev = d.get("revision", "?")
+        components = ", ".join(d.get("components", []))
+        print(f"- {d.get('name', '?')}: {d.get('title', '?')} | {d.get('soc', '?')} | {state}")
+        print(f"  {repo}@{rev}")
+        if components:
+            print(f"  components: {components}")
+    if limit is not None and len(matches) > limit:
+        print(f"(showing first {limit}; use --all to list all matches)")
+    return 0
+
 def cmd_doctor(_: argparse.Namespace) -> int:
     """Report host tools only; does not probe or control a phone."""
     required = ("git", "python3")
@@ -307,6 +383,7 @@ def main() -> int:
         ("ports", cmd_ports, "list ports, optionally grouped by hardware family"),
         ("sources", cmd_sources, "show pinned source revisions and upstream URLs"),
         ("components", cmd_components, "list shared component families and compatible ports"),
+        ("device-catalog", cmd_device_catalog, "query the full upstream UniXNU device-catalog snapshot"),
         ("check", cmd_check, "validate manifests, source pins, component references, and local checkouts"),
         ("doctor", cmd_doctor, "check host tools only; never probes a device"),
     ):
@@ -314,6 +391,13 @@ def main() -> int:
         if name == "ports":
             p.add_argument("--group-by", choices=("vendor", "soc", "storage", "gpu", "bootloader"),
                            help="group port manifests by a hardware field")
+        if name == "device-catalog":
+            p.add_argument("--summary", action="store_true", help="show record-state and coverage counts")
+            p.add_argument("--state", choices=("available", "invalid", "missing", "unspecified"), help="filter by upstream catalog record_state")
+            p.add_argument("--soc", help="filter by SoC label or substring")
+            p.add_argument("--search", help="search codenames, titles, boards, SoCs, and repository names")
+            p.add_argument("--limit", type=int, default=50, help="maximum records to print (default 50)")
+            p.add_argument("--all", action="store_true", help="print all matches instead of limiting output")
         p.set_defaults(func=func)
     args = parser.parse_args()
     return args.func(args)

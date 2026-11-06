@@ -38,6 +38,10 @@ The rationale and evidence comparison for selecting sheng is in [`selection.md`]
 
 The `herolte` repository also contains early A5XELTE work on a different Exynos/eMMC device; it is not the same board as the Galaxy S7 port.
 
+## Full upstream catalog
+
+The complete UniXNU device-record list is indexed separately in [`catalog/`](catalog/README.md). Its 265 entries are metadata references; they are not all Portsmith-managed ports or verified devices.
+
 ## Shared framework
 
 The common UniXNU framework is in `sources/UniXNU`; it is not a device port. Shared component families and compatibility limits are cataloged in [`../components/`](../components/). Do not copy board configuration or drivers across ports without a source-level compatibility review.

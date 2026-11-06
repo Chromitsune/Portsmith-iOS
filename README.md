@@ -33,9 +33,21 @@ Do **not** add `--recursive`; see [`sources/README.md`](sources/README.md) for a
 - `tools/` — cross-port utilities. `tools/portsmith.py` inventories ports, groups them by vendor/SoC/storage/GPU/bootloader, lists shared components, checks source pins, and reports host tools without touching a device. `tools/portsmith-image-tools` contains a reviewed, MIT-licensed subset adapted from iOSPlus10's generic image/IPSW tooling; Negroni-only `ctl` and `bootlog` commands are intentionally excluded.
 - `docs/` — design notes and contribution/evidence conventions.
 
+## Repository scope
+
+Portsmith is a research/coordination workspace for XNU/iOS bring-up on non-Apple ARM64 hardware—not a universal OS image or a claim that every catalog entry works.
+
+- **12 Portsmith-managed port records** have agent notes, a pinned source/snapshot, hardware metadata, safety rules, and a compatibility checklist entry. These are curated workspace records, not all devices known to the community.
+- **All 265 repository records from the pinned UniXNU device catalog** are indexed as metadata in [`ports/catalog/unixnu-devices.toml`](ports/catalog/unixnu-devices.toml): 150 legacy format 1 and 115 format 2; 79 marked `available`, 25 `invalid`, 11 `missing`, and 150 with no state. There are 52 named SoC values (one unlabeled), 122 board/codename values, and 48 repeated-board groups (179 records). All 265 owner/repository identities are distinct, but many are alternate repositories for the same board. For format 2, `available` means its upstream record validated—not that the source builds or the device works.
+- **Shared code:** 25 license-audited UniXNU component snapshots plus the MT8167-only NativeMsdc eMMC reference live under `components/`. Two UniXNU component repos remain catalog-only pending license/provenance review. This code is grouped by function/hardware scope and is not assumed to be portable.
+- **Evidence and automation:** the README checklist records per-feature upstream reports against exact source pins; host tools validate source/manifest consistency and a weekly watcher opens review PRs when upstream branches move. New commits never automatically become “working” statuses.
+- **Not included:** firmware, IPSWs, device dumps, keys, or generated images; full source checkouts for all 265 device records are not mirrored. Additional full ports are added only after source/license, duplicate-device, safety, and evidence review.
+
+Browse/search the full upstream device index with `python3 tools/portsmith.py device-catalog --summary`, `--state available`, `--soc SM8550`, or `--search sheng`. The live Portsmith-managed port list is separate: `python3 tools/portsmith.py ports --group-by <vendor|soc|storage|gpu|bootloader>`.
+
 ## Initial source set
 
-See [`ports/README.md`](ports/README.md), [`sources/README.md`](sources/README.md), and [`sources/manifest.toml`](sources/manifest.toml) for port folders, upstream maintainers, licenses, and pinned revisions. Each port folder contains its original README; most codebases are pinned submodules, while Dada is a vendored snapshot with an upstream commit recorded.
+See [`ports/README.md`](ports/README.md), [`ports/catalog/README.md`](ports/catalog/README.md), [`sources/README.md`](sources/README.md), and [`sources/manifest.toml`](sources/manifest.toml) for port folders, the complete UniXNU device-record snapshot, upstream maintainers, licenses, and pinned revisions. Each port folder contains its original README; most codebases are pinned submodules, while Dada is a vendored snapshot with an upstream commit recorded.
 
 ## Compatibility checklist
 
