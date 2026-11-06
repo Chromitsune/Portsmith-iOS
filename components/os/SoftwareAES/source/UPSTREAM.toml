@@ -1,0 +1,5 @@
+[upstream]
+repository = "https://github.com/UniXNU/SoftwareAES.git"
+revision = "4a45326da5c2cd6fe6813d79ee43db20805628af"
+license = "BSD-2-Clause-Patent"
+source_mode = "vendored-snapshot"

@@ -1,0 +1,5 @@
+[upstream]
+repository = "https://github.com/UniXNU/VirtioMmioBlock.git"
+revision = "4e1013eb8c45077b57f8d38d61b389fe899ea1c3"
+license = "BSD-2-Clause-Patent"
+source_mode = "vendored-snapshot"

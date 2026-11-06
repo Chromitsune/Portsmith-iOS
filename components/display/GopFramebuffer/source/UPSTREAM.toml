@@ -1,0 +1,5 @@
+[upstream]
+repository = "https://github.com/UniXNU/GopFramebuffer.git"
+revision = "e47c1b8de169cd2bd0b885c7d85e433010e3cdf2"
+license = "BSD-2-Clause-Patent"
+source_mode = "vendored-snapshot"

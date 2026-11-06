@@ -1,0 +1,12 @@
+[component]
+id = "NativeMsdc"
+scope = "storage"
+kind = "driver"
+function = "MediaTek MT8167 MSDC0 eMMC block driver"
+repository = "https://github.com/mouseos/NativeMsdc"
+revision = "e718d5d7bde7f6986cd9a7b425c82c50a4dcc3b8"
+upstream_path = "NativeMsdc.cpp"
+license = "BSD-2-Clause-Patent"
+reuse_status = "vendored snapshot; MT8167 only; current code not device-booted"
+hardware = ["MediaTek MT8167 MSDC0", "eMMC"]
+dependencies = ["XNU IOStorageFamily ABI", "optional NativeRamBlock / VerifiedRoot"]

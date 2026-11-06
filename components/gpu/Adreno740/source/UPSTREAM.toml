@@ -1,0 +1,5 @@
+[upstream]
+repository = "https://github.com/UniXNU/Adreno740.git"
+revision = "6fa7bae2a5b3b523e790eb3e0348af4d98969e4d"
+license = "MIT"
+source_mode = "vendored-snapshot"

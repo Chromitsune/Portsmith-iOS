@@ -1,0 +1,20 @@
+[component]
+id = "DarwinBoot"
+scope = "firmware"
+kind = "driver"
+function = "UEFI XNU loader"
+repository = "https://github.com/UniXNU/DarwinBoot.git"
+revision = "3c75734014cdab0acd9541e88057b7606ee7ae08"
+upstream_path = "drivers/DarwinBoot"
+license = "BSD-2-Clause-Patent"
+reuse_status = "vendored upstream snapshot; review hardware scope before reuse"
+hardware = ["ARM64 UEFI"]
+os_abi = []
+board_dependencies = []
+verified_devices = []
+dependencies = []
+source_files = []
+runtime_identifiers = []
+build_stage = "firmware"
+build = []
+outputs = []

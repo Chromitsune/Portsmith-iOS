@@ -1,0 +1,20 @@
+[component]
+id = "ArmVirtPlatform"
+scope = "platform"
+kind = "driver"
+function = "QEMU virt platform expert"
+repository = "https://github.com/UniXNU/ArmVirtPlatform.git"
+revision = "d1423a8bceac4be0478a93d9173587111c040084"
+upstream_path = "drivers/ArmVirtPlatform"
+license = "BSD-2-Clause-Patent"
+reuse_status = "vendored upstream snapshot; review hardware scope before reuse"
+hardware = ["QEMU virt ARM64"]
+os_abi = ["ipados-17.7.11-21H461"]
+board_dependencies = []
+verified_devices = []
+dependencies = []
+source_files = ["ArmVirtPlatform.cpp"]
+runtime_identifiers = ["ArmVirtPlatform.cpp", "org.blu-sharky.ArmVirtPlatform", "ArmVirtPlatform"]
+build_stage = "kernel"
+build = ["build-arm-driver.py", "ArmVirtPlatform"]
+outputs = ["build/armvirt-platform/libArmVirtPlatform.a"]

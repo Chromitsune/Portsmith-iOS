@@ -1,0 +1,5 @@
+[upstream]
+repository = "https://github.com/UniXNU/ShengHidInput.git"
+revision = "71a40e76daeae1bb4127546f96ffa7339c7a06ff"
+license = "BSD-2-Clause-Patent"
+source_mode = "vendored-snapshot"

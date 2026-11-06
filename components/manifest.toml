@@ -1,4 +1,4 @@
-# Reuse catalog. References point to source locations; no driver code is copied here.
+# Cross-port family index. Audited code snapshots and per-source metadata are in components/imported.toml.
 
 [[component]]
 id = "storage.emmc-sdhci"
@@ -14,17 +14,18 @@ status = "Lavender XNU block-storage driver is not yet device-verified"
 id = "storage.ufs"
 category = "storage"
 media = "UFS"
-ports = ["sweet", "sweet-native-metal", "flame", "starqltechn", "guacamole", "lemonadep", "apollo", "negroni", "herolte", "dada"]
+ports = ["sweet", "sweet-native-metal", "flame", "starqltechn", "guacamole", "lemonadep", "apollo", "negroni", "herolte", "dada", "sheng"]
+source_paths = ["components/board/ShengUfs/source"]
 shared_layer = "block I/O interface, LUN/GPT handling and filesystem glue"
 board_specific = "UFSHCI revision, PHY, clocks, resets, SMMU/DMA, firmware and bootloader handoff"
-status = "Multiple port-specific implementations; no universal UFS driver has been qualified across this set"
+status = "Multiple port-specific implementations; no universal UFS driver has been qualified across this set; sheng uses a board-specific SM8550 implementation"
 
 [[component]]
 id = "storage.ramblock-virtio"
 category = "storage"
 media = "RAM block device / virtio-mmio block"
-ports = ["lavender"]
-source_paths = ["sources/UniXNU/drivers/RamBlock", "sources/UniXNU/drivers/VirtioMmioBlock"]
+ports = ["lavender", "sheng"]
+source_paths = ["components/storage/RamBlock/source", "components/protocol/VirtioMmioBlock/source"]
 shared_layer = "test-root and block-device interfaces"
 board_specific = "memory ownership, UEFI/virtio transport, DMA mapping and lifetime"
 status = "Shared UniXNU components; per-board selection and memory contract still required"
@@ -33,7 +34,8 @@ status = "Shared UniXNU components; per-board selection and memory contract stil
 id = "graphics.adreno"
 category = "gpu"
 media = "Qualcomm Adreno"
-ports = ["sweet", "sweet-native-metal", "flame", "guacamole", "lemonadep", "apollo", "negroni", "dada"]
+ports = ["sweet", "sweet-native-metal", "flame", "guacamole", "lemonadep", "apollo", "negroni", "dada", "sheng"]
+source_paths = ["components/gpu/Adreno740/source", "components/graphics/AdrenoMetal/source", "components/gpu/AdrenoPM4/source", "components/gpu/AdrenoFirmware/source", "components/soc/Sm8550Platform/source"]
 shared_layer = "possible common command/shader translation concepts (Mesa/freedreno/Turnip); verify GPU generation and ABI"
 board_specific = "GMU, firmware, clocks, SMMU, memory pools, command processor and display integration"
 status = "Generation-specific paths; API translation does not make hardware drivers interchangeable"

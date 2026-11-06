@@ -1,0 +1,585 @@
+# Generated from pinned UniXNU components.toml plus the NativeMsdc eMMC reference.
+# Component copyrights/licenses remain individual; see each source/ and components/CREDITS.md.
+
+[[component]]
+id = "unixnu.ArmCpu"
+category = "arm64"
+media = "ARM generic interrupt controller and timer"
+ports = ["sheng"]
+source_paths = ["components/arm64/ArmCpu/source"]
+upstream_repository = "https://github.com/UniXNU/ArmCpu.git"
+revision = "93a5030c5d983d0ef90f0fca93879d6e36ad1ba8"
+upstream_path = "drivers/ArmCpu"
+source_owner = "UniXNU"
+license = "BSD-2-Clause-Patent"
+license_status = "root license inspected at exact pinned revision; original LICENSE/NOTICE retained"
+reuse_status = "vendored source snapshot; Portsmith compatibility not asserted"
+status = "Upstream component source snapshot; license audited at exact pin; not Portsmith-qualified"
+hardware = ["ARM GICv3", "ARM generic timer"]
+os_abi = ["ipados-17.7.11-21H461"]
+board_dependencies = []
+dependencies = []
+upstream_verified_devices = []
+upstream_selected_by = ["sheng"]
+
+[[component]]
+id = "unixnu.ArmDTPlatform"
+category = "arm64"
+media = "Device-tree platform expert"
+ports = ["sheng"]
+source_paths = ["components/arm64/ArmDTPlatform/source"]
+upstream_repository = "https://github.com/UniXNU/ArmDTPlatform.git"
+revision = "417ff95d6a6e8607ddea9309ec45c3bfd4a67c60"
+upstream_path = "drivers/ArmDTPlatform"
+source_owner = "UniXNU"
+license = "BSD-2-Clause-Patent"
+license_status = "root license inspected at exact pinned revision; original LICENSE/NOTICE retained"
+reuse_status = "vendored source snapshot; Portsmith compatibility not asserted"
+status = "Upstream component source snapshot; license audited at exact pin; not Portsmith-qualified"
+hardware = ["ARM64"]
+os_abi = ["ipados-17.7.11-21H461"]
+board_dependencies = []
+dependencies = []
+upstream_verified_devices = []
+upstream_selected_by = ["sheng"]
+
+[[component]]
+id = "unixnu.ArmVirtPlatform"
+category = "platform"
+media = "QEMU virt platform expert"
+ports = []
+source_paths = ["components/platform/ArmVirtPlatform/source"]
+upstream_repository = "https://github.com/UniXNU/ArmVirtPlatform.git"
+revision = "d1423a8bceac4be0478a93d9173587111c040084"
+upstream_path = "drivers/ArmVirtPlatform"
+source_owner = "UniXNU"
+license = "BSD-2-Clause-Patent"
+license_status = "root license inspected at exact pinned revision; original LICENSE/NOTICE retained"
+reuse_status = "vendored source snapshot; Portsmith compatibility not asserted"
+status = "Upstream component source snapshot; license audited at exact pin; not Portsmith-qualified"
+hardware = ["QEMU virt ARM64"]
+os_abi = ["ipados-17.7.11-21H461"]
+board_dependencies = []
+dependencies = []
+upstream_verified_devices = []
+upstream_selected_by = []
+
+[[component]]
+id = "unixnu.DarwinBoot"
+category = "firmware"
+media = "UEFI XNU loader"
+ports = ["sheng"]
+source_paths = ["components/firmware/DarwinBoot/source"]
+upstream_repository = "https://github.com/UniXNU/DarwinBoot.git"
+revision = "3c75734014cdab0acd9541e88057b7606ee7ae08"
+upstream_path = "drivers/DarwinBoot"
+source_owner = "UniXNU"
+license = "BSD-2-Clause-Patent"
+license_status = "root license inspected at exact pinned revision; original LICENSE/NOTICE retained"
+reuse_status = "vendored source snapshot; Portsmith compatibility not asserted"
+status = "Upstream component source snapshot; license audited at exact pin; not Portsmith-qualified"
+hardware = ["ARM64 UEFI"]
+os_abi = []
+board_dependencies = []
+dependencies = []
+upstream_verified_devices = []
+upstream_selected_by = ["sheng"]
+
+[[component]]
+id = "unixnu.Adreno740"
+category = "gpu"
+media = "A740 kernel GPU driver"
+ports = ["sheng"]
+source_paths = ["components/gpu/Adreno740/source"]
+upstream_repository = "https://github.com/UniXNU/Adreno740.git"
+revision = "6fa7bae2a5b3b523e790eb3e0348af4d98969e4d"
+upstream_path = "drivers/Adreno740"
+source_owner = "UniXNU"
+license = "MIT"
+license_status = "root license inspected at exact pinned revision; original LICENSE/NOTICE retained"
+reuse_status = "vendored source snapshot; Portsmith compatibility not asserted"
+status = "Upstream component source snapshot; license audited at exact pin; not Portsmith-qualified"
+hardware = ["Adreno 740", "SM8550"]
+os_abi = ["ipados-17.7.11-21H461"]
+board_dependencies = ["ZAP firmware", "GPU power policy", "reserved memory"]
+dependencies = ["Sm8550Platform", "AdrenoPM4", "AdrenoFirmware", "ArmSmmu4K"]
+upstream_verified_devices = ["sheng"]
+upstream_selected_by = ["sheng"]
+
+[[component]]
+id = "unixnu.AdrenoMetal"
+category = "graphics"
+media = "Metal frontend through metal2vulkan and Turnip"
+ports = ["sheng"]
+source_paths = ["components/graphics/AdrenoMetal/source"]
+upstream_repository = "https://github.com/UniXNU/AdrenoMetal.git"
+revision = "6416a76e0a287d85afbcddda21192388460e155c"
+upstream_path = "drivers/AdrenoMetal"
+source_owner = "UniXNU"
+license = "MIT"
+license_status = "root license inspected at exact pinned revision; original LICENSE/NOTICE retained"
+reuse_status = "vendored source snapshot; Portsmith compatibility not asserted"
+status = "Upstream component source snapshot; license audited at exact pin; not Portsmith-qualified"
+hardware = ["Turnip Darwin backend", "kernel GPU user-client ABI"]
+os_abi = ["ipados-17.7.11-21H461"]
+board_dependencies = ["display integration", "shader cache"]
+dependencies = ["Adreno740", "AdrenoPM4"]
+upstream_verified_devices = ["sheng"]
+upstream_selected_by = ["sheng"]
+
+[[component]]
+id = "unixnu.ShengUfs"
+category = "board"
+media = "SM8550 UFS transport and sheng persistent storage"
+ports = ["sheng"]
+source_paths = ["components/board/ShengUfs/source"]
+upstream_repository = "https://github.com/UniXNU/ShengUfs.git"
+revision = "99d8bcd3e43dd24fc3c8437c67b5d4cc71ab94d0"
+upstream_path = "drivers/ShengUfs"
+source_owner = "UniXNU"
+license = "BSD-2-Clause"
+license_status = "root license inspected at exact pinned revision; original LICENSE/NOTICE retained"
+reuse_status = "vendored source snapshot; Portsmith compatibility not asserted"
+status = "Upstream component source snapshot; license audited at exact pin; not Portsmith-qualified"
+hardware = ["SM8550 UFS controller"]
+os_abi = ["ipados-17.7.11-21H461"]
+board_dependencies = ["sheng userdata layout", "SM8550 clocks and SMMU"]
+dependencies = ["VirtioMmioBlock", "VerifiedRoot"]
+upstream_verified_devices = ["sheng"]
+upstream_selected_by = ["sheng"]
+
+[[component]]
+id = "unixnu.ShengHidInput"
+category = "board"
+media = "sheng touch input through IOHIDDevice"
+ports = []
+source_paths = ["components/board/ShengHidInput/source"]
+upstream_repository = "https://github.com/UniXNU/ShengHidInput.git"
+revision = "71a40e76daeae1bb4127546f96ffa7339c7a06ff"
+upstream_path = "drivers/ShengHidInput"
+source_owner = "UniXNU"
+license = "BSD-2-Clause-Patent"
+license_status = "root license inspected at exact pinned revision; original LICENSE/NOTICE retained"
+reuse_status = "vendored source snapshot; Portsmith compatibility not asserted"
+status = "Upstream component source snapshot; license audited at exact pin; not Portsmith-qualified"
+hardware = ["sheng touch event source"]
+os_abi = ["ipados-17.7.11-21H461"]
+board_dependencies = ["touch coordinates and event globals"]
+dependencies = ["ShengNovatekTouch"]
+upstream_verified_devices = ["sheng"]
+upstream_selected_by = []
+
+[[component]]
+id = "unixnu.ShengNovatekTouch"
+category = "board"
+media = "NT36532 touch protocol and sheng sensor configuration"
+ports = []
+source_paths = ["components/board/ShengNovatekTouch/source"]
+upstream_repository = "https://github.com/UniXNU/ShengNovatekTouch.git"
+revision = "3b44b1b7603eaadae942ea44ddc51bdcc48ad060"
+upstream_path = "drivers/ShengNovatekTouch"
+source_owner = "UniXNU"
+license = "Apache-2.0"
+license_status = "root license inspected at exact pinned revision; original LICENSE/NOTICE retained"
+reuse_status = "vendored source snapshot; Portsmith compatibility not asserted"
+status = "Upstream component source snapshot; license audited at exact pin; not Portsmith-qualified"
+hardware = ["Novatek NT36532/NT36532E"]
+os_abi = ["ipados-17.7.11-21H461"]
+board_dependencies = ["sheng sensor matrix and coordinates"]
+dependencies = ["QcomGeniSpi"]
+upstream_verified_devices = ["sheng"]
+upstream_selected_by = []
+
+[[component]]
+id = "unixnu.QcomGeniSpi"
+category = "controller"
+media = "Qualcomm GENI SPI controller operations"
+ports = []
+source_paths = ["components/controller/QcomGeniSpi/source"]
+upstream_repository = "https://github.com/UniXNU/QcomGeniSpi.git"
+revision = "eac47baefe6a5d2368a70351e6ad1b6361bedbe2"
+upstream_path = "drivers/QcomGeniSpi"
+source_owner = "UniXNU"
+license = "BSD-2-Clause-Patent"
+license_status = "root license inspected at exact pinned revision; original LICENSE/NOTICE retained"
+reuse_status = "vendored source snapshot; Portsmith compatibility not asserted"
+status = "Upstream component source snapshot; license audited at exact pin; not Portsmith-qualified"
+hardware = ["Qualcomm GENI SPI"]
+os_abi = ["ipados-17.7.11-21H461"]
+board_dependencies = ["MMIO and DMA callbacks", "clocks and pins"]
+dependencies = []
+upstream_verified_devices = []
+upstream_selected_by = []
+
+[[component]]
+id = "unixnu.GopFramebuffer"
+category = "display"
+media = "UEFI GOP framebuffer and MobileFramebuffer integration"
+ports = ["sheng"]
+source_paths = ["components/display/GopFramebuffer/source"]
+upstream_repository = "https://github.com/UniXNU/GopFramebuffer.git"
+revision = "e47c1b8de169cd2bd0b885c7d85e433010e3cdf2"
+upstream_path = "drivers/GopFramebuffer"
+source_owner = "UniXNU"
+license = "BSD-2-Clause-Patent"
+license_status = "root license inspected at exact pinned revision; original LICENSE/NOTICE retained"
+reuse_status = "vendored source snapshot; Portsmith compatibility not asserted"
+status = "Upstream component source snapshot; license audited at exact pin; not Portsmith-qualified"
+hardware = ["UEFI GOP framebuffer"]
+os_abi = ["ipados-17.7.11-21H461", "ipados-27.0.1-24A446"]
+board_dependencies = ["framebuffer handoff", "display power hooks"]
+dependencies = []
+upstream_verified_devices = ["sheng"]
+upstream_selected_by = ["sheng"]
+
+[[component]]
+id = "unixnu.SoftwareAES"
+category = "os"
+media = "Software AES-CBC through IOAESAccelerator"
+ports = []
+source_paths = ["components/os/SoftwareAES/source"]
+upstream_repository = "https://github.com/UniXNU/SoftwareAES.git"
+revision = "4a45326da5c2cd6fe6813d79ee43db20805628af"
+upstream_path = "drivers/SoftwareAES"
+source_owner = "UniXNU"
+license = "BSD-2-Clause-Patent"
+license_status = "root license inspected at exact pinned revision; original LICENSE/NOTICE retained"
+reuse_status = "vendored source snapshot; Portsmith compatibility not asserted"
+status = "Upstream component source snapshot; license audited at exact pin; not Portsmith-qualified"
+hardware = ["XNU AES routines"]
+os_abi = ["ipados-17.7.11-21H461"]
+board_dependencies = []
+dependencies = []
+upstream_verified_devices = []
+upstream_selected_by = []
+
+[[component]]
+id = "unixnu.AppleKeyStoreState"
+category = "os"
+media = "AppleKeyStore state and selector handling"
+ports = ["sheng"]
+source_paths = ["components/os/AppleKeyStoreState/source"]
+upstream_repository = "https://github.com/UniXNU/AppleKeyStoreState.git"
+revision = "8c70daf814aafdf4a3d35e40dde0322655fd0a83"
+upstream_path = "drivers/AppleKeyStoreState"
+source_owner = "UniXNU"
+license = "BSD-2-Clause-Patent"
+license_status = "root license inspected at exact pinned revision; original LICENSE/NOTICE retained"
+reuse_status = "vendored source snapshot; Portsmith compatibility not asserted"
+status = "Upstream component source snapshot; license audited at exact pin; not Portsmith-qualified"
+hardware = ["AppleKeyStore ABI"]
+os_abi = ["ipados-17.7.11-21H461", "ipados-27.0.1-24A446"]
+board_dependencies = ["platform state callbacks"]
+dependencies = []
+upstream_verified_devices = []
+upstream_selected_by = ["sheng"]
+
+[[component]]
+id = "unixnu.RamBlock"
+category = "storage"
+media = "RAM-backed block device and sparse seed storage"
+ports = ["sheng"]
+source_paths = ["components/storage/RamBlock/source"]
+upstream_repository = "https://github.com/UniXNU/RamBlock.git"
+revision = "4be2d7eb05ef5a98126c91e0302c149140c0e3e1"
+upstream_path = "drivers/RamBlock"
+source_owner = "UniXNU"
+license = "BSD-2-Clause-Patent"
+license_status = "root license inspected at exact pinned revision; original LICENSE/NOTICE retained"
+reuse_status = "vendored source snapshot; Portsmith compatibility not asserted"
+status = "Upstream component source snapshot; license audited at exact pin; not Portsmith-qualified"
+hardware = ["RAM block backing"]
+os_abi = ["ipados-17.7.11-21H461"]
+board_dependencies = ["optional persistent storage backend"]
+dependencies = []
+upstream_verified_devices = []
+upstream_selected_by = ["sheng"]
+
+[[component]]
+id = "unixnu.VirtioMmioBlock"
+category = "protocol"
+media = "VirtIO MMIO read-only block transport"
+ports = []
+source_paths = ["components/protocol/VirtioMmioBlock/source"]
+upstream_repository = "https://github.com/UniXNU/VirtioMmioBlock.git"
+revision = "4e1013eb8c45077b57f8d38d61b389fe899ea1c3"
+upstream_path = "drivers/VirtioMmioBlock"
+source_owner = "UniXNU"
+license = "BSD-2-Clause-Patent"
+license_status = "root license inspected at exact pinned revision; original LICENSE/NOTICE retained"
+reuse_status = "vendored source snapshot; Portsmith compatibility not asserted"
+status = "Upstream component source snapshot; license audited at exact pin; not Portsmith-qualified"
+hardware = ["VirtIO 1.2 modern MMIO split queues"]
+os_abi = ["ipados-17.7.11-21H461"]
+board_dependencies = []
+dependencies = []
+upstream_verified_devices = []
+upstream_selected_by = []
+
+[[component]]
+id = "unixnu.VirtioMmioConsole"
+category = "protocol"
+media = "VirtIO MMIO console transport"
+ports = []
+source_paths = ["components/protocol/VirtioMmioConsole/source"]
+upstream_repository = "https://github.com/UniXNU/VirtioMmioConsole.git"
+revision = "70253216890b2afcaa6333948726f896f84fc757"
+upstream_path = "drivers/VirtioMmioConsole"
+source_owner = "UniXNU"
+license = "BSD-2-Clause-Patent"
+license_status = "root license inspected at exact pinned revision; original LICENSE/NOTICE retained"
+reuse_status = "vendored source snapshot; Portsmith compatibility not asserted"
+status = "Upstream component source snapshot; license audited at exact pin; not Portsmith-qualified"
+hardware = ["VirtIO 1.2 modern MMIO split queues"]
+os_abi = ["ipados-17.7.11-21H461"]
+board_dependencies = []
+dependencies = []
+upstream_verified_devices = []
+upstream_selected_by = []
+
+[[component]]
+id = "unixnu.XnuPrelink"
+category = "tool"
+media = "XNU kernelcache prelink and ABI inspection"
+ports = ["sheng"]
+source_paths = ["components/tool/XnuPrelink/source"]
+upstream_repository = "https://github.com/UniXNU/XnuPrelink.git"
+revision = "ef4fe4f9ec59faa04eba24025bac0fa2985dbe5b"
+upstream_path = "kits/XnuPrelink"
+source_owner = "UniXNU"
+license = "BSD-2-Clause-Patent"
+license_status = "root license inspected at exact pinned revision; original LICENSE/NOTICE retained"
+reuse_status = "vendored source snapshot; Portsmith compatibility not asserted"
+status = "Upstream component source snapshot; license audited at exact pin; not Portsmith-qualified"
+hardware = []
+os_abi = []
+board_dependencies = []
+dependencies = []
+upstream_verified_devices = []
+upstream_selected_by = ["sheng"]
+
+[[component]]
+id = "unixnu.AdrenoPM4"
+category = "gpu"
+media = "Adreno PM4 packet encoding and A740 command helpers"
+ports = []
+source_paths = ["components/gpu/AdrenoPM4/source"]
+upstream_repository = "https://github.com/UniXNU/AdrenoPM4.git"
+revision = "282606b528b2595bc4274ea7490b62b323f35a5f"
+upstream_path = "kits/AdrenoPM4"
+source_owner = "UniXNU"
+license = "MIT"
+license_status = "root license inspected at exact pinned revision; original LICENSE/NOTICE retained"
+reuse_status = "vendored source snapshot; Portsmith compatibility not asserted"
+status = "Upstream component source snapshot; license audited at exact pin; not Portsmith-qualified"
+hardware = ["Adreno packet type 4 and 7", "A740 command layouts"]
+os_abi = []
+board_dependencies = []
+dependencies = []
+upstream_verified_devices = []
+upstream_selected_by = []
+
+[[component]]
+id = "unixnu.AdrenoFirmware"
+category = "gpu"
+media = "Adreno firmware and HFI protocol support"
+ports = []
+source_paths = ["components/gpu/AdrenoFirmware/source"]
+upstream_repository = "https://github.com/UniXNU/AdrenoFirmware.git"
+revision = "20ad3d7aca14bd46aecab6335c780f5413fa054b"
+upstream_path = "kits/AdrenoFirmware"
+source_owner = "UniXNU"
+license = "BSD-2-Clause-Patent"
+license_status = "root license inspected at exact pinned revision; original LICENSE/NOTICE retained"
+reuse_status = "vendored source snapshot; Portsmith compatibility not asserted"
+status = "Upstream component source snapshot; license audited at exact pin; not Portsmith-qualified"
+hardware = ["Adreno A6xx/A7xx HFI"]
+os_abi = []
+board_dependencies = ["platform firmware and startup inputs"]
+dependencies = []
+upstream_verified_devices = []
+upstream_selected_by = []
+
+[[component]]
+id = "unixnu.ArmSmmu4K"
+category = "controller"
+media = "ARM SMMU translation with 4 KiB pages"
+ports = []
+source_paths = ["components/controller/ArmSmmu4K/source"]
+upstream_repository = "https://github.com/UniXNU/ArmSmmu4K.git"
+revision = "83969cd874503e65997ff7639f7dcf3d0a92cd17"
+upstream_path = "kits/ArmSmmu4K"
+source_owner = "UniXNU"
+license = "MIT"
+license_status = "root license inspected at exact pinned revision; original LICENSE/NOTICE retained"
+reuse_status = "vendored source snapshot; Portsmith compatibility not asserted"
+status = "Upstream component source snapshot; license audited at exact pin; not Portsmith-qualified"
+hardware = ["ARM SMMU", "MMU-500"]
+os_abi = []
+board_dependencies = ["stream ownership", "hardware readback policy"]
+dependencies = []
+upstream_verified_devices = []
+upstream_selected_by = []
+
+[[component]]
+id = "unixnu.AirNir"
+category = "graphics"
+media = "AIR shader translation support"
+ports = []
+source_paths = ["components/graphics/AirNir/source"]
+upstream_repository = "https://github.com/UniXNU/AirNir.git"
+revision = "b356371a74cd158c2902f4886f373ebb0f833a36"
+upstream_path = "kits/AirNir"
+source_owner = "UniXNU"
+license = "MIT"
+license_status = "root license inspected at exact pinned revision; original LICENSE/NOTICE retained"
+reuse_status = "vendored source snapshot; Portsmith compatibility not asserted"
+status = "Upstream component source snapshot; license audited at exact pin; not Portsmith-qualified"
+hardware = ["AIR and NIR interfaces"]
+os_abi = []
+board_dependencies = []
+dependencies = []
+upstream_verified_devices = []
+upstream_selected_by = []
+
+[[component]]
+id = "unixnu.VerifiedRoot"
+category = "storage"
+media = "Authenticated block reads"
+ports = []
+source_paths = ["components/storage/VerifiedRoot/source"]
+upstream_repository = "https://github.com/UniXNU/VerifiedRoot.git"
+revision = "974f043d0c71ba2e60331483a41c6c6d35274ee3"
+upstream_path = "kits/VerifiedRoot"
+source_owner = "UniXNU"
+license = "BSD-2-Clause-Patent"
+license_status = "root license inspected at exact pinned revision; original LICENSE/NOTICE retained"
+reuse_status = "vendored source snapshot; Portsmith compatibility not asserted"
+status = "Upstream component source snapshot; license audited at exact pin; not Portsmith-qualified"
+hardware = []
+os_abi = []
+board_dependencies = ["signed volume policy"]
+dependencies = []
+upstream_verified_devices = []
+upstream_selected_by = []
+
+[[component]]
+id = "unixnu.Sm8550Platform"
+category = "soc"
+media = "SM8550 GPU platform operations"
+ports = []
+source_paths = ["components/soc/Sm8550Platform/source"]
+upstream_repository = "https://github.com/UniXNU/UniXNU-sm8550-common.git"
+revision = "a9f45dc60c035084b95463781538380f4c3606c9"
+upstream_path = "kits/Sm8550Platform"
+source_owner = "UniXNU"
+license = "BSD-2-Clause-Patent"
+license_status = "root license inspected at exact pinned revision; original LICENSE/NOTICE retained"
+reuse_status = "vendored source snapshot; Portsmith compatibility not asserted"
+status = "Upstream component source snapshot; license audited at exact pin; not Portsmith-qualified"
+hardware = ["Qualcomm SM8550"]
+os_abi = []
+board_dependencies = ["GPU firmware and power inputs"]
+dependencies = ["AdrenoFirmware", "ArmSmmu4K"]
+upstream_verified_devices = []
+upstream_selected_by = []
+
+[[component]]
+id = "unixnu.Ath12kWifi"
+category = "controller"
+media = "ath12k Wi-Fi transport with MHI and QRTR"
+ports = []
+upstream_repository = "https://github.com/UniXNU/Ath12kWifi.git"
+revision = "28de7b91d7a880682b777e0e3564245a99dbc3f5"
+upstream_path = "drivers/Ath12kWifi"
+source_owner = "UniXNU"
+license = "unresolved"
+license_status = "No LICENSE/COPYING/NOTICE found at the pinned revision; some files have GPL-2.0 headers but the whole tree's license is unclear. Do not snapshot pending maintainer clarification and file-level review."
+reuse_status = "reference-only; no source code imported until license/provenance review"
+status = "No LICENSE/COPYING/NOTICE found at the pinned revision; some files have GPL-2.0 headers but the whole tree's license is unclear. Do not snapshot pending maintainer clarification and file-level review."
+hardware = ["ath12k PCI devices", "qcc2072, qcn9274, and wcn7850 build inputs"]
+os_abi = ["nw_abi platform interface"]
+board_dependencies = ["PCI configuration, BAR, MSI, and DMA operations"]
+dependencies = []
+upstream_verified_devices = []
+upstream_selected_by = []
+
+[[component]]
+id = "unixnu.QcaBluetooth"
+category = "controller"
+media = "Qualcomm Bluetooth over GENI UART for Apple's native stack"
+ports = []
+upstream_repository = "https://github.com/UniXNU/QcaBluetooth.git"
+revision = "22ff97f93416452335bb61badb14c762da653487"
+upstream_path = "drivers/QcaBluetooth"
+source_owner = "UniXNU"
+license = "unresolved"
+license_status = "Mixed per-file licensing (GPL-2.0-only, APSL-2.0, BSD-2-Clause-Patent, BSD-3-Clause) with root NOTICE; keep as reference until file-level license/provenance and compatibility review."
+reuse_status = "reference-only; no source code imported until license/provenance review"
+status = "Mixed per-file licensing (GPL-2.0-only, APSL-2.0, BSD-2-Clause-Patent, BSD-3-Clause) with root NOTICE; keep as reference until file-level license/provenance and compatibility review."
+hardware = ["Qualcomm WCN7850 UART controller", "Qualcomm GENI UART"]
+os_abi = ["ipados-27.0.1-24A446"]
+board_dependencies = ["WCN power, clocks, pins and IRQs", "mapped DMA addresses", "firmware files"]
+dependencies = []
+upstream_verified_devices = ["sheng"]
+upstream_selected_by = []
+
+[[component]]
+id = "unixnu.ShengPreflight"
+category = "board"
+media = "sheng firmware preflight"
+ports = ["sheng"]
+source_paths = ["components/board/ShengPreflight/source"]
+upstream_repository = "https://github.com/UniXNU/ShengPreflight.git"
+revision = "9cfc8d2c8d77f2008ba228fa6eff83d2c7ab7fd2"
+upstream_path = "drivers/ShengPreflight"
+source_owner = "UniXNU"
+license = "BSD-2-Clause-Patent"
+license_status = "root license inspected at exact pinned revision; original LICENSE/NOTICE retained"
+reuse_status = "vendored source snapshot; Portsmith compatibility not asserted"
+status = "Upstream component source snapshot; license audited at exact pin; not Portsmith-qualified"
+hardware = ["Xiaomi Pad 6S Pro"]
+os_abi = ["UEFI"]
+board_dependencies = ["sheng firmware resources"]
+dependencies = []
+upstream_verified_devices = ["sheng"]
+upstream_selected_by = ["sheng"]
+
+[[component]]
+id = "unixnu.QcomBaseband"
+category = "modem"
+media = "Qualcomm baseband IOKit bridge, QMUX/QRTR and IPA v4.2"
+ports = []
+source_paths = ["components/modem/QcomBaseband/source"]
+upstream_repository = "https://github.com/UniXNU/QcomBaseband.git"
+revision = "dd0199cf3300764ed52b23f4a47761f91fab21a2"
+upstream_path = "drivers/QcomBaseband"
+source_owner = "UniXNU"
+license = "BSD-2-Clause"
+license_status = "root license inspected at exact pinned revision; original LICENSE/NOTICE retained"
+reuse_status = "vendored source snapshot; Portsmith compatibility not asserted"
+status = "Upstream component source snapshot; license audited at exact pin; not Portsmith-qualified"
+hardware = ["Qualcomm QMI over QRTR", "SC7180 IPA v4.2 reference"]
+os_abi = ["ipados-17.7.11-21H461 AppleBaseband IOUserClient"]
+board_dependencies = ["modem power and firmware boot", "GLINK/QRTR transport and rmtfs", "DMA and EFS/NV storage", "cellular ADT and firmware packaging", "raw-IP transport on the QRTR/IPA owner thread"]
+dependencies = []
+upstream_verified_devices = []
+upstream_selected_by = []
+
+[[component]]
+id = "community.NativeMsdc"
+category = "storage"
+media = "MediaTek MT8167 MSDC0 eMMC block driver"
+ports = []
+source_paths = ["components/storage/emmc/NativeMsdc/source"]
+upstream_repository = "https://github.com/mouseos/NativeMsdc"
+revision = "e718d5d7bde7f6986cd9a7b425c82c50a4dcc3b8"
+source_owner = "mouseos"
+license = "BSD-2-Clause-Patent"
+license_status = "explicit SPDX identifier in LICENSE at pinned revision; README and its credits retained"
+reuse_status = "vendored source snapshot; MT8167-specific; upstream README says current driver is not yet booted"
+status = "Host tests/compile reported upstream; device boot not reported for current NativeMsdc revision"
+hardware = ["MediaTek MT8167 MSDC0", "eMMC", "512-byte sectors"]
+dependencies = ["XNU IOStorageFamily ABI", "optional NativeRamBlock and VerifiedRoot integrations"]
+upstream_verified_devices = []
+upstream_selected_by = []

@@ -1,0 +1,5 @@
+[upstream]
+repository = "https://github.com/UniXNU/DarwinBoot.git"
+revision = "3c75734014cdab0acd9541e88057b7606ee7ae08"
+license = "BSD-2-Clause-Patent"
+source_mode = "vendored-snapshot"

@@ -18,7 +18,7 @@
 ## Port boundaries
 
 - Treat each `ports/<device>` as a separate hardware/boot contract. Use `components/manifest.toml` to discover candidate shared storage/GPU/boot concepts, not as proof that an implementation is interchangeable. Do not copy addresses, memory maps, reset paths, display timings, storage drivers, or firmware assumptions across devices without evidence.
-- Device repositories live under `ports/<port>/repo/`: most are pinned submodules, while Dada is a vendored snapshot with its exact upstream commit recorded. Shared framework references are under `sources/`. Preserve history and licensing; make port-specific changes in the correct source repository, not as an unreviewed flattened merge.
+- Device repositories live under `ports/<port>/repo/`: most are pinned submodules, while Dada is a vendored snapshot with its exact upstream commit recorded. Shared framework references are under `sources/`; audited, license-cleared cross-port source snapshots are under `components/` with per-component `UPSTREAM.toml`. Preserve port histories and every component license/NOTICE. Do not treat component snapshots as interchangeable drivers; make board-specific changes in the correct port repository.
 - Before borrowing code, check its license and record its original repository/path/commit in `CREDITS.md` or the component's `UPSTREAM.md`.
 - Do not call something “working” from compilation alone. Separate `host-verified`, `device-verified`, inference, and unknown.
 

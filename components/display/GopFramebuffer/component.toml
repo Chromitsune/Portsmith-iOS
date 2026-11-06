@@ -1,0 +1,20 @@
+[component]
+id = "GopFramebuffer"
+scope = "display"
+kind = "driver"
+function = "UEFI GOP framebuffer and MobileFramebuffer integration"
+repository = "https://github.com/UniXNU/GopFramebuffer.git"
+revision = "e47c1b8de169cd2bd0b885c7d85e433010e3cdf2"
+upstream_path = "drivers/GopFramebuffer"
+license = "BSD-2-Clause-Patent"
+reuse_status = "vendored upstream snapshot; review hardware scope before reuse"
+hardware = ["UEFI GOP framebuffer"]
+os_abi = ["ipados-17.7.11-21H461", "ipados-27.0.1-24A446"]
+board_dependencies = ["framebuffer handoff", "display power hooks"]
+verified_devices = ["sheng"]
+dependencies = []
+source_files = ["NativeMobileDisplay.cpp", "NativeLegacyDisplay.cpp"]
+runtime_identifiers = ["NativeMobileDisplay", "NativeMobileDisplay.cpp", "NativeLegacyDisplay.cpp"]
+build_stage = "embedded"
+build = []
+outputs = ["build/gop-framebuffer/libGopFramebuffer.a", "build/gop-framebuffer/libGopFramebuffer.late.a"]

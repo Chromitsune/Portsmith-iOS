@@ -1,0 +1,20 @@
+[component]
+id = "ShengNovatekTouch"
+scope = "board"
+kind = "driver"
+function = "NT36532 touch protocol and sheng sensor configuration"
+repository = "https://github.com/UniXNU/ShengNovatekTouch.git"
+revision = "3b44b1b7603eaadae942ea44ddc51bdcc48ad060"
+upstream_path = "drivers/ShengNovatekTouch"
+license = "Apache-2.0"
+reuse_status = "vendored upstream snapshot; review hardware scope before reuse"
+hardware = ["Novatek NT36532/NT36532E"]
+os_abi = ["ipados-17.7.11-21H461"]
+board_dependencies = ["sheng sensor matrix and coordinates"]
+verified_devices = ["sheng"]
+dependencies = ["QcomGeniSpi"]
+source_files = ["NvtTouchCore.c"]
+runtime_identifiers = ["NativeNovatekTouch", "NvtTouchCore.c"]
+build_stage = "embedded"
+build = []
+outputs = []

@@ -1,0 +1,5 @@
+[upstream]
+repository = "https://github.com/UniXNU/VirtioMmioConsole.git"
+revision = "70253216890b2afcaa6333948726f896f84fc757"
+license = "BSD-2-Clause-Patent"
+source_mode = "vendored-snapshot"

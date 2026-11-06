@@ -1,0 +1,5 @@
+[upstream]
+repository = "https://github.com/UniXNU/QcomBaseband.git"
+revision = "dd0199cf3300764ed52b23f4a47761f91fab21a2"
+license = "BSD-2-Clause"
+source_mode = "vendored-snapshot"

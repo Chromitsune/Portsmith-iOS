@@ -1,0 +1,5 @@
+[upstream]
+repository = "https://github.com/mouseos/NativeMsdc"
+revision = "e718d5d7bde7f6986cd9a7b425c82c50a4dcc3b8"
+license = "BSD-2-Clause-Patent"
+source_mode = "vendored-snapshot"

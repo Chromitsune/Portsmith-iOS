@@ -1,0 +1,5 @@
+[upstream]
+repository = "https://github.com/UniXNU/ArmDTPlatform.git"
+revision = "417ff95d6a6e8607ddea9309ec45c3bfd4a67c60"
+license = "BSD-2-Clause-Patent"
+source_mode = "vendored-snapshot"

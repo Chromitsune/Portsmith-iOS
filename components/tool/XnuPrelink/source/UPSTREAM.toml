@@ -1,0 +1,5 @@
+[upstream]
+repository = "https://github.com/UniXNU/XnuPrelink.git"
+revision = "ef4fe4f9ec59faa04eba24025bac0fa2985dbe5b"
+license = "BSD-2-Clause-Patent"
+source_mode = "vendored-snapshot"

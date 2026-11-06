@@ -1,0 +1,5 @@
+[upstream]
+repository = "https://github.com/UniXNU/AirNir.git"
+revision = "b356371a74cd158c2902f4886f373ebb0f833a36"
+license = "MIT"
+source_mode = "vendored-snapshot"

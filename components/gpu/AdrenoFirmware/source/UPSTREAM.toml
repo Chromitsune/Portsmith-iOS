@@ -1,0 +1,5 @@
+[upstream]
+repository = "https://github.com/UniXNU/AdrenoFirmware.git"
+revision = "20ad3d7aca14bd46aecab6335c780f5413fa054b"
+license = "BSD-2-Clause-Patent"
+source_mode = "vendored-snapshot"

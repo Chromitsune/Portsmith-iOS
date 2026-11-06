@@ -1,0 +1,20 @@
+[component]
+id = "XnuPrelink"
+scope = "tool"
+kind = "kit"
+function = "XNU kernelcache prelink and ABI inspection"
+repository = "https://github.com/UniXNU/XnuPrelink.git"
+revision = "ef4fe4f9ec59faa04eba24025bac0fa2985dbe5b"
+upstream_path = "kits/XnuPrelink"
+license = "BSD-2-Clause-Patent"
+reuse_status = "vendored upstream snapshot; review hardware scope before reuse"
+hardware = []
+os_abi = []
+board_dependencies = []
+verified_devices = []
+dependencies = []
+source_files = ["emit_prelink.py", "native_prelink.py"]
+runtime_identifiers = ["NativePrelink", "emit_prelink.py", "native_prelink.py"]
+build_stage = "prelink"
+build = []
+outputs = []

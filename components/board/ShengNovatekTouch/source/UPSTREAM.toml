@@ -1,0 +1,5 @@
+[upstream]
+repository = "https://github.com/UniXNU/ShengNovatekTouch.git"
+revision = "3b44b1b7603eaadae942ea44ddc51bdcc48ad060"
+license = "Apache-2.0"
+source_mode = "vendored-snapshot"

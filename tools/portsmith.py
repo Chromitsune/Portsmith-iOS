@@ -95,6 +95,21 @@ def submodule_url(path: str) -> str | None:
     return result.stdout.strip() if result.returncode == 0 else None
 
 
+
+def license_matches(path: Path, spdx: str | None) -> bool:
+    if not spdx:
+        return True
+    text = path.read_text(errors="replace")
+    if spdx == "MIT":
+        return "MIT License" in text or "Permission is hereby granted, free of charge" in text
+    if spdx == "Apache-2.0":
+        return "Apache License" in text and "Version 2.0" in text
+    if spdx == "BSD-2-Clause-Patent":
+        return "BSD-2-Clause-Patent" in text or "patent license" in text.lower()
+    if spdx == "BSD-2-Clause":
+        return "BSD 2-Clause License" in text or "BSD-2-Clause" in text or "Redistribution and use in source and binary forms" in text
+    return True
+
 def cmd_sources(_: argparse.Namespace) -> int:
     failures = 0
     print(f"{'PATH':40} {'PIN':12} {'KIND':18} UPSTREAM")
@@ -105,9 +120,24 @@ def cmd_sources(_: argparse.Namespace) -> int:
         upstream = item.get("upstream", "?")
         if mode == "vendored-snapshot":
             pin, state = expected[:12], "snapshot"
-            if not (ROOT / path / "README.md").is_file():
+            full = ROOT / path
+            if not (full / "README.md").is_file():
                 state = "snapshot?"
                 failures += 1
+            elif item.get("license_file") and not (full / item["license_file"]).is_file():
+                state = "license-missing"
+                failures += 1
+            elif item.get("license_file") and not license_matches(full / item["license_file"], item.get("license")):
+                state = "license-mismatch"
+                failures += 1
+            elif item.get("upstream_file") and not (full / item["upstream_file"]).is_file():
+                state = "provenance-missing"
+                failures += 1
+            elif item.get("upstream_file"):
+                provenance = read_toml(full / item["upstream_file"]).get("upstream", {})
+                if provenance.get("revision") != expected or norm_url(provenance.get("repository", "")) != norm_url(upstream):
+                    state = "provenance-mismatch"
+                    failures += 1
         else:
             oid, _ = gitlink_oid(path)
             pin = (oid or "not-pinned")[:12]
@@ -150,6 +180,24 @@ def cmd_check(_: argparse.Namespace) -> int:
                 errors.append(f"{path}: vendored snapshot is missing README.md")
             if not (full / "NOTICE.md").is_file() and not (full / "LICENSE").is_file():
                 warnings.append(f"{path}: no top-level NOTICE.md or LICENSE; review per-component licenses")
+            if item.get("license_file"):
+                license_path = full / item["license_file"]
+                if not license_path.is_file():
+                    errors.append(f"{path}: recorded license file is missing: {item['license_file']}")
+                elif not license_matches(license_path, item.get("license")):
+                    errors.append(f"{path}: license file does not match manifest license {item.get('license')}")
+            if item.get("upstream_file"):
+                provenance_path = full / item["upstream_file"]
+                if not provenance_path.is_file():
+                    errors.append(f"{path}: upstream provenance metadata is missing: {item['upstream_file']}")
+                else:
+                    provenance = read_toml(provenance_path).get("upstream", {})
+                    if provenance.get("revision") != expected:
+                        errors.append(f"{path}: UPSTREAM revision does not match manifest pin")
+                    if norm_url(provenance.get("repository", "")) != norm_url(item.get("upstream", "")):
+                        errors.append(f"{path}: UPSTREAM repository does not match source manifest")
+                    if provenance.get("license") != item.get("license"):
+                        errors.append(f"{path}: UPSTREAM license does not match source manifest")
             continue
 
         oid, _ = gitlink_oid(path)
@@ -195,7 +243,11 @@ def cmd_check(_: argparse.Namespace) -> int:
 
 
 def component_records(root: Path = ROOT) -> list[dict]:
-    return read_toml(root / "components/manifest.toml").get("component", [])
+    records = read_toml(root / "components/manifest.toml").get("component", [])
+    imported = root / "components/imported.toml"
+    if imported.is_file():
+        records.extend(read_toml(imported).get("component", []))
+    return records
 
 
 def cmd_components(_: argparse.Namespace) -> int:
@@ -207,6 +259,12 @@ def cmd_components(_: argparse.Namespace) -> int:
         print(textwrap.fill(c.get("status", "status not recorded"), width=100, initial_indent="  ", subsequent_indent="  "))
         if missing:
             print(f"  WARN: unknown port ids in catalog: {', '.join(missing)}")
+        upstream = c.get("upstream_repository")
+        if upstream:
+            print(f"  source: {upstream}@{c.get('revision', '?')} | license: {c.get('license', 'unknown')}")
+        selected = c.get("upstream_selected_by", [])
+        if selected:
+            print(f"  upstream selected by: {', '.join(selected)} (not Portsmith verification)")
     return 0
 
 

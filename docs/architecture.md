@@ -4,7 +4,7 @@ Portsmith separates three layers:
 
 1. **Workspace layer** — shared agent instructions, skills, source catalog, provenance, host-only tools and tests.
 2. **Port layer** — one directory per physical device/board, with its own `AGENTS.md`, manifest, status, boot safety notes, evidence, and adapters.
-3. **Port/source layer** — complete pinned device repositories under `ports/<port>/repo/` and shared framework submodules under `sources/`. Each stays a real upstream-derived repository with its own README, history, and license; Portsmith does not flatten them into a universal kernel tree.
+3. **Source layer** — complete pinned device repositories under `ports/<port>/repo/`, shared framework submodules under `sources/`, and license-audited, exact-commit component snapshots under `components/<scope>/<name>/source/`. Component snapshots keep their original README/LICENSE/NOTICE and `UPSTREAM.toml` provenance; unresolved or mixed-license trees remain catalog-only. This is a source index, not a universal kernel tree.
 
 ## Why keep ports separate?
 
@@ -24,6 +24,6 @@ Record device model/variant, firmware, source commit, command, result, and limit
 ## Source and license rules
 
 - Update a submodule pin deliberately; review and document the commit before changing it.
-- Use adapters/submodules for upstream components. Avoid a copied multi-kernel monolith.
-- Before copying code, check its exact license, keep required notices, and record origin path and commit in `CREDITS.md` or the component's `UPSTREAM.md`.
+- Keep hardware ports as their original pinned repositories; do not flatten them together.
+- Vendor shared component code only after an exact-revision license/provenance audit. Preserve each original license/NOTICE and record origin URL and full commit in `source/UPSTREAM.toml` and `components/CREDITS.md`. Keep unresolved mixed/unlicensed projects as references only.
 - Keep vendor firmware, Apple restore files, generated images, and per-device calibration/private data out of the repository.

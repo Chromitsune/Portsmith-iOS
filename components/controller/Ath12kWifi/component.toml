@@ -1,0 +1,20 @@
+[component]
+id = "Ath12kWifi"
+scope = "controller"
+kind = "driver"
+function = "ath12k Wi-Fi transport with MHI and QRTR"
+repository = "https://github.com/UniXNU/Ath12kWifi.git"
+revision = "28de7b91d7a880682b777e0e3564245a99dbc3f5"
+upstream_path = "drivers/Ath12kWifi"
+license = "unresolved"
+reuse_status = "reference-only; pending license/provenance review"
+hardware = ["ath12k PCI devices", "qcc2072, qcn9274, and wcn7850 build inputs"]
+os_abi = ["nw_abi platform interface"]
+board_dependencies = ["PCI configuration, BAR, MSI, and DMA operations"]
+verified_devices = []
+dependencies = []
+source_files = ["include/nw_abi.h"]
+runtime_identifiers = ["nw_board", "nw_abi"]
+build_stage = "embedded"
+build = []
+outputs = []

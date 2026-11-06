@@ -1,0 +1,5 @@
+[upstream]
+repository = "https://github.com/UniXNU/ArmSmmu4K.git"
+revision = "83969cd874503e65997ff7639f7dcf3d0a92cd17"
+license = "MIT"
+source_mode = "vendored-snapshot"

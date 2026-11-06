@@ -1,0 +1,5 @@
+[upstream]
+repository = "https://github.com/UniXNU/AppleKeyStoreState.git"
+revision = "8c70daf814aafdf4a3d35e40dde0322655fd0a83"
+license = "BSD-2-Clause-Patent"
+source_mode = "vendored-snapshot"

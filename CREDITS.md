@@ -35,3 +35,9 @@ The Dada upstream README/NOTICE additionally credits [OOSEX GANG / HakiOS](https
 - **Herolte:** wardevsa credits [orhunnx/ios-a5xelte](https://github.com/orhunnx/ios-a5xelte), ios-sweet, HakiOS, Bergamota, [syncmodz/ios-s9](https://github.com/syncmodz/ios-s9), Mesa/Panfrost, and LineageOS Exynos 8890 kernel sources.
 
 Each port's own README/NOTICE remains the authoritative full list of source authors and licenses.
+
+## UniXNU component and sheng references
+
+Portsmith now indexes the [UniXNU sheng device repository](https://github.com/UniXNU/UniXNU-sheng), pinned at `460179565a018c741b93e0b1efa07c55d4de497a`, and component repositories listed by the pinned UniXNU `components.toml`. Credit the UniXNU contributors and the individual authors recorded in each source repository. Preserve each component's own LICENSE, NOTICE, README, copyright headers, and pinned revision; the top-level UniXNU BSD-2-Clause-Patent license does not replace a component's license. These sources are references, not Portsmith-verified ports or a claim of endorsement.
+
+See [`components/CREDITS.md`](components/CREDITS.md) for exact component source repositories and commit pins, and [`components/LICENSE-AUDIT.md`](components/LICENSE-AUDIT.md) for per-repository license classifications and why two component repositories remain catalog-only. The eMMC `NativeMsdc` snapshot also preserves its own credits to mouseos/edk2-mtk, mouseos/xnu_kernel_benesse_a04br3, and UniXNU. No code was imported from Ath12kWifi or QcaBluetooth because their licensing requires additional file-level handling.

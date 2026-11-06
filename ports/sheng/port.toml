@@ -1,0 +1,29 @@
+[port]
+name = "sheng"
+model = "Xiaomi Pad 6S Pro 12.4"
+codename = "sheng"
+soc = "Qualcomm SM8550 / Snapdragon 8 Gen 2"
+source = "ports/sheng/repo"
+status = "Pinned UniXNU upstream record marks subsystem areas implemented; evidence is profile- and area-specific, latest code is not independently verified by Portsmith"
+
+[hardware]
+vendor = "Xiaomi"
+soc_vendor = "Qualcomm"
+storage = "UFS (SM8550 controller; sheng-specific integration)"
+gpu_family = "Qualcomm Adreno"
+gpu = "Adreno 740"
+boot_family = "UEFI / Xiaomi boot chain"
+
+[upstream]
+repository = "https://github.com/UniXNU/UniXNU-sheng"
+revision = "460179565a018c741b93e0b1efa07c55d4de497a"
+device_record = "sources/UniXNU/devices.toml: device sheng"
+components_record = "sources/UniXNU/components.toml"
+os_profile = "ipados-27.0.1-24A446"
+additional_profiles = ["ipados-26.5.2-23F84", "ipados-17.7.11-21H461"]
+
+[safety]
+port_package_can_erase_userdata = true
+firmware_downloads_or_device_build_not_run_by_portsmith = true
+flash_requires_explicit_current_authorization = true
+unique_chip_id_or_device_secrets_must_not_be_committed = true

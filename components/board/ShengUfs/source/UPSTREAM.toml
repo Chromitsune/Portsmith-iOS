@@ -1,0 +1,5 @@
+[upstream]
+repository = "https://github.com/UniXNU/ShengUfs.git"
+revision = "99d8bcd3e43dd24fc3c8437c67b5d4cc71ab94d0"
+license = "BSD-2-Clause"
+source_mode = "vendored-snapshot"

@@ -1,0 +1,20 @@
+[component]
+id = "AirNir"
+scope = "graphics"
+kind = "kit"
+function = "AIR shader translation support"
+repository = "https://github.com/UniXNU/AirNir.git"
+revision = "b356371a74cd158c2902f4886f373ebb0f833a36"
+upstream_path = "kits/AirNir"
+license = "MIT"
+reuse_status = "vendored upstream snapshot; review hardware scope before reuse"
+hardware = ["AIR and NIR interfaces"]
+os_abi = []
+board_dependencies = []
+verified_devices = []
+dependencies = []
+source_files = []
+runtime_identifiers = []
+build_stage = "embedded"
+build = []
+outputs = []

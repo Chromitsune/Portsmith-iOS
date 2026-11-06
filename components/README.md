@@ -1,5 +1,9 @@
-# Shared component catalog
+# Portsmith component workspace
 
-Ports can be browsed by vendor, SoC, storage, GPU, or boot family with `python3 tools/portsmith.py ports --group-by <field>`. Candidate reusable components are indexed in [`manifest.toml`](manifest.toml) and can be listed with `python3 tools/portsmith.py components`.
+Components are grouped by their upstream scope (for example, `storage/`, `gpu/`, `graphics/`, `controller/`, `display/`, `soc/`, and `board/`). License-cleared source repositories are **vendored as exact commit snapshots** under each component's `source/` directory so agents can inspect the code directly without initializing a separate submodule. Each snapshot includes its original README, LICENSE, copyright headers, and NOTICE when present; `source/UPSTREAM.toml` records the origin, commit, and license. The snapshot does not retain upstream Git history, so the URL and full commit are part of the provenance record.
 
-This is a **catalog of compatibility and code locations**, not a place to copy board drivers prematurely. Share stable interfaces and protocol-level code where demonstrated; keep MMIO addresses, clocks, regulators, SMMU setup, DMA constraints, firmware, and boot/reset behavior in the matching SoC/board port. A shared media type (eMMC/UFS) does not mean controllers are interchangeable.
+Read each component's `README.md`, `component.toml`, `source/UPSTREAM.toml`, and original license before reuse. `components/manifest.toml` is the cross-port family catalog; `components/imported.toml` and `catalog/unixnu-components.toml` preserve the source component metadata. Board-specific modules, including several sheng/SM8550 components, are not generic drivers. A component's upstream use or verification does not imply Portsmith compatibility.
+
+`Ath12kWifi` and `QcaBluetooth` remain catalog-only because their source trees need file-level license/provenance handling; their code has not been copied. Do not infer the parent UniXNU license applies to them. Keep eMMC, UFS, GPU, Wi-Fi, Bluetooth, display, and Metal/graphics sources distinct and check hardware scope before adapting.
+
+Run `python3 tools/portsmith.py components` for the compatibility index and `python3 tools/portsmith.py check` for host-side manifest/pin validation. These commands do not probe a device.

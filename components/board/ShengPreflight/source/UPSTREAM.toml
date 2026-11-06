@@ -1,0 +1,5 @@
+[upstream]
+repository = "https://github.com/UniXNU/ShengPreflight.git"
+revision = "9cfc8d2c8d77f2008ba228fa6eff83d2c7ab7fd2"
+license = "BSD-2-Clause-Patent"
+source_mode = "vendored-snapshot"

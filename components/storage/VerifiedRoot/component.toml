@@ -1,0 +1,20 @@
+[component]
+id = "VerifiedRoot"
+scope = "storage"
+kind = "kit"
+function = "Authenticated block reads"
+repository = "https://github.com/UniXNU/VerifiedRoot.git"
+revision = "974f043d0c71ba2e60331483a41c6c6d35274ee3"
+upstream_path = "kits/VerifiedRoot"
+license = "BSD-2-Clause-Patent"
+reuse_status = "vendored upstream snapshot; review hardware scope before reuse"
+hardware = []
+os_abi = []
+board_dependencies = ["signed volume policy"]
+verified_devices = []
+dependencies = []
+source_files = []
+runtime_identifiers = []
+build_stage = "embedded"
+build = []
+outputs = []

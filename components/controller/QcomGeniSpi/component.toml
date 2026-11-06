@@ -1,0 +1,20 @@
+[component]
+id = "QcomGeniSpi"
+scope = "controller"
+kind = "driver"
+function = "Qualcomm GENI SPI controller operations"
+repository = "https://github.com/UniXNU/QcomGeniSpi.git"
+revision = "eac47baefe6a5d2368a70351e6ad1b6361bedbe2"
+upstream_path = "drivers/QcomGeniSpi"
+license = "BSD-2-Clause-Patent"
+reuse_status = "vendored upstream snapshot; review hardware scope before reuse"
+hardware = ["Qualcomm GENI SPI"]
+os_abi = ["ipados-17.7.11-21H461"]
+board_dependencies = ["MMIO and DMA callbacks", "clocks and pins"]
+verified_devices = []
+dependencies = []
+source_files = ["GeniSpi.c"]
+runtime_identifiers = ["NativeGeniSpi", "GeniSpi.c"]
+build_stage = "embedded"
+build = []
+outputs = []

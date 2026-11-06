@@ -1,0 +1,5 @@
+[upstream]
+repository = "https://github.com/UniXNU/RamBlock.git"
+revision = "4be2d7eb05ef5a98126c91e0302c149140c0e3e1"
+license = "BSD-2-Clause-Patent"
+source_mode = "vendored-snapshot"

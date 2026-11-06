@@ -2,17 +2,21 @@
 
 An agent-friendly workbench for researching and bringing up XNU/iOS on non-Apple ARM64 devices.
 
-Portsmith is a **workspace and toolbox**, not a mash-up of every port's kernel and drivers. Device ports remain separate full repositories in `ports/<port>/repo/`; shared framework references live under `sources/`. Workflows, skills, docs, and host-side utilities live here. Submodule pins record exactly which revisions were reviewed.
+Portsmith is a **workspace and toolbox**, not a mash-up of every port's kernel and drivers. Device ports remain separate full repositories in `ports/<port>/repo/`; shared framework references live under `sources/`. Workflows, skills, docs, and host-side utilities live here. Port and framework submodule pins and component snapshot manifests record exact reviewed revisions.
 
 > Experimental platform research only. Do not use a phone with irreplaceable data. Never flash or reset a device without explicit, current authorization and a verified restore path.
 
 ## Start here
 
-Clone the workbench and its port repositories with:
+Clone the workbench and initialize its direct port/framework submodules (without recursively following UniXNU’s nested component pins):
 
 ```sh
-git clone --recurse-submodules https://github.com/Chromitsune/Portsmith-iOS.git
+git clone https://github.com/Chromitsune/Portsmith-iOS.git
+cd Portsmith-iOS
+git submodule update --init
 ```
+
+Do **not** add `--recursive`; see [`sources/README.md`](sources/README.md) for a pinned nested UniXNU submodule that is unavailable upstream. License-cleared shared component sources are already vendored under `components/`.
 
 1. Read [`AGENTS.md`](AGENTS.md) for workspace navigation and safety rules.
 2. Read the relevant [`ports/<device>/AGENTS.md`](ports/README.md) and source project notes.
@@ -23,7 +27,7 @@ git clone --recurse-submodules https://github.com/Chromitsune/Portsmith-iOS.git
 - `AGENTS.md` — workspace instructions for agents.
 - `docs/architecture.md` — repository boundaries, evidence labels, and source/license rules.
 - `ports/` — per-device `AGENTS.md`/manifests plus complete port source under `repo/`. Most ports are pinned Git submodules; Dada is a vendored snapshot with its original README, notices, and licenses retained.
-- `components/` — cross-port catalog of storage/GPU/boot families and compatibility boundaries; not a bucket for unreviewed code copies.
+- `components/` — license-audited upstream source snapshots grouped by function/hardware scope, plus cross-port compatibility notes. Each snapshot retains its own license/notices and exact source pin; unresolved mixed/unlicensed repositories remain catalog-only.
 - `sources/` — shared framework references (currently UniXNU), not device-specific ports.
 - `skills/` — reusable task playbooks.
 - `tools/` — cross-port utilities. `tools/portsmith.py` inventories ports, groups them by vendor/SoC/storage/GPU/bootloader, lists shared components, checks source pins, and reports host tools without touching a device. `tools/portsmith-image-tools` contains a reviewed, MIT-licensed subset adapted from iOSPlus10's generic image/IPSW tooling; Negroni-only `ctl` and `bootlog` commands are intentionally excluded.
@@ -50,6 +54,7 @@ These are **reports from the pinned upstream projects**, not independent Portsmi
 | [Apollo](https://github.com/aTechGeekDev/ios-apollo) — Mi 10T family, SM8250 | iOS 16 UI, touch, Wi-Fi, Bluetooth, some audio, Adreno 650 OpenGL ES | Metal is in progress; camera, cellular, sleep and other features not started. |
 | [Herolte](https://github.com/wardevsa/ios-a5xelte/tree/herolte) — Galaxy S7 Exynos, SM-G930F | iOS 16.7.16 home screen and Mali-T880 OpenGL ES/Panfrost path reported | Wi-Fi, cellular, Bluetooth, audio, camera, sensors and sleep unavailable. Repo also contains separate early A5XELTE work. |
 | [Lavender](https://github.com/Chromitsune/UniXNU-Lavender) — Redmi Note 7, SDM660 | Custom UEFI/UniXNU boot chain and fixture payload reported device-tested | XNU/iOS handover, OrangeFox BCB behavior, and panic-log recovery are not verified; prior panic-recovery run was inconclusive. |
+| [sheng](https://github.com/UniXNU/UniXNU-sheng) — Xiaomi Pad 6S Pro, SM8550 | UniXNU marks major device areas implemented across multiple iPadOS profiles; includes UFS, Adreno 740, display, input and networking work | Upstream-only evidence; profile and subsystem evidence differ, and Portsmith has not built or device-tested it. The source package workflow can download firmware and erase userdata. |
 
 Use the port-specific `AGENTS.md`, README, and handoff for the exact source revision and current status. Portsmith must update this table only with dated evidence and must not turn upstream claims into “supported” guarantees.
 

@@ -1,0 +1,20 @@
+[component]
+id = "AdrenoPM4"
+scope = "gpu"
+kind = "kit"
+function = "Adreno PM4 packet encoding and A740 command helpers"
+repository = "https://github.com/UniXNU/AdrenoPM4.git"
+revision = "282606b528b2595bc4274ea7490b62b323f35a5f"
+upstream_path = "kits/AdrenoPM4"
+license = "MIT"
+reuse_status = "vendored upstream snapshot; review hardware scope before reuse"
+hardware = ["Adreno packet type 4 and 7", "A740 command layouts"]
+os_abi = []
+board_dependencies = []
+verified_devices = []
+dependencies = []
+source_files = ["AdrenoPM4.c"]
+runtime_identifiers = ["AdrenoPM4.c"]
+build_stage = "embedded"
+build = []
+outputs = []

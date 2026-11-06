@@ -1,0 +1,5 @@
+[upstream]
+repository = "https://github.com/UniXNU/AdrenoPM4.git"
+revision = "282606b528b2595bc4274ea7490b62b323f35a5f"
+license = "MIT"
+source_mode = "vendored-snapshot"

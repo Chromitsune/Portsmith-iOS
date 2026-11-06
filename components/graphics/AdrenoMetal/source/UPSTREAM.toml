@@ -1,0 +1,5 @@
+[upstream]
+repository = "https://github.com/UniXNU/AdrenoMetal.git"
+revision = "6416a76e0a287d85afbcddda21192388460e155c"
+license = "MIT"
+source_mode = "vendored-snapshot"

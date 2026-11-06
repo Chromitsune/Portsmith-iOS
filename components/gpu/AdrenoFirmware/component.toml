@@ -1,0 +1,20 @@
+[component]
+id = "AdrenoFirmware"
+scope = "gpu"
+kind = "kit"
+function = "Adreno firmware and HFI protocol support"
+repository = "https://github.com/UniXNU/AdrenoFirmware.git"
+revision = "20ad3d7aca14bd46aecab6335c780f5413fa054b"
+upstream_path = "kits/AdrenoFirmware"
+license = "BSD-2-Clause-Patent"
+reuse_status = "vendored upstream snapshot; review hardware scope before reuse"
+hardware = ["Adreno A6xx/A7xx HFI"]
+os_abi = []
+board_dependencies = ["platform firmware and startup inputs"]
+verified_devices = []
+dependencies = []
+source_files = ["AdrenoFirmware.c", "AdrenoHfi.c"]
+runtime_identifiers = ["AdrenoFirmware.c", "AdrenoHfi.c"]
+build_stage = "embedded"
+build = []
+outputs = []

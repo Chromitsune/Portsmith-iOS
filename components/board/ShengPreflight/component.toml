@@ -1,0 +1,20 @@
+[component]
+id = "ShengPreflight"
+scope = "board"
+kind = "driver"
+function = "sheng firmware preflight"
+repository = "https://github.com/UniXNU/ShengPreflight.git"
+revision = "9cfc8d2c8d77f2008ba228fa6eff83d2c7ab7fd2"
+upstream_path = "drivers/ShengPreflight"
+license = "BSD-2-Clause-Patent"
+reuse_status = "vendored upstream snapshot; review hardware scope before reuse"
+hardware = ["Xiaomi Pad 6S Pro"]
+os_abi = ["UEFI"]
+board_dependencies = ["sheng firmware resources"]
+verified_devices = ["sheng"]
+dependencies = []
+source_files = []
+runtime_identifiers = ["ShengPreflight"]
+build_stage = "firmware"
+build = []
+outputs = []
