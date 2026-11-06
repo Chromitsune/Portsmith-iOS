@@ -1,6 +1,6 @@
 # UniXNU device catalog snapshot
 
-This is a machine-readable snapshot of the entries listed on [unixnu.com/devices](https://unixnu.com/devices/), copied from `UniXNU/devices.toml` at commit `e2fdae4312d0acc3d8a52bc457101e7918095e6a`. It preserves all 265 repository records, URLs (stored upstream as `owner/repository`), revision pins, board/SoC metadata, component lists, and record states. It indexes source repositories; it does **not** vendor or clone every device codebase, and it is **not** a Portsmith verification list.
+This is a machine-readable snapshot of the entries listed on [unixnu.com/devices](https://unixnu.com/devices/), copied from `UniXNU/devices.toml` at commit `e2fdae4312d0acc3d8a52bc457101e7918095e6a`. It preserves all 265 repository records, URLs (stored upstream as `owner/repository`), revision pins, board/SoC metadata, component lists, and record states. The 79 records marked `available` have 73 reachable pinned source references: 72 optional Git submodules under [`available/`](available/) and one matching sheng record that reuses the curated `ports/sheng/repo`. Six inaccessible revisions remain metadata-only. These are submodule pointers to original repositories, not code copied into the Portsmith superproject, and they are **not** Portsmith verification.
 
 ## Snapshot size and identity
 
@@ -30,4 +30,6 @@ python3 tools/portsmith.py device-catalog --soc SM8550 --search sheng --all
 
 The curated, fully indexed Portsmith ports remain separate under `ports/<port>/`. `portsmith.py ports --group-by <vendor|soc|storage|gpu|bootloader>` lists only those Portsmith-managed ports. Additional full source repos should be materialized only after a device/source is selected and its evidence, duplicate identity, safety, and license have been reviewed.
 
-The catalog snapshot's BSD-2-Clause-Patent license and source pin are recorded in `LICENSE` and `UPSTREAM.toml`. No device was built, flashed, or reset to create this snapshot.
+To review the import plan, run `python3 tools/import-unixnu-available-sources.py --dry-run`; `--apply` refreshes the audited submodule pointers and their manifest records. Do not use a newer catalog revision with this audit map until the repositories, exact commits, licenses, and notices have been reviewed again.
+
+The catalog snapshot's BSD-2-Clause-Patent license and source pin are recorded in `LICENSE` and `UPSTREAM.toml`. The catalog submodule checkouts retain their own repositories/notices; no code is flattened into Portsmith. No device was built, flashed, or reset to create this snapshot.

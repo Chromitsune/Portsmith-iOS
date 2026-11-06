@@ -13,10 +13,10 @@ Clone the workbench and initialize its direct port/framework submodules (without
 ```sh
 git clone https://github.com/Chromitsune/Portsmith-iOS.git
 cd Portsmith-iOS
-git submodule update --init
+python3 tools/checkout-sources.py --curated
 ```
 
-Do **not** add `--recursive`; see [`sources/README.md`](sources/README.md) for a pinned nested UniXNU submodule that is unavailable upstream. License-cleared shared component sources are already vendored under `components/`.
+This initializes only the 12 curated port sources and shared UniXNU framework. The 79 available-device catalog source references are optional: initialize one with `python3 tools/checkout-sources.py --name sheng`, or all accessible ones with `--available`. Do **not** use recursive submodule initialization; see [`sources/README.md`](sources/README.md) for a pinned nested UniXNU commit unavailable upstream. License-cleared shared components are already vendored under `components/`.
 
 1. Read [`AGENTS.md`](AGENTS.md) for workspace navigation and safety rules.
 2. Read the relevant [`ports/<device>/AGENTS.md`](ports/README.md) and source project notes.
@@ -26,11 +26,11 @@ Do **not** add `--recursive`; see [`sources/README.md`](sources/README.md) for a
 
 - `AGENTS.md` — workspace instructions for agents.
 - `docs/architecture.md` — repository boundaries, evidence labels, and source/license rules.
-- `ports/` — per-device `AGENTS.md`/manifests plus complete port source under `repo/`. Most ports are pinned Git submodules; Dada is a vendored snapshot with its original README, notices, and licenses retained.
+- `ports/` — curated per-device `AGENTS.md`/manifests and source under `repo/`; `ports/catalog/` separately indexes the full UniXNU device list and optional available-record source submodules. Most curated ports are pinned Git submodules; Dada is a vendored snapshot with its original README, notices, and licenses retained.
 - `components/` — license-audited upstream source snapshots grouped by function/hardware scope, plus cross-port compatibility notes. Each snapshot retains its own license/notices and exact source pin; unresolved mixed/unlicensed repositories remain catalog-only.
 - `sources/` — shared framework references (currently UniXNU), not device-specific ports.
 - `skills/` — reusable task playbooks.
-- `tools/` — cross-port utilities. `tools/portsmith.py` inventories ports, groups them by vendor/SoC/storage/GPU/bootloader, lists shared components, checks source pins, and reports host tools without touching a device. `tools/portsmith-image-tools` contains a reviewed, MIT-licensed subset adapted from iOSPlus10's generic image/IPSW tooling; Negroni-only `ctl` and `bootlog` commands are intentionally excluded.
+- `tools/` — cross-port utilities. `tools/portsmith.py` inventories curated ports, queries the full device catalog, groups by vendor/SoC/storage/GPU/bootloader, lists shared components, checks source pins, and reports host tools without touching a device. `tools/checkout-sources.py` initializes curated or selected/all available submodules; `tools/import-unixnu-available-sources.py --dry-run` previews the audited catalog-source imports. `tools/portsmith-image-tools` contains a reviewed, MIT-licensed subset adapted from iOSPlus10's generic image/IPSW tooling; Negroni-only `ctl` and `bootlog` commands are intentionally excluded.
 - `docs/` — design notes and contribution/evidence conventions.
 
 ## Repository scope
@@ -38,7 +38,7 @@ Do **not** add `--recursive`; see [`sources/README.md`](sources/README.md) for a
 Portsmith is a research/coordination workspace for XNU/iOS bring-up on non-Apple ARM64 hardware—not a universal OS image or a claim that every catalog entry works.
 
 - **12 Portsmith-managed port records** have agent notes, a pinned source/snapshot, hardware metadata, safety rules, and a compatibility checklist entry. These are curated workspace records, not all devices known to the community.
-- **All 265 repository records from the pinned UniXNU device catalog** are indexed as metadata in [`ports/catalog/unixnu-devices.toml`](ports/catalog/unixnu-devices.toml): 150 legacy format 1 and 115 format 2; 79 marked `available`, 25 `invalid`, 11 `missing`, and 150 with no state. There are 52 named SoC values (one unlabeled), 122 board/codename values, and 48 repeated-board groups (179 records). All 265 owner/repository identities are distinct, but many are alternate repositories for the same board. For format 2, `available` means its upstream record validated—not that the source builds or the device works.
+- **All 265 repository records from the pinned UniXNU device catalog** are indexed in [`ports/catalog/unixnu-devices.toml`](ports/catalog/unixnu-devices.toml): 150 legacy format 1 and 115 format 2; 79 marked `available`, 25 `invalid`, 11 `missing`, and 150 with no state. There are 52 named SoC values (one unlabeled), 122 board/codename values, and 48 repeated-board groups (179 records). Of the 79 `available` records, 73 exact revisions were reachable; their sources are pinned as external submodules (one reuses the curated sheng checkout), while six unavailable pins remain metadata-only. A root-license audit found 54 clear root grants and 19 missing/ambiguous/mixed-license cases; submodule pointers are not permission to reuse code. For format 2, `available` means the upstream porting record validated—not that the source builds or the device works.
 - **Shared code:** 25 license-audited UniXNU component snapshots plus the MT8167-only NativeMsdc eMMC reference live under `components/`. Two UniXNU component repos remain catalog-only pending license/provenance review. This code is grouped by function/hardware scope and is not assumed to be portable.
 - **Evidence and automation:** the README checklist records per-feature upstream reports against exact source pins; host tools validate source/manifest consistency and a weekly watcher opens review PRs when upstream branches move. New commits never automatically become “working” statuses.
 - **Not included:** firmware, IPSWs, device dumps, keys, or generated images; full source checkouts for all 265 device records are not mirrored. Additional full ports are added only after source/license, duplicate-device, safety, and evidence review.

@@ -54,13 +54,20 @@ def main():
  (base/"README.md").write_text(f"# NativeMsdc eMMC component reference\n\nThe source snapshot is in [`source/`](source/) at `{rev}`. It retains its BSD-2-Clause-Patent license and upstream README/credits. Upstream credits include mouseos/edk2-mtk, mouseos/xnu_kernel_benesse_a04br3, and UniXNU.\n\nThis driver targets MediaTek MT8167 MSDC0, not Qualcomm SDM660 or generic eMMC/SDHCI. Its upstream README reports host compilation/tests but says the current NativeMsdc driver has not yet been booted. Do not transplant or treat this as Lavender verification.\n",encoding="utf-8")
  sources.append(("NativeMsdc",rev,source_path,url,"mouseos","MT8167 MSDC0 eMMC driver",lic)); credit_rows.append((cid,url,rev,lic,"mouseos"))
  (ROOT/"components/imported.toml").write_text("# Generated from pinned UniXNU components.toml plus the NativeMsdc eMMC reference.\n# Component copyrights/licenses remain individual; see each source/ and components/CREDITS.md.\n\n"+"\n\n".join(imported)+"\n",encoding="utf-8")
- sm=ROOT/"sources/manifest.toml"; old=sm.read_text(); marker="# BEGIN generated component source pins"
- if marker in old: old=old.split(marker)[0].rstrip()+"\n"
+ sm=ROOT/"sources/manifest.toml"; old=sm.read_text(); marker="# BEGIN generated component source pins"; end_marker="# END generated component source pins"
+ suffix=""
+ if marker in old:
+  before,rest=old.split(marker,1)
+  if end_marker in rest:
+   _,suffix=rest.split(end_marker,1)
+  old=before.rstrip()+"\n"
  block=[marker,"# Exact vendored snapshots from their individual upstream repositories; do not update without review."]
  for name,revision,path,url,owner,role,lic in sources:
   block += ["", "[[source]]",f"name = {q(name)}",f"revision = {q(revision)}",f"path = {q(path)}",f"upstream = {q(url)}",f"maintainer = {q(owner)}",f"role = {q(role)}",f"license = {q(lic)}",'license_file = "LICENSE"','upstream_file = "UPSTREAM.toml"','source_mode = "vendored-snapshot"']
  block += ["", "# END generated component source pins"]
- sm.write_text(old.rstrip()+"\n\n"+"\n".join(block)+"\n",encoding="utf-8")
+ new_manifest=old.rstrip()+"\n\n"+"\n".join(block)+"\n"
+ if suffix.strip(): new_manifest += "\n"+suffix.strip()+"\n"
+ sm.write_text(new_manifest,encoding="utf-8")
  rows=["# Imported component source credits","","All snapshots retain the source repository's original `LICENSE`, copyright headers, README, and NOTICE when present. Pins are source commit IDs; the snapshots do not retain Git history. Original source READMEs and named acknowledgements remain in each tree; contributor histories are linked below.","","| Component | Upstream project / contributor history | Exact source revision | License |", "|---|---|---|---|"]
  for c,u,r,l,o in credit_rows:
   repo=u.split("github.com/")[-1].removesuffix(".git")

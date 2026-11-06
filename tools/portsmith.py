@@ -172,6 +172,7 @@ def cmd_check(_: argparse.Namespace) -> int:
         if source_path and not (ROOT / source_path).exists():
             errors.append(f"{file.relative_to(ROOT)} source path does not exist: {source_path}")
 
+    uninitialized_catalog_sources = 0
     for path, item in source_index().items():
         full = ROOT / path
         if not full.exists():
@@ -222,7 +223,10 @@ def cmd_check(_: argparse.Namespace) -> int:
             errors.append(f"{path}: .gitmodules branch {configured_branch!r} != manifest branch {expected_branch!r}")
         marker = full / ".git"
         if not marker.exists():
-            warnings.append(f"{path}: submodule is not initialized locally (run git submodule update --init (without --recursive; see sources/README.md))")
+            if path.startswith("ports/catalog/available/"):
+                uninitialized_catalog_sources += 1
+            else:
+                warnings.append(f"{path}: submodule is not initialized locally (run tools/checkout-sources.py --curated; do not use --recursive)")
         else:
             head = git("rev-parse", "HEAD", cwd=full, check=False)
             if head.returncode == 0 and head.stdout.strip() != oid:
@@ -232,6 +236,9 @@ def cmd_check(_: argparse.Namespace) -> int:
                 warnings.append(f"{path}: submodule has local modifications")
 
     port_ids = {port_section(data).get("name", file.parent.name) for file, data in ports}
+    if uninitialized_catalog_sources:
+        warnings.append(f"{uninitialized_catalog_sources} optional UniXNU available-device submodules are not initialized; use tools/checkout-sources.py --available to fetch them")
+
     for c in component_records():
         if not c.get("id") or not c.get("category"):
             errors.append("components/manifest.toml: each component needs id and category")
@@ -262,6 +269,9 @@ def component_records(root: Path = ROOT) -> list[dict]:
 
 def cmd_components(_: argparse.Namespace) -> int:
     ports = {port_section(p).get("name", path.parent.name) for path, p in port_records()}
+    if uninitialized_catalog_sources:
+        warnings.append(f"{uninitialized_catalog_sources} optional UniXNU available-device submodules are not initialized; use tools/checkout-sources.py --available to fetch them")
+
     for c in component_records():
         missing = sorted(set(c.get("ports", [])) - ports)
         print(f"{c.get('id', '?')} [{c.get('category', '?')}] — {c.get('media', '?')}")
@@ -345,8 +355,17 @@ def cmd_device_catalog(args: argparse.Namespace) -> int:
         repo = d.get("repository", "?")
         rev = d.get("revision", "?")
         components = ", ".join(d.get("components", []))
+        catalog_path = f"ports/catalog/available/{d.get('name', '?')}/repo"
+        source_map = source_index()
+        checkout = catalog_path if catalog_path in source_map else "metadata only"
+        if checkout == "metadata only":
+            repo_url = "https://github.com/" + str(d.get("repository", ""))
+            for source_path, source in source_map.items():
+                if source.get("revision") == d.get("revision") and norm_url(source.get("upstream", "")) == norm_url(repo_url):
+                    checkout = f"existing curated source: {source_path}"
+                    break
         print(f"- {d.get('name', '?')}: {d.get('title', '?')} | {d.get('soc', '?')} | {state}")
-        print(f"  {repo}@{rev}")
+        print(f"  {repo}@{rev} | checkout: {checkout}")
         if components:
             print(f"  components: {components}")
     if limit is not None and len(matches) > limit:

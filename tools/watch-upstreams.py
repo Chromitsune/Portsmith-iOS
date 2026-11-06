@@ -47,10 +47,13 @@ def main()->int:
  args=ap.parse_args()
  import tomllib
  with (ROOT/"sources/manifest.toml").open('rb') as f: srcs=tomllib.load(f).get("source",[])
+ managed_paths={tomllib.loads(p.read_text()).get("port",{}).get("source") for p in (ROOT/"ports").glob("*/port.toml")}
  watched=[]; errors=[]
  for s in srcs:
   path=s.get("path","")
-  if not (path.startswith("ports/") or path=="sources/UniXNU"): continue
+  # The compatibility watch follows Portsmith-managed ports/framework only;
+  # the 79 discovery-only catalog checkouts are not feature-status claims.
+  if path not in managed_paths and path!="sources/UniXNU": continue
   if s.get("source_mode")=="vendored-snapshot": continue
   url=s.get("upstream")
   if not url: continue
