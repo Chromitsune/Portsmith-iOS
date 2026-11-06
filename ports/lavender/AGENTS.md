@@ -1,6 +1,6 @@
 # Lavender port agent notes
 
-Canonical device source: `sources/UniXNU-Lavender` (Git submodule). Read its `AGENTS.md`, `README.md`, `docs/panic-recovery-status.md`, and `board.toml` before touching device code.
+Canonical device source: `ports/lavender/repo` (Git submodule). Read its `AGENTS.md`, `README.md`, `docs/panic-recovery-status.md`, and `board.toml` before touching device code.
 
 Hardware contract recorded from the device: Xiaomi Redmi Note 7 (`lavender`), Qualcomm SDM660, 4 GB DRAM, eMMC (not UFS), Xiaomi ABL and a custom EDK2 package derived from its XBL, 1080x2340 NT36672A panel, SMC PSCI. This port is not the OnePlus 10 Pro/SM8450 configuration.
 

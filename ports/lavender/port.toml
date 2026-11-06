@@ -3,7 +3,7 @@ name = "lavender"
 model = "Xiaomi Redmi Note 7"
 codename = "lavender"
 soc = "Qualcomm SDM660"
-source = "sources/UniXNU-Lavender"
+source = "ports/lavender/repo"
 status = "bring-up; panic recovery not device-verified"
 
 [hardware]

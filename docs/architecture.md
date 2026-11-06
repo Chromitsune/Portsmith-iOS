@@ -4,7 +4,7 @@ Portsmith separates three layers:
 
 1. **Workspace layer** — shared agent instructions, skills, source catalog, provenance, host-only tools and tests.
 2. **Port layer** — one directory per physical device/board, with its own `AGENTS.md`, manifest, status, boot safety notes, evidence, and adapters.
-3. **Source layer** — pinned Git submodules under `sources/`. Each stays a real upstream-derived repository with its own history and license; Portsmith records what it is useful for without flattening its code into a universal kernel tree.
+3. **Port/source layer** — complete pinned device repositories under `ports/<port>/repo/` and shared framework submodules under `sources/`. Each stays a real upstream-derived repository with its own README, history, and license; Portsmith does not flatten them into a universal kernel tree.
 
 ## Why keep ports separate?
 

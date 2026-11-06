@@ -1,0 +1,15 @@
+[port]
+name = "starqltechn"
+model = "Samsung Galaxy S9 Snapdragon variant"
+codename = "starqltechn"
+soc = "Qualcomm SDM845 / Snapdragon 845"
+source = "ports/galaxy-s9-snapdragon/repo"
+status = "upstream reports iOS 16.7.16 home screen; CPU render, no GPU driver"
+
+[hardware]
+storage = "UFS"
+gpu = "Adreno 630"
+
+[safety]
+userdata_erased_by_upstream_install = true
+flash_requires_explicit_authorization = true

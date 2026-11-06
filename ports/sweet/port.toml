@@ -1,0 +1,15 @@
+[port]
+name = "sweet"
+model = "Xiaomi Redmi Note 10 Pro"
+codename = "sweet"
+soc = "Qualcomm SM7150 / Snapdragon 732G"
+source = "ports/sweet/repo"
+status = "upstream reports iOS 16.7.16 reaching home screen; experimental"
+
+[hardware]
+storage = "UFS"
+gpu = "Adreno 618"
+
+[safety]
+userdata_erased_by_upstream_install = true
+flash_requires_explicit_authorization = true

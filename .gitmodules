@@ -1,24 +1,24 @@
-[submodule "sources/iOSPlus10"]
-	path = sources/iOSPlus10
-	url = https://github.com/Chromitsune/iOSPlus10.git
-	branch = lavender-panic-recovery
 [submodule "sources/UniXNU"]
 	path = sources/UniXNU
 	url = https://github.com/Chromitsune/UniXNU.git
 	branch = main
-[submodule "sources/ios-sweet"]
-	path = sources/ios-sweet
+[submodule "ports/negroni/repo"]
+	path = ports/negroni/repo
+	url = https://github.com/Chromitsune/iOSPlus10.git
+	branch = lavender-panic-recovery
+[submodule "ports/sweet/repo"]
+	path = ports/sweet/repo
 	url = https://github.com/Chromitsune/ios-sweet.git
 	branch = main
-[submodule "sources/ios-flame"]
-	path = sources/ios-flame
+[submodule "ports/flame/repo"]
+	path = ports/flame/repo
 	url = https://github.com/Chromitsune/ios-flame.git
 	branch = main
-[submodule "sources/ios-s9"]
-	path = sources/ios-s9
+[submodule "ports/galaxy-s9-snapdragon/repo"]
+	path = ports/galaxy-s9-snapdragon/repo
 	url = https://github.com/Chromitsune/ios-s9.git
 	branch = main
-[submodule "sources/UniXNU-Lavender"]
-	path = sources/UniXNU-Lavender
+[submodule "ports/lavender/repo"]
+	path = ports/lavender/repo
 	url = https://github.com/Chromitsune/UniXNU-Lavender.git
 	branch = main

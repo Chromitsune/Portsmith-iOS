@@ -18,7 +18,7 @@
 ## Port boundaries
 
 - Treat each `ports/<device>` as a separate hardware/boot contract. Do not copy addresses, memory maps, reset paths, display timings, storage drivers, or firmware assumptions across devices without evidence.
-- Source repositories are pinned submodules. Preserve their history and licensing; make port-specific changes in the correct fork/submodule, not as a flattened copy.
+- Complete device repositories are pinned submodules under `ports/<port>/repo/`; shared framework references are under `sources/`. Preserve history and licensing; make port-specific changes in the correct fork/submodule, not as a flattened copy.
 - Before borrowing code, check its license and record its original repository/path/commit in `CREDITS.md` or the component's `UPSTREAM.md`.
 - Do not call something “working” from compilation alone. Separate `host-verified`, `device-verified`, inference, and unknown.
 

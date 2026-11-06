@@ -1,0 +1,15 @@
+[port]
+name = "flame"
+model = "Google Pixel 4"
+codename = "flame"
+soc = "Qualcomm SM8150 / Snapdragon 855"
+source = "ports/flame/repo"
+status = "upstream reports iOS 16 UI and GPU-rendered interface; experimental"
+
+[hardware]
+storage = "UFS"
+gpu = "Adreno 640"
+
+[safety]
+userdata_erased_by_upstream_install = true
+flash_requires_explicit_authorization = true
