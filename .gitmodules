@@ -33,7 +33,7 @@
 [submodule "ports/sweet-native-metal/repo"]
 	path = ports/sweet-native-metal/repo
 	url = https://github.com/DC28088/ios-sweet.git
-	branch = codex/native-adreno-metal
+	branch = main
 [submodule "ports/apollo/repo"]
 	path = ports/apollo/repo
 	url = https://github.com/aTechGeekDev/ios-apollo.git
@@ -45,3 +45,4 @@
 [submodule "ports/sheng/repo"]
 	path = ports/sheng/repo
 	url = https://github.com/UniXNU/UniXNU-sheng.git
+	branch = main

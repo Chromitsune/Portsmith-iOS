@@ -10,7 +10,7 @@ The rationale and evidence comparison for selecting sheng is in [`selection.md`]
 |---|---|---|
 | Redmi Note 7 — `lavender` | Qualcomm SDM660 | eMMC |
 | Redmi Note 10 Pro — `sweet` | Qualcomm SM7150 / Snapdragon 732G | UFS |
-| Redmi Note 10 Pro — `sweet-native-metal` | Qualcomm SM7150 / Snapdragon 732G | UFS |
+| Redmi Note 10 Pro — `sweet-native-metal` (DC28088 default `main`) | Qualcomm SM7150 / Snapdragon 732G | UFS |
 | Mi 10T family — `apollo` | Qualcomm SM8250 / Snapdragon 865 | UFS |
 | Xiaomi 15 — `dada` | Qualcomm SM8750 / Snapdragon 8 Elite | UFS (per source tree) |
 | Xiaomi Pad 6S Pro — `sheng` | Qualcomm SM8550 / Snapdragon 8 Gen 2 | UFS (board-specific integration) |

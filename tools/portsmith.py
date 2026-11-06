@@ -95,6 +95,11 @@ def submodule_url(path: str) -> str | None:
     return result.stdout.strip() if result.returncode == 0 else None
 
 
+def submodule_branch(path: str) -> str | None:
+    result = git("config", "-f", ".gitmodules", "--get", f"submodule.{path}.branch", check=False)
+    return result.stdout.strip() if result.returncode == 0 else None
+
+
 
 def license_matches(path: Path, spdx: str | None) -> bool:
     if not spdx:
@@ -210,6 +215,10 @@ def cmd_check(_: argparse.Namespace) -> int:
         upstream = item.get("upstream")
         if url and upstream and norm_url(url) != norm_url(upstream):
             warnings.append(f"{path}: .gitmodules URL is {url}, manifest upstream is {upstream}")
+        expected_branch = item.get("branch")
+        configured_branch = submodule_branch(path)
+        if expected_branch and configured_branch != expected_branch:
+            errors.append(f"{path}: .gitmodules branch {configured_branch!r} != manifest branch {expected_branch!r}")
         marker = full / ".git"
         if not marker.exists():
             warnings.append(f"{path}: submodule is not initialized locally (run git submodule update --init (without --recursive; see sources/README.md))")

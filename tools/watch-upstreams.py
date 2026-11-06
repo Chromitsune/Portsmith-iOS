@@ -34,7 +34,9 @@ def compare_files(repo:str, base:str, head:str)->dict:
    if base_name in COMPAT_NAMES or "/reports/" in "/"+low or low.startswith("docs/"):
     matches.append(f)
   out={"status":"compared","ahead_by":payload.get("ahead_by"),"changed_files":len(changed),"compatibility_files":sorted(set(matches))}
- except (urllib.error.URLError,urllib.error.HTTPError,TimeoutError,ValueError) as e:
+ except Exception as e:
+  # GitHub compare can transiently truncate a large diff (http.client.IncompleteRead).
+  # Preserve the upstream head/compare link and flag the diff scan as unavailable.
   out={"status":"unavailable","detail":str(e)[:240],"compatibility_files":[]}
  return out
 

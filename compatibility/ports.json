@@ -709,63 +709,72 @@
       "storage": "UFS",
       "gpu": "Adreno 618",
       "repo_url": "https://github.com/DC28088/ios-sweet",
-      "revision": "67448d2151ef7520a8c4417a62a85823c62b30b5",
+      "revision": "8ba152f7132d3c25b5e2ff83b7f5455b8e01457f",
       "repo_path": "ports/sweet-native-metal/repo",
-      "evidence_file": "NOTES.md",
-      "evidence_url": "https://github.com/DC28088/ios-sweet/blob/67448d2151ef7520a8c4417a62a85823c62b30b5/NOTES.md",
+      "evidence_file": "README.md",
+      "evidence_url": "https://github.com/DC28088/ios-sweet/blob/8ba152f7132d3c25b5e2ff83b7f5455b8e01457f/README.md",
       "status_basis": "upstream_report",
       "features": {
         "boot": {
           "state": "reported_working",
-          "detail": "The branch README reports an iOS UI on Redmi Note 10 Pro."
-        },
-        "display": {
-          "state": "reported_working",
-          "detail": "The branch README reports a visible UI."
-        },
-        "touch_buttons": {
-          "state": "reported_working",
-          "detail": "The branch README reports touch."
-        },
-        "gpu": {
-          "state": "partial",
-          "detail": "Metal-to-Vulkan/Turnip UI path is reported; direct native-Metal backend remains experimental."
-        },
-        "bluetooth": {
-          "state": "reported_working",
-          "detail": "The branch README reports Bluetooth."
-        },
-        "wifi": {
-          "state": "reported_working",
-          "detail": "The branch README reports Wi-Fi."
-        },
-        "cellular": {
-          "state": "in_progress",
-          "detail": "Upstream lists cellular among incomplete areas."
-        },
-        "camera_sensors": {
-          "state": "in_progress",
-          "detail": "Upstream lists camera/sensors among incomplete areas."
-        },
-        "usb": {
-          "state": "reported_working",
-          "detail": "The branch README reports USB debugging/logs."
-        },
-        "stability": {
-          "state": "partial",
-          "detail": "Upstream says performance is uneven; experimental features remain."
-        },
-        "audio": {
-          "state": "in_progress",
-          "detail": "Upstream lists audio among incomplete services."
+          "detail": "DC28088 main README reports the iOS 16.7.16 home screen and stock userland."
         },
         "cpu": {
           "state": "reported_working",
-          "detail": "Upstream reports the XNU/iOS UI or desktop booting, which establishes CPU execution. Core count/SMP stress, sustained performance and thermals are not separately qualified."
+          "detail": "The reported XNU/iOS UI boot establishes CPU execution; SMP and sustained performance are not independently qualified by Portsmith."
+        },
+        "gpu": {
+          "state": "partial",
+          "detail": "DC28088 main README reports native Adreno 618 Metal UI rendering, but animations are not consistently smooth at 60/120 fps."
+        },
+        "display": {
+          "state": "reported_working",
+          "detail": "Upstream reports the iOS home screen and IOMobileFramebuffer display path."
+        },
+        "touch_buttons": {
+          "state": "reported_working",
+          "detail": "Upstream reports working Goodix touch and hardware power/volume buttons."
+        },
+        "audio": {
+          "state": "in_progress",
+          "detail": "Speaker/headphone and Bluetooth audio remain unfinished upstream."
+        },
+        "bluetooth": {
+          "state": "reported_working",
+          "detail": "Upstream reports pairing with a laptop and headphones; Bluetooth audio is unfinished."
+        },
+        "wifi": {
+          "state": "partial",
+          "detail": "Upstream reports scan, WPA2 join, DHCP and web access, but Wi-Fi/Bluetooth coexistence remains problematic."
+        },
+        "cellular": {
+          "state": "in_progress",
+          "detail": "Upstream lists cellular as unfinished."
+        },
+        "power_sleep": {
+          "state": "partial",
+          "detail": "Battery and charging state are reported; reliable sleep/power management remains unfinished."
+        },
+        "camera_sensors": {
+          "state": "in_progress",
+          "detail": "Camera, sensors and GPS remain unfinished upstream."
+        },
+        "usb": {
+          "state": "reported_working",
+          "detail": "Upstream reports live USB CDC-ECM debugging, SSH and file service."
+        },
+        "storage": {
+          "state": "reported_working",
+          "detail": "Upstream reports a custom UFS host and writable journaled HFS+ iOS root in userdata; this is device-specific."
+        },
+        "stability": {
+          "state": "partial",
+          "detail": "Experimental; animations are slow, Wi-Fi/Bluetooth coexistence and daemon stability need work, and production security is absent."
         }
       },
-      "branch": "codex/native-adreno-metal",
-      "source_mode": "submodule"
+      "branch": "main",
+      "source_mode": "submodule",
+      "show_branch": true
     }
   ]
 }

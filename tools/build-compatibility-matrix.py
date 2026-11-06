@@ -52,7 +52,7 @@ def matrix_table(data):
  for row in data['ports']:
   specs=[row.get('soc','')]+[x for x in (row.get('storage'),row.get('gpu')) if x and x!='unknown']
   if row.get('source_mode')=='vendored-snapshot': specs.append('vendored snapshot')
-  elif row.get('branch') and row.get('branch')!='main': specs.append('branch '+row['branch'])
+  elif row.get('branch') and (row.get('branch')!='main' or row.get('show_branch')): specs.append('branch '+row['branch'])
   dev=f"[{row['device']} / `{row['id']}`]({row['evidence_url']})<br><sub>{' · '.join(specs)}</sub>"
   cells=[dev]
   for f in features:
@@ -113,7 +113,7 @@ function build(){{
  for(const row of data.ports){{
   const tr=document.createElement('tr');
   const first=document.createElement('td'); first.className='device';
-  const branchNote=row.source_mode==='vendored-snapshot'?'vendored snapshot':(row.branch&&row.branch!=='main'?'branch '+row.branch:null);
+  const branchNote=row.source_mode==='vendored-snapshot'?'vendored snapshot':(row.branch&&(row.branch!=='main'||row.show_branch)?'branch '+row.branch:null);
   const specs=[row.soc,row.storage,row.gpu!=='unknown'?row.gpu:null,branchNote].filter(Boolean).join(' · ');
   first.innerHTML='<a href="'+esc(row.repo_url)+'" target="_blank" rel="noreferrer">'+esc(row.device)+'</a><span class="meta">'+esc(specs)+' · '+esc(row.id)+'</span><span class="meta"><a href="'+esc(row.evidence_url)+'" target="_blank" rel="noreferrer">pinned evidence '+esc(row.revision.slice(0,12))+'</a></span>';
   tr.appendChild(first);

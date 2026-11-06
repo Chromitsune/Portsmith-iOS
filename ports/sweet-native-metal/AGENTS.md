@@ -1,7 +1,11 @@
-# Redmi Note 10 Pro native-Metal development branch
+# Redmi Note 10 Pro — DC28088 maintained Sweet source
 
-Source is `repo/`, pinned to `DC28088/ios-sweet` branch `codex/native-adreno-metal`; read its README, NOTES, PRIVACY, and branch-specific source/credits. The repository's default `main` branch explicitly does **not** contain all of the native-Metal work described in the README, so Portsmith tracks the named development branch and records its exact commit.
+This Portsmith entry now pins the **default `main` branch** of [DC28088/ios-sweet](repo/) at `8ba152f7132d3c25b5e2ff83b7f5455b8e01457f`, following the user's direction that this is the maintained line. Portsmith no longer tracks the old `codex/native-adreno-metal` branch.
 
-Upstream reports iOS 16.7.16 on Redmi Note 10 Pro/SM7150 with the working UI rendered through a Metal→Vulkan/Turnip bridge, plus Wi-Fi, Bluetooth, USB debugging, and battery/charging support. The separate direct AIR→NIR/freedreno native-Metal backend is experimental: its README says the latest hardware trial stopped at a draw-validation error. Animations and other daily-driver services remain incomplete. Status is upstream-reported, not independently reproduced by Portsmith.
+## Evidence and caveats
 
-The repo is a fork of `dipa-studio/ios-sweet`, but GitHub does not report a recognized license for this fork. Keep it as a source reference; do not copy/redistribute branch-specific code until its license is clarified with the maintainer. Never flash its images without explicit authorization.
+- Read the pinned `repo/README.md`, `repo/NOTES.md`, and `repo/PRIVACY.md` before using any status claim. The README at this pin reports an iOS 16.7.16 home screen, native Adreno 618 Metal rendering, touch/buttons, Wi-Fi, Bluetooth pairing, USB debugging, battery state, and a writable UFS/HFS+ root.
+- The same README says animation performance is not consistently smooth, audio/video/camera/cellular/sensors/sleep and production security remain incomplete, and some implementation history lives on `codex/native-adreno-metal`. Do not silently substitute that abandoned branch for the pinned `main` tree or attribute its files to this pin.
+- Statuses are upstream-reported, not Portsmith verification. No device build, flash, or test was done for this update.
+- The fork has no root `LICENSE` or recognized license grant at this pin. Keep it as a Git submodule reference only; do not copy or redistribute its code until the maintainer clarifies licensing.
+- Its installer writes/erases `userdata`; flashing still requires explicit, current authorization.

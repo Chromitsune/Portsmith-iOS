@@ -101,13 +101,13 @@ license = "No recognized license metadata; preserve upstream notices and verify 
 
 [[source]]
 name = "ios-sweet-dc28088"
-revision = "67448d2151ef7520a8c4417a62a85823c62b30b5"
+revision = "8ba152f7132d3c25b5e2ff83b7f5455b8e01457f"
 path = "ports/sweet-native-metal/repo"
 upstream = "https://github.com/DC28088/ios-sweet"
-branch = "codex/native-adreno-metal"
-maintainer = "DC28088 (fork of dipa-studio/ios-sweet)"
-role = "Redmi Note 10 Pro / SM7150 Metal-to-Vulkan UI with experimental direct Adreno 618 Metal backend"
-license = "No recognized license metadata for fork; base is MIT ios-sweet; verify branch additions before reuse"
+branch = "main"
+maintainer = "DC28088 (maintained default branch; fork of dipa-studio/ios-sweet)"
+role = "Redmi Note 10 Pro / SM7150 current main; upstream reports native Adreno 618 Metal UI, Wi-Fi/Bluetooth, touch, USB and battery"
+license = "No root LICENSE file or recognized grant in the fork; external reference only, do not copy code without maintainer clarification"
 
 [[source]]
 name = "ios-apollo"

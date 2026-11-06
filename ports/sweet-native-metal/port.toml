@@ -5,9 +5,9 @@ codename = "sweet"
 soc = "Qualcomm SM7150 / Snapdragon 732G"
 source = "ports/sweet-native-metal/repo"
 upstream = "https://github.com/DC28088/ios-sweet"
-branch = "codex/native-adreno-metal"
-upstream_commit = "67448d2151ef7520a8c4417a62a85823c62b30b5"
-status = "upstream reports working Metal-to-Vulkan/Turnip UI path; direct native-Metal backend remains experimental"
+branch = "main"
+upstream_commit = "8ba152f7132d3c25b5e2ff83b7f5455b8e01457f"
+status = "Pinned DC28088 main reports iOS 16.7.16 UI with Adreno 618 Metal rendering, touch/buttons, Wi-Fi/Bluetooth, USB debugging and battery; animation smoothness and several services remain incomplete. Upstream-only evidence."
 
 [hardware]
 vendor = "Xiaomi"
@@ -21,15 +21,16 @@ gpu = "Adreno 618"
 [reported]
 home_screen = true
 touch = true
-metal2vulkan_turnip_ui = "reported working"
-native_metal_backend = "experimental; hardware draw validation still in progress"
-wifi = "reported working"
-bluetooth = "reported working"
+hardware_buttons = true
+native_metal_ui = "upstream main README reports real Adreno 618 UI rendering; animations are not consistently smooth at 60/120 fps"
+wifi = "reported working; Wi-Fi/Bluetooth coexistence still needs work"
+bluetooth = "pairing reported; Bluetooth audio unfinished"
 usb_debugging = "reported working"
 battery = "reported working"
-limitations = "not consistently smooth; audio/video/camera/cellular/sensors and security incomplete"
+storage = "custom writable UFS/HFS+ iOS root reported in userdata"
+limitations = "speaker/headphone audio, video, camera, cellular, sensors, GPS, sleep/power management and production security remain incomplete"
 
 [safety]
-license = "not recognized by GitHub for this fork; verify before copying code"
+license = "no root LICENSE/recognized grant in fork; reference-only until maintainer clarifies"
 userdata_erased_by_upstream_install = true
 flash_requires_explicit_authorization = true

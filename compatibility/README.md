@@ -15,7 +15,7 @@ Each port row includes its source URL and exact pinned revision. Filled cells in
 
 ## Sweet source distinction
 
-The canonical `sweet` port remains pinned to the MIT-licensed `dipa-studio/ios-sweet` baseline. The requested [DC28088/ios-sweet](https://github.com/DC28088/ios-sweet) repository is already tracked separately as `sweet-native-metal`, pinned to its `codex/native-adreno-metal` development branch. The two branches/repos have diverged; the DC28088 fork has no recognized root license. Keeping them separate avoids silently replacing the licensed baseline with an unlicensed fork or implying branch equivalence. Its current matrix row points to the requested repository and commit.
+The `sweet-native-metal` Portsmith entry now follows the requested [DC28088/ios-sweet](https://github.com/DC28088/ios-sweet) **default `main` branch**, pinned at `8ba152f7132d3c25b5e2ff83b7f5455b8e01457f`; the old `codex/native-adreno-metal` branch is no longer tracked here. The original `dipa-studio/ios-sweet` MIT baseline remains as a separate comparison port. The DC28088 main README reports native Adreno 618 Metal UI, touch, Wi-Fi/Bluetooth pairing, USB debugging, battery and UFS-root work, while noting incomplete smoothness/services. It also mentions work on the old branch; the matrix is strictly pinned to main and does not import that branch. The fork has no root license/recognized grant, so its source remains a submodule reference and no code is copied from it.
 
 ## Updating the checklist
 
