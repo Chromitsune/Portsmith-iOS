@@ -198,8 +198,8 @@
     {
       "branch": "main",
       "path": "ports/lavender/repo",
-      "pinned_revision": "6afc69f9349ccebf2ab20eebcc3830e78f9955a9",
-      "remote_head": "6afc69f9349ccebf2ab20eebcc3830e78f9955a9",
+      "pinned_revision": "247620e7356b7de3bbc6b7ba7d9a48503accde04",
+      "remote_head": "247620e7356b7de3bbc6b7ba7d9a48503accde04",
       "repository": "https://github.com/Chromitsune/UniXNU-Lavender",
       "state": "pin-current"
     },
