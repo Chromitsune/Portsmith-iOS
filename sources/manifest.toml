@@ -59,7 +59,7 @@ license = "MIT (repository LICENSE retains dipa-studio copyright notice)"
 
 [[source]]
 name = "UniXNU-Lavender"
-revision = "b74f2cff0321a1440a4ecc24bd7485d21512985f"
+revision = "6afc69f9349ccebf2ab20eebcc3830e78f9955a9"
 path = "ports/lavender/repo"
 upstream = "https://github.com/Chromitsune/UniXNU-Lavender"
 mirror = "https://github.com/Chromitsune/UniXNU-Lavender"

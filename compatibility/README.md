@@ -26,7 +26,7 @@ The `sweet-native-metal` Portsmith entry now follows the requested [DC28088/ios-
 
 ## Upstream monitoring automation
 
-The scheduled GitHub workflow runs `tools/watch-upstreams.py`. It compares curated and catalog-derived port/framework repository pins with their configured branch heads and, on change, opens a pull request that updates `upstream-watch.json` with compare links and any changed README/NOTES/porting/status files found by GitHub's compare API. The first run found a newer sheng Bluetooth report; its review is recorded in [`review-notes.md`](review-notes.md).
+The scheduled GitHub workflow runs `tools/watch-upstreams.py`. It compares curated and catalog-derived port/framework repository pins with their configured branch heads and opens a pull request when a head differs or cannot be queried; the report records lookup failures rather than failing the entire run. It updates `upstream-watch.json` with compare links and any changed README/NOTES/porting/status files found by GitHub's compare API. The first run found a newer sheng Bluetooth report; its review is recorded in [`review-notes.md`](review-notes.md).
 
 **It never changes a compatibility cell to “working.”** A commit may contain a refactor, a regression, or no hardware work at all, so source activity is not evidence of hardware compatibility. The review PR is a prompt to inspect new evidence and manually update `ports.json`. If an upstream later publishes a versioned machine-readable compatibility report, Portsmith could import that report with a separate schema and keep its source/evidence attribution; no such common contract exists across these projects today.
 

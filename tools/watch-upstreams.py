@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Report newer upstream commits; never modify feature compatibility statuses."""
+"""Report upstream head changes and lookup failures; never modify feature compatibility statuses."""
 from __future__ import annotations
 import argparse, json, os, subprocess, sys, urllib.error, urllib.parse, urllib.request
 from pathlib import Path
@@ -53,7 +53,7 @@ def main()->int:
   if old_path.is_file():
    try: old_entries={x.get("path"):x for x in json.loads(old_path.read_text()).get("sources",[])}
    except (ValueError, OSError): old_entries={}
- watched=[]; errors=[]
+ watched=[]
  for s in srcs:
   path=s.get("path","")
   # Watch all curated and catalog-derived device source refs, but not vendored
@@ -81,16 +81,17 @@ def main()->int:
      entry["compare"]={"status":"skipped","compatibility_files":[]}
    watched.append(entry)
   except Exception as e:
-   errors.append(f"{path}: {e}")
- if errors:
-  for e in errors: print("ERROR: "+e,file=sys.stderr)
-  return 1
+   # A deleted/private/rate-limited upstream should not prevent the report for
+   # every other source. Keep its exact pin and make the lookup failure visible.
+   entry.update({"remote_head":None,"state":"lookup-failed","lookup_error":str(e)[:240]})
+   watched.append(entry)
+   print(f"WARN: {path}: remote head lookup failed; recording for review: {e}",file=sys.stderr)
  report={"schema_version":1,"purpose":"upstream source-change review only; compatibility states are never changed by this report","sources":sorted(watched,key=lambda x:x["path"])}
  text=json.dumps(report,indent=2,sort_keys=True)+"\n"
  if args.output:
   out=args.output if args.output.is_absolute() else ROOT/args.output
   out.parent.mkdir(parents=True,exist_ok=True);out.write_text(text,encoding="utf-8")
-  print(f"Wrote {out.relative_to(ROOT)}; {sum(x['state']=='review-required' for x in watched)} source(s) need review")
+  print(f"Wrote {out.relative_to(ROOT)}; {sum(x['state']=='review-required' for x in watched)} source(s) need review, {sum(x['state']=='lookup-failed' for x in watched)} lookup failure(s)")
  else: sys.stdout.write(text)
  return 0
 if __name__=="__main__": raise SystemExit(main())

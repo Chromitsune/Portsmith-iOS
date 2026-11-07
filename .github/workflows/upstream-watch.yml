@@ -31,6 +31,6 @@ jobs:
           commit-message: 'chore: refresh upstream source watch'
           title: 'chore: review upstream port updates'
           body: |
-            The scheduled watcher found one or more curated or catalog-derived upstream branch heads that differ from Portsmith's pinned commits.
+            The scheduled watcher found upstream heads that differ from Portsmith's pins or could not be queried.
 
-            This PR updates only `compatibility/upstream-watch.json` with pins, remote heads, compare links, and changed compatibility-related files where available. **It does not change any compatibility status.** Review the source diff and its hardware evidence before editing `compatibility/ports.json`.
+            This PR updates only `compatibility/upstream-watch.json` with pins, remote heads, lookup errors, compare links, and changed compatibility-related files where available. **It does not change any compatibility status.** Review the source diff and its hardware evidence before editing `compatibility/ports.json`.
