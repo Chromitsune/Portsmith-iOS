@@ -1037,10 +1037,10 @@
       "storage": "eMMC",
       "gpu": "unknown",
       "repo_url": "https://github.com/Chromitsune/UniXNU-Lavender",
-      "revision": "247620e7356b7de3bbc6b7ba7d9a48503accde04",
+      "revision": "1462374c61308e9b6dce0bb6a3fd7dc0add08fb9",
       "repo_path": "ports/lavender/repo",
       "evidence_file": "README.md",
-      "evidence_url": "https://github.com/Chromitsune/UniXNU-Lavender/blob/247620e7356b7de3bbc6b7ba7d9a48503accde04/README.md",
+      "evidence_url": "https://github.com/Chromitsune/UniXNU-Lavender/blob/1462374c61308e9b6dce0bb6a3fd7dc0add08fb9/README.md",
       "status_basis": "upstream_report",
       "features": {
         "boot": {

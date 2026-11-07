@@ -198,8 +198,8 @@
     {
       "branch": "main",
       "path": "ports/lavender/repo",
-      "pinned_revision": "247620e7356b7de3bbc6b7ba7d9a48503accde04",
-      "remote_head": "247620e7356b7de3bbc6b7ba7d9a48503accde04",
+      "pinned_revision": "1462374c61308e9b6dce0bb6a3fd7dc0add08fb9",
+      "remote_head": "1462374c61308e9b6dce0bb6a3fd7dc0add08fb9",
       "repository": "https://github.com/Chromitsune/UniXNU-Lavender",
       "state": "pin-current"
     },
@@ -551,10 +551,10 @@
         "compatibility_files": [],
         "status": "skipped"
       },
-      "compare_url": "https://github.com/ks114514/UniXNU-sheng/compare/460179565a018c741b93e0b1efa07c55d4de497a...ce0c600fa015964d4ecb6af864fa2ab66efa915f",
+      "compare_url": "https://github.com/ks114514/UniXNU-sheng/compare/460179565a018c741b93e0b1efa07c55d4de497a...679908d22cee24d15adfb1fceed9a8bf4e0d36ea",
       "path": "ports/sheng-ks114514/repo",
       "pinned_revision": "460179565a018c741b93e0b1efa07c55d4de497a",
-      "remote_head": "ce0c600fa015964d4ecb6af864fa2ab66efa915f",
+      "remote_head": "679908d22cee24d15adfb1fceed9a8bf4e0d36ea",
       "repository": "https://github.com/ks114514/UniXNU-sheng",
       "state": "review-required"
     },
