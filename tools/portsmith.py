@@ -284,9 +284,6 @@ def component_records(root: Path = ROOT) -> list[dict]:
 
 def cmd_components(_: argparse.Namespace) -> int:
     ports = {port_section(p).get("name", path.parent.name) for path, p in port_records()}
-    if uninitialized_catalog_sources:
-        warnings.append(f"{uninitialized_catalog_sources} optional UniXNU available-device submodules are not initialized; use tools/checkout-sources.py --available to fetch them")
-
     for c in component_records():
         missing = sorted(set(c.get("ports", [])) - ports)
         print(f"{c.get('id', '?')} [{c.get('category', '?')}] — {c.get('media', '?')}")
