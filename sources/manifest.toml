@@ -34,6 +34,7 @@ branch = "main"
 maintainer = "dipa-studio"
 role = "iOS 16/XNU bring-up on Redmi Note 10 Pro (SM7150); persistent console logs"
 license = "MIT"
+known_forks = [{ repository = "https://github.com/Nik300/ios-viva", revision = "45263bee51df4a0f55cdf9c649af886399488ddb", note = "same commit/tree as this pin; no duplicate source checkout" }]
 
 [[source]]
 name = "ios-flame"
@@ -1337,3 +1338,26 @@ catalog_state = "available"
 catalog_record = true
 
 # END generated UniXNU available device source pins
+
+[[source]]
+name = "hackios-xnu-kernel-onyx"
+revision = "1a1f3d3510ccf3f1a92afd7238ac406dd9d6897a"
+path = "ports/onyx/repo"
+upstream = "https://github.com/Aymon-njz/hackios-xnu-kernel-Onyx"
+branch = "main"
+maintainer = "Aymon-njz / OOSEX GANG"
+role = "Reference-only XNU/UEFI profile for POCO F7 / Redmi Turbo 4 Pro (onyx, SM8735); upstream README reports redwood and QEMU, not Onyx device results"
+license = "APSL-2.0 for project sources; bundled third-party/prebuilt items retain separate terms; reference only, no code copied"
+reference_only = true
+
+[[source]]
+name = "viva-gpu"
+revision = "54011de06784d259d509d588839d2e739c6260c6"
+path = "sources/viva-gpu"
+upstream = "https://github.com/Nik300/viva-gpu"
+branch = "main"
+maintainer = "Nik300"
+role = "Reference-only Mali-G57/Helio G96 iOS 16 Metal/Panfrost userland; kernel provider missing and no device test reported"
+license = "Unresolved: no root LICENSE/COPYING/NOTICE and GitHub reports no license; reference only, do not copy code"
+reference_only = true
+watch_upstream = true

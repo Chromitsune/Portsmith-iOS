@@ -16,6 +16,9 @@ Portsmith is an independent workbench. The projects below are pinned as separate
 | [ios-apollo](https://github.com/aTechGeekDev/ios-apollo) | [aTechGeekDev](https://github.com/aTechGeekDev) | Mi 10T family/SM8250 iOS 16 port | MIT |
 | [ios-a5xelte / herolte](https://github.com/wardevsa/ios-a5xelte/tree/herolte) | [wardevsa](https://github.com/wardevsa), building on [orhunnx/ios-a5xelte](https://github.com/orhunnx/ios-a5xelte) | Galaxy S7 Exynos 8890/Herolte GPU-accelerated iOS 16 port; repo also contains A5XELTE work | No recognized license metadata for fork; preserve notices and check before reuse |
 | [UniXNU-Lavender](https://github.com/Chromitsune/UniXNU-Lavender) | Chromitsune | Lavender/SDM660 board port | See its license and component notices |
+| [HackiOS XNU kernel — Onyx profile](https://github.com/Aymon-njz/hackios-xnu-kernel-Onyx) | Aymon-njz / OOSEX GANG | Reference-only POCO F7 / Redmi Turbo 4 Pro profile; no Onyx device result reported | APSL-2.0 project license; retain per-component/prebuilt notices |
+| [viva-gpu](https://github.com/Nik300/viva-gpu) | Nik300 | Mali-G57 userland Metal/Panfrost research reference for Redmi Note 11 Pro 4G | No root license found; reference only, no code copied |
+| [ios-viva](https://github.com/Nik300/ios-viva) | Nik300 fork of [dipa-studio/ios-sweet](https://github.com/dipa-studio/ios-sweet) | Alternate URL for the exact `45263bee` sweet source pin already tracked under `ports/sweet/repo` | Same pinned tree as existing MIT ios-sweet source; no duplicate checkout |
 
 ## Adapted utilities
 

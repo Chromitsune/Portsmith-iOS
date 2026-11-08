@@ -48,3 +48,16 @@ ports = ["herolte"]
 shared_layer = "Mesa/Panfrost concepts"
 board_specific = "Mali generation, firmware, MMU, display and memory interfaces"
 status = "Herolte upstream reports GLES/Panfrost UI rendering; device verification belongs to that port"
+
+[[component]]
+id = "graphics.mali-g57-viva-reference"
+category = "gpu"
+media = "Mali-G57 MC2 / Valhall; userland Metal/Panfrost reference"
+ports = []
+related_reference = "sources/viva-gpu@54011de06784d259d509d588839d2e739c6260c6 (viva / Helio G96; not a Portsmith port)"
+upstream_repository = "https://github.com/Nik300/viva-gpu"
+revision = "54011de06784d259d509d588839d2e739c6260c6"
+license = "unresolved — no root license; reference only"
+shared_layer = "AIR-to-NIR translation, Metal frontend, Gallium/Panfrost userland experiments"
+board_specific = "Mali-G57/Valhall, Helio G96, required IOAcceleratorES kernel provider, UAPI, memory/sync, iOS ABI"
+status = "README reports host/mock userland tests; required kernel driver phases are incomplete and no phone device test is reported. No Portsmith device compatibility claim."

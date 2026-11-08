@@ -63,6 +63,7 @@ def matrix_table(data):
   if row.get('source_mode')=='vendored-snapshot': specs.append('vendored snapshot')
   elif row.get('branch') and (row.get('branch')!='main' or row.get('show_branch')): specs.append('branch '+row['branch'])
   if row.get('catalog_record'): specs.append('UniXNU catalog record')
+  if row.get('reference_only'): specs.append(row.get('reference_note','reference-only profile; no device result'))
   if row.get('catalog_only'): specs.append('source unavailable; metadata only')
   dev=f"[{row['device']} / `{row['id']}`]({row['evidence_url']})<br><sub>{' · '.join(specs)}</sub>"
   cells=[dev]
@@ -126,7 +127,8 @@ function build(){{
   const first=document.createElement('td'); first.className='device';
   const branchNote=row.source_mode==='vendored-snapshot'?'vendored snapshot':(row.branch&&(row.branch!=='main'||row.show_branch)?'branch '+row.branch:null);
   const catalogNote=row.catalog_only?'metadata only; source inaccessible':(row.catalog_record?'UniXNU catalog record':null);
-  const specs=[row.soc,row.storage,row.gpu!=='unknown'?row.gpu:null,branchNote,catalogNote].filter(Boolean).join(' · ');
+  const referenceNote=row.reference_only?(row.reference_note||'reference-only profile; no device result'):null;
+  const specs=[row.soc,row.storage,row.gpu!=='unknown'?row.gpu:null,branchNote,catalogNote,referenceNote].filter(Boolean).join(' · ');
   const evidenceLabel=row.catalog_only?'catalog record; source unavailable':'pinned evidence '+row.revision.slice(0,12);
   first.innerHTML='<a href="'+esc(row.catalog_only?row.evidence_url:row.repo_url)+'" target="_blank" rel="noreferrer">'+esc(row.device)+'</a><span class="meta">'+esc(specs)+' · '+esc(row.id)+'</span><span class="meta"><a href="'+esc(row.evidence_url)+'" target="_blank" rel="noreferrer">'+esc(evidenceLabel)+'</a></span>';
   tr.appendChild(first);

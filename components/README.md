@@ -7,3 +7,5 @@ Read each component's `README.md`, `component.toml`, `source/UPSTREAM.toml`, and
 `Ath12kWifi` and `QcaBluetooth` remain catalog-only because their source trees need file-level license/provenance handling; their code has not been copied. Do not infer the parent UniXNU license applies to them. Keep eMMC, UFS, GPU, Wi-Fi, Bluetooth, display, and Metal/graphics sources distinct and check hardware scope before adapting.
 
 Run `python3 tools/portsmith.py components` for the compatibility index and `python3 tools/portsmith.py check` for host-side manifest/pin validation. These commands do not probe a device.
+
+`viva-gpu` is indexed as a reference-only Mali-G57 userland source under `sources/`, not vendored under `components/`: its kernel provider/device integration is incomplete and no root license is present. It is not marked compatible with any current Portsmith port.

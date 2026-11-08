@@ -56,9 +56,9 @@ def main()->int:
  watched=[]
  for s in srcs:
   path=s.get("path","")
-  # Watch all curated and catalog-derived device source refs, but not vendored
-  # snapshots; a changed head prompts review and never updates a status itself.
-  if not path.startswith("ports/") and path!="sources/UniXNU": continue
+  # Watch source-backed ports, framework pins, and optional research references,
+  # but not vendored snapshots; changes prompt review and never update a status.
+  if not path.startswith("ports/") and not path.startswith("sources/"): continue
   if s.get("source_mode")=="vendored-snapshot": continue
   url=s.get("upstream")
   if not url: continue

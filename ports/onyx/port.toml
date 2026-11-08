@@ -1,0 +1,29 @@
+[port]
+name = "onyx"
+model = "Xiaomi POCO F7 / Redmi Turbo 4 Pro"
+codename = "onyx"
+soc = "Qualcomm SM8735 (Pakala)"
+source = "ports/onyx/repo"
+status = "Reference-only Onyx profile. The pinned repository reports device results for redwood and QEMU, not Onyx."
+reference_only = true
+
+[hardware]
+vendor = "Xiaomi"
+soc_vendor = "Qualcomm"
+storage = "not specified for Onyx"
+gpu_family = "not specified for Onyx"
+gpu = "not reported in common/devices/onyx.conf"
+boot_family = "Xiaomi boot chain; Onyx UEFI target not device-verified"
+boot_chain = "Onyx profile requires external UEFI_FD and DTB inputs; no Onyx UEFI binary bundled"
+
+[upstream]
+repository = "https://github.com/Aymon-njz/hackios-xnu-kernel-Onyx"
+revision = "1a1f3d3510ccf3f1a92afd7238ac406dd9d6897a"
+branch = "main"
+license_status = "APSL-2.0 project license; prebuilt/third-party components retain separate notices and firmware provenance. Reference only; no code copied."
+profile = "common/devices/onyx.conf"
+
+[safety]
+flash_requires_explicit_current_authorization = true
+firmware_and_vendor_blobs_require_per_source_review = true
+redwood_results_do_not_transfer_to_onyx = true

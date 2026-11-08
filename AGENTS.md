@@ -2,6 +2,9 @@
 
 ## Context loading
 
+Reusable workflows are indexed in [`skills/README.md`](skills/README.md). Load the relevant `skills/*/SKILL.md` before source intake, evidence updates, host validation, or device-log triage.
+
+
 1. Start with `README.md` and `sources/manifest.toml`.
 2. Use `python3 tools/portsmith.py ports --group-by soc|vendor|storage|gpu|bootloader` and `python3 tools/portsmith.py components` to find related ports. For a device task, read only the relevant `ports/<device>/AGENTS.md`, the referenced source's own instructions, and its current handoff/status notes.
 3. Before coding, inspect `git status`, source pins, and existing generated outputs. Keep builds/logs outside tracked source.

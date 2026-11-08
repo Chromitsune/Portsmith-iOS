@@ -262,3 +262,11 @@
 [submodule "ports/catalog/available/sirius-dddqmmx/repo"]
 	path = ports/sirius-dddqmmx/repo
 	url = https://github.com/dddqmmx/UniXNU-sirius.git
+[submodule "ports/onyx/repo"]
+	path = ports/onyx/repo
+	url = https://github.com/Aymon-njz/hackios-xnu-kernel-Onyx.git
+	branch = main
+[submodule "sources/viva-gpu"]
+	path = sources/viva-gpu
+	url = https://github.com/Nik300/viva-gpu.git
+	branch = main

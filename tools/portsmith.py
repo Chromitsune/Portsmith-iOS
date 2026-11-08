@@ -168,6 +168,11 @@ def cmd_sources(_: argparse.Namespace) -> int:
             else:
                 state = "submodule"
         print(f"{path:40} {pin:12} {state:18} {upstream}")
+        for fork in item.get("known_forks", []):
+            if isinstance(fork, dict):
+                print(f"  known fork: {fork.get('repository', '?')}@{fork.get('revision', '?')} ({fork.get('note', 'alternate URL')})")
+            else:
+                print(f"  known fork: {fork}")
     return 1 if failures else 0
 
 
@@ -240,6 +245,8 @@ def cmd_check(_: argparse.Namespace) -> int:
         if not marker.exists():
             if item.get("catalog_record") or path.startswith("ports/catalog/available/"):
                 uninitialized_catalog_sources += 1
+            elif item.get("reference_only"):
+                warnings.append(f"{path}: optional reference-only submodule is not initialized (run tools/checkout-sources.py --reference {item.get('name', '?')})")
             else:
                 warnings.append(f"{path}: submodule is not initialized locally (run tools/checkout-sources.py --curated; do not use --recursive)")
         else:

@@ -1852,6 +1852,25 @@
       }
     },
     {
+      "id": "onyx",
+      "device": "Xiaomi POCO F7 / Redmi Turbo 4 Pro",
+      "codename": "onyx",
+      "soc": "Qualcomm SM8735 (Pakala)",
+      "storage": "unknown",
+      "gpu": "unknown",
+      "repo_url": "https://github.com/Aymon-njz/hackios-xnu-kernel-Onyx",
+      "revision": "1a1f3d3510ccf3f1a92afd7238ac406dd9d6897a",
+      "repo_path": "ports/onyx/repo",
+      "evidence_file": "README.md",
+      "evidence_url": "https://github.com/Aymon-njz/hackios-xnu-kernel-Onyx/blob/1a1f3d3510ccf3f1a92afd7238ac406dd9d6897a/README.md",
+      "status_basis": "upstream_report",
+      "source_mode": "submodule",
+      "reference_only": true,
+      "features": {},
+      "branch": "main",
+      "reference_note": "reference-only profile; no Onyx device result"
+    },
+    {
       "id": "orangepi5",
       "device": "Orange Pi 5 (Rockchip RK3588S)",
       "codename": "orangepi5",
