@@ -40,6 +40,14 @@
       "state": "pin-current"
     },
     {
+      "branch": "main",
+      "path": "ports/axon7/repo",
+      "pinned_revision": "60ccb0edcd32d1518f504548a0ae257d15ff9863",
+      "remote_head": "60ccb0edcd32d1518f504548a0ae257d15ff9863",
+      "repository": "https://github.com/devilAPI/zte-axon7",
+      "state": "pin-current"
+    },
+    {
       "branch": "remote HEAD",
       "path": "ports/camellia/repo",
       "pinned_revision": "0139bf0315f709e4efbd6f5b44ad19e8c9496087",
@@ -185,10 +193,10 @@
         "compatibility_files": [],
         "status": "skipped"
       },
-      "compare_url": "https://github.com/Denis0x00/UniXNU-j716f/compare/b0b1409c2752d0791802f441bdc87ab4a9e050ce...febe0adc5f91135ba90c2abf9c249232b5923d4d",
+      "compare_url": "https://github.com/Denis0x00/UniXNU-j716f/compare/b0b1409c2752d0791802f441bdc87ab4a9e050ce...5441d48715653ecb6a08f12bed89be9403655213",
       "path": "ports/j716f/repo",
       "pinned_revision": "b0b1409c2752d0791802f441bdc87ab4a9e050ce",
-      "remote_head": "febe0adc5f91135ba90c2abf9c249232b5923d4d",
+      "remote_head": "5441d48715653ecb6a08f12bed89be9403655213",
       "repository": "https://github.com/Denis0x00/UniXNU-j716f",
       "state": "review-required"
     },
@@ -379,10 +387,10 @@
         "compatibility_files": [],
         "status": "skipped"
       },
-      "compare_url": "https://github.com/IssacL04/UniXNU-Pagani_SM8750/compare/ba694e1b3e2db7e1f2b9c92df21f864eef804158...5d39798964e1c7f1c57ed17a38c0d39f0268b5d4",
+      "compare_url": "https://github.com/IssacL04/UniXNU-Pagani_SM8750/compare/ba694e1b3e2db7e1f2b9c92df21f864eef804158...a84204eccb9b183945072e1b9b63de36c8495097",
       "path": "ports/oneplus13t/repo",
       "pinned_revision": "ba694e1b3e2db7e1f2b9c92df21f864eef804158",
-      "remote_head": "5d39798964e1c7f1c57ed17a38c0d39f0268b5d4",
+      "remote_head": "a84204eccb9b183945072e1b9b63de36c8495097",
       "repository": "https://github.com/IssacL04/UniXNU-Pagani_SM8750",
       "state": "review-required"
     },
@@ -446,11 +454,16 @@
     },
     {
       "branch": "remote HEAD",
+      "compare": {
+        "compatibility_files": [],
+        "status": "skipped"
+      },
+      "compare_url": "https://github.com/AppleCampus/UniXNU-rmx1971/compare/e0c2df8bedf4292066372aa325c2ead0db02d1c5...f0ea1cb3363025116104f2a2d44e8b228a885d00",
       "path": "ports/rmx1971/repo",
       "pinned_revision": "e0c2df8bedf4292066372aa325c2ead0db02d1c5",
-      "remote_head": "e0c2df8bedf4292066372aa325c2ead0db02d1c5",
+      "remote_head": "f0ea1cb3363025116104f2a2d44e8b228a885d00",
       "repository": "https://github.com/AppleCampus/UniXNU-rmx1971",
-      "state": "pin-current"
+      "state": "review-required"
     },
     {
       "branch": "remote HEAD",
@@ -458,10 +471,10 @@
         "compatibility_files": [],
         "status": "skipped"
       },
-      "compare_url": "https://github.com/Axiang-dev/UniXNU-rmx3551/compare/45c829bf7479a132c9e989fa5ffd5fb6814e706a...9e53bc38b6a5f2cb9e1ac9ca87d9bff6a716c5b0",
+      "compare_url": "https://github.com/Axiang-dev/UniXNU-rmx3551/compare/45c829bf7479a132c9e989fa5ffd5fb6814e706a...0fefc1c45033edaa2d9395ab58826c8252d70822",
       "path": "ports/rmx3551/repo",
       "pinned_revision": "45c829bf7479a132c9e989fa5ffd5fb6814e706a",
-      "remote_head": "9e53bc38b6a5f2cb9e1ac9ca87d9bff6a716c5b0",
+      "remote_head": "0fefc1c45033edaa2d9395ab58826c8252d70822",
       "repository": "https://github.com/Axiang-dev/UniXNU-rmx3551",
       "state": "review-required"
     },
@@ -504,11 +517,16 @@
     },
     {
       "branch": "remote HEAD",
+      "compare": {
+        "compatibility_files": [],
+        "status": "skipped"
+      },
+      "compare_url": "https://github.com/chenjin1494/UniXNU-sheng/compare/3730af8c1307d3fecda634c74999e380cffdd1ac...9109d4ca01bbf28d89170fc26ae4115fb7c1e117",
       "path": "ports/sheng-chenjin1494/repo",
       "pinned_revision": "3730af8c1307d3fecda634c74999e380cffdd1ac",
-      "remote_head": "3730af8c1307d3fecda634c74999e380cffdd1ac",
+      "remote_head": "9109d4ca01bbf28d89170fc26ae4115fb7c1e117",
       "repository": "https://github.com/chenjin1494/UniXNU-sheng",
-      "state": "pin-current"
+      "state": "review-required"
     },
     {
       "branch": "remote HEAD",
@@ -574,10 +592,10 @@
         "compatibility_files": [],
         "status": "skipped"
       },
-      "compare_url": "https://github.com/ks114514/UniXNU-sheng/compare/460179565a018c741b93e0b1efa07c55d4de497a...689400177f93219a38bd7cf5ae2e9f5782adc594",
+      "compare_url": "https://github.com/ks114514/UniXNU-sheng/compare/460179565a018c741b93e0b1efa07c55d4de497a...9109d4ca01bbf28d89170fc26ae4115fb7c1e117",
       "path": "ports/sheng-ks114514/repo",
       "pinned_revision": "460179565a018c741b93e0b1efa07c55d4de497a",
-      "remote_head": "689400177f93219a38bd7cf5ae2e9f5782adc594",
+      "remote_head": "9109d4ca01bbf28d89170fc26ae4115fb7c1e117",
       "repository": "https://github.com/ks114514/UniXNU-sheng",
       "state": "review-required"
     },
@@ -595,10 +613,10 @@
         "compatibility_files": [],
         "status": "skipped"
       },
-      "compare_url": "https://github.com/Soneoylys/UniXNU-sheng/compare/969ab3e8aa5e41d8ccd47bfe2e027b27e6ee5402...5166bb57287275108ff6feaf8fb2dfb8bee0d248",
+      "compare_url": "https://github.com/Soneoylys/UniXNU-sheng/compare/969ab3e8aa5e41d8ccd47bfe2e027b27e6ee5402...e80aa41993d0cf52e3e03bd69b3e5130a5e510f2",
       "path": "ports/sheng-soneoylys/repo",
       "pinned_revision": "969ab3e8aa5e41d8ccd47bfe2e027b27e6ee5402",
-      "remote_head": "5166bb57287275108ff6feaf8fb2dfb8bee0d248",
+      "remote_head": "e80aa41993d0cf52e3e03bd69b3e5130a5e510f2",
       "repository": "https://github.com/Soneoylys/UniXNU-sheng",
       "state": "review-required"
     },
@@ -632,10 +650,10 @@
         "compatibility_files": [],
         "status": "skipped"
       },
-      "compare_url": "https://github.com/UniXNU/UniXNU-sheng/compare/460179565a018c741b93e0b1efa07c55d4de497a...689400177f93219a38bd7cf5ae2e9f5782adc594",
+      "compare_url": "https://github.com/UniXNU/UniXNU-sheng/compare/460179565a018c741b93e0b1efa07c55d4de497a...9109d4ca01bbf28d89170fc26ae4115fb7c1e117",
       "path": "ports/sheng/repo",
       "pinned_revision": "460179565a018c741b93e0b1efa07c55d4de497a",
-      "remote_head": "689400177f93219a38bd7cf5ae2e9f5782adc594",
+      "remote_head": "9109d4ca01bbf28d89170fc26ae4115fb7c1e117",
       "repository": "https://github.com/UniXNU/UniXNU-sheng",
       "state": "review-required"
     },
@@ -677,10 +695,10 @@
         "compatibility_files": [],
         "status": "skipped"
       },
-      "compare_url": "https://github.com/CakeAL/UniXNU-sm-t970/compare/37b439d75ded02edf01c0ed7f357ba0f746a811d...84e32244784ac3d3da8aaf5198f2fc1e7c3e2ddd",
+      "compare_url": "https://github.com/CakeAL/UniXNU-sm-t970/compare/37b439d75ded02edf01c0ed7f357ba0f746a811d...5c37b6e5f54ebbd9f59c78ef17315e68de4e2dd0",
       "path": "ports/sm-t970/repo",
       "pinned_revision": "37b439d75ded02edf01c0ed7f357ba0f746a811d",
-      "remote_head": "84e32244784ac3d3da8aaf5198f2fc1e7c3e2ddd",
+      "remote_head": "5c37b6e5f54ebbd9f59c78ef17315e68de4e2dd0",
       "repository": "https://github.com/CakeAL/UniXNU-sm-t970",
       "state": "review-required"
     },
@@ -816,10 +834,10 @@
         "compatibility_files": [],
         "status": "skipped"
       },
-      "compare_url": "https://github.com/UniXNU/UniXNU/compare/e2fdae4312d0acc3d8a52bc457101e7918095e6a...5dc00d201496a1e7a72d1f5db23f041eb94ace1c",
+      "compare_url": "https://github.com/UniXNU/UniXNU/compare/e2fdae4312d0acc3d8a52bc457101e7918095e6a...a9ec98cb31c14529466c7bafcc7c43db1ff57424",
       "path": "sources/UniXNU",
       "pinned_revision": "e2fdae4312d0acc3d8a52bc457101e7918095e6a",
-      "remote_head": "5dc00d201496a1e7a72d1f5db23f041eb94ace1c",
+      "remote_head": "a9ec98cb31c14529466c7bafcc7c43db1ff57424",
       "repository": "https://github.com/UniXNU/UniXNU",
       "state": "review-required"
     },

@@ -286,6 +286,74 @@
       }
     },
     {
+      "id": "axon7",
+      "device": "ZTE Axon 7 A2017G",
+      "codename": "axon7",
+      "soc": "Qualcomm MSM8996 v3 / Snapdragon 820",
+      "storage": "UFS 2.0",
+      "gpu": "Adreno 530",
+      "repo_url": "https://github.com/devilAPI/zte-axon7",
+      "revision": "60ccb0edcd32d1518f504548a0ae257d15ff9863",
+      "repo_path": "ports/axon7/repo",
+      "evidence_file": "README.md",
+      "evidence_url": "https://github.com/devilAPI/zte-axon7/blob/60ccb0edcd32d1518f504548a0ae257d15ff9863/README.md",
+      "status_basis": "upstream_report",
+      "source_mode": "submodule",
+      "branch": "main",
+      "reference_only": true,
+      "reference_note": "reference-only source; upstream reports require per-feature review",
+      "features": {
+        "boot": {
+          "state": "reported_working",
+          "detail": "Pinned README reports iOS 16.7.16 reaching lock/home on A2017G through ZTE LK and a shim; this is upstream evidence, not Portsmith testing."
+        },
+        "gpu": {
+          "state": "partial",
+          "detail": "Adreno 530 GLES through Mesa/freedreno is reported; Metal for apps is still in progress (293/456 system shaders in the README)."
+        },
+        "display": {
+          "state": "reported_working",
+          "detail": "Pinned README reports the lock/home UI on the 1440x2560 split-DSI display; upstream report only."
+        },
+        "touch_buttons": {
+          "state": "reported_working",
+          "detail": "Pinned README reports Synaptics multitouch and physical keys; Volume Down provides Home."
+        },
+        "audio": {
+          "state": "reported_working",
+          "detail": "Pinned README reports speakers and the main microphone."
+        },
+        "bluetooth": {
+          "state": "reported_unavailable",
+          "detail": "Pinned README lists Bluetooth as not working yet."
+        },
+        "wifi": {
+          "state": "partial",
+          "detail": "Parent README reports Wi-Fi/rejoin working, but pinned nested ios/PORTING-AXON7.md records rejoin-after-disconnect DHCP failure; conflicting upstream detail, conservatively Partial."
+        },
+        "cellular": {
+          "state": "reported_unavailable",
+          "detail": "Pinned README lists cellular as not working yet."
+        },
+        "power_sleep": {
+          "state": "partial",
+          "detail": "Pinned README says the phone discharges under the kernel; sleep/resume behavior is not reported."
+        },
+        "camera_sensors": {
+          "state": "partial",
+          "detail": "Pinned README reports front/rear camera preview, focus and HEIC photos; other sensors are not established."
+        },
+        "storage": {
+          "state": "reported_working",
+          "detail": "Pinned README reports a writable journaled HFS+ iOS root on UFS and data surviving reboot."
+        },
+        "stability": {
+          "state": "partial",
+          "detail": "The project is experimental and sessions return to the loader after a configured duration; no long-duration or thermal qualification is reported."
+        }
+      }
+    },
+    {
       "id": "camellia",
       "device": "Redmi Note 10 5G (camellia)",
       "codename": "camellia",

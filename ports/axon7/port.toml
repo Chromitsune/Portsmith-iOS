@@ -1,0 +1,34 @@
+[port]
+name = "axon7"
+model = "ZTE Axon 7 A2017G"
+codename = "ailsa_ii / axon7"
+soc = "Qualcomm MSM8996 v3 / Snapdragon 820"
+source = "ports/axon7/repo"
+status = "Reference-only upstream iOS 16.7.16 report for A2017G; no Portsmith device testing."
+reference_only = true
+
+[hardware]
+vendor = "ZTE"
+soc_vendor = "Qualcomm"
+storage = "UFS 2.0 (upstream-reported)"
+gpu_family = "Qualcomm Adreno"
+gpu = "Adreno 530 (upstream-reported)"
+boot_family = "ZTE LK / aboot"
+boot_chain = "ZTE LK -> shim in boot partition -> XNU; fastboot boot unavailable, TWRP used for test images"
+dram_gib = 4
+panel = "Samsung split-DSI AMOLED, 1440x2560 (upstream hardware notes)"
+
+[upstream]
+repository = "https://github.com/devilAPI/zte-axon7"
+revision = "60ccb0edcd32d1518f504548a0ae257d15ff9863"
+branch = "main"
+license_status = "README declares APSL-2.0 but no root LICENSE file is present; nested ios-sailfish and third-party sources retain separate terms. Reference only, no code copied."
+nested_ios_sailfish = "devilAPI/ios-sailfish@aae05df53f4b6913b5aa3abb2ac763b7aeaf7295 (parent gitlink; not recursively initialized)"
+
+[safety]
+reference_only = true
+userdata_erased_by_upstream_install = true
+boot_partition_written_by_upstream_test = true
+fastboot_boot_supported = false
+flash_requires_explicit_current_authorization = true
+code_reuse_requires_per_repository_license_review = true

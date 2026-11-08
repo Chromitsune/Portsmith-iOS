@@ -9,6 +9,7 @@ Do not commit Apple/vendor firmware, IPSWs, device dumps, keys, calibration data
 
 ## Reference-only research sources
 
+- `ports/axon7/repo` is a reference-only ZTE Axon 7 parent repository pinned at `60ccb0edcd32d1518f504548a0ae257d15ff9863`; it has a nested `devilAPI/ios-sailfish` gitlink at `aae05df53f4b6913b5aa3abb2ac763b7aeaf7295`. The README declares APSL-2.0 but no root LICENSE file is present; nested terms remain separate and no code is copied. Initialize with `python3 tools/checkout-sources.py --reference zte-axon7`.
 - `ports/onyx/repo` is a source-only profile for POCO F7/Redmi Turbo 4 Pro. Its README reports redwood and QEMU results but no Onyx device result; initialize with `python3 tools/checkout-sources.py --reference hackios-xnu-kernel-onyx`.
 - `viva-gpu` is pinned in `sources/manifest.toml` at `54011de06784d259d509d588839d2e739c6260c6`. It targets Redmi Note 11 Pro 4G (`viva`, Helio G96/Mali-G57); its README reports host/mock userland tests, not a kernel provider or device run. No root license is present, so it remains a source pointer only. Initialize with `python3 tools/checkout-sources.py --reference viva-gpu`.
 - `Nik300/ios-viva` is a fork URL at the exact same commit/tree (`45263bee51df4a0f55cdf9c649af886399488ddb`) already pinned as `ports/sweet/repo` (`dipa-studio/ios-sweet`). Portsmith records it as a known fork alias and avoids a duplicate submodule.

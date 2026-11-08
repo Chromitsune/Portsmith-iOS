@@ -1361,3 +1361,14 @@ role = "Reference-only Mali-G57/Helio G96 iOS 16 Metal/Panfrost userland; kernel
 license = "Unresolved: no root LICENSE/COPYING/NOTICE and GitHub reports no license; reference only, do not copy code"
 reference_only = true
 watch_upstream = true
+
+[[source]]
+name = "zte-axon7"
+revision = "60ccb0edcd32d1518f504548a0ae257d15ff9863"
+path = "ports/axon7/repo"
+upstream = "https://github.com/devilAPI/zte-axon7"
+branch = "main"
+maintainer = "devilAPI"
+role = "Reference-only ZTE Axon 7 A2017G multi-boot project; iOS 16.7.16 upstream device report, nested ios-sailfish submodule"
+license = "README declares APSL-2.0 but no root LICENSE file; nested ios-sailfish and third-party sources have separate terms. Reference only, no code copied."
+reference_only = true

@@ -270,3 +270,7 @@
 	path = sources/viva-gpu
 	url = https://github.com/Nik300/viva-gpu.git
 	branch = main
+[submodule "ports/axon7/repo"]
+	path = ports/axon7/repo
+	url = https://github.com/devilAPI/zte-axon7.git
+	branch = main
