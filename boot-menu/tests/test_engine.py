@@ -8,6 +8,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 from engine import MenuController, load_profile  # noqa: E402
 from preview import render_svg  # noqa: E402
+from interactive import run_events  # noqa: E402
 
 
 class MenuEngineTests(unittest.TestCase):
@@ -46,6 +47,14 @@ class MenuEngineTests(unittest.TestCase):
         self.assertIn("System A", svg)
         self.assertIn("no boot action is executed", svg)
         self.assertNotIn("github.com", svg)
+
+    def test_interactive_event_sequence_returns_target_but_does_not_dispatch(self):
+        ctl = MenuController(load_profile(ROOT / "profiles/ios-dualboot-icon-stack.json"))
+        self.assertEqual(run_events(ctl, ["down", "select"]), "opaque:ios27")
+
+    def test_interactive_cancel_returns_no_target(self):
+        ctl = MenuController(self.profile)
+        self.assertIsNone(run_events(ctl, ["cancel"]))
 
     def test_profile_rejects_command_target(self):
         source = json.loads((ROOT / "profiles/portable-example.json").read_text())

@@ -16,6 +16,7 @@ This folder is Portsmith-owned, platform-neutral menu data plus a host-only sele
 - `options/`: navigation, timeout, persistence and confirmation policy examples.
 - `profiles/`: composed sample menu data with opaque target IDs; not executable boot configurations.
 - `icons/`: generated abstract iOS-version labels only, no Apple artwork.
+- `interactive.py`: host terminal UI which navigates entries and returns an opaque target ID only; it does not boot.
 - `qemu/` and `qemu-preview.py`: generic profile renderer fixture in QEMU RAM, no device backend or boot action.
 - `tests/`: host-only model/preview tests.
 - `schema/`: JSON schemas defining the data contract.

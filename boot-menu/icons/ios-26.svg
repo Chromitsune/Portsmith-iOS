@@ -2,7 +2,7 @@
   <title id="title">Portsmith generic iOS 26 menu badge</title>
   <desc id="desc">Original abstract version token; not official Apple iconography.</desc>
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#dd9854"/><stop offset="1" stop-color="#6a5ba0"/></linearGradient>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3967a7"/><stop offset="1" stop-color="#ad5d8c"/></linearGradient>
     <linearGradient id="ribbon" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffffff" stop-opacity=".28"/><stop offset="1" stop-color="#ffffff" stop-opacity=".02"/></linearGradient>
   </defs>
   <rect x="16" y="16" width="480" height="480" rx="108" fill="url(#bg)"/>

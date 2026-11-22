@@ -9,7 +9,7 @@ The repository currently indexes 95 port profiles, 118 pinned source references,
 ## Repository map
 
 - `.github/`: repository CI/workflow configuration; workflows should remain host-only unless an explicitly reviewed test says otherwise.
-- `boot-menu/`: Portsmith-owned, declarative menu looks/options/schemas plus a host-only selection model and SVG preview. It is **not** bootable firmware or a platform backend.
+- `boot-menu/`: Portsmith-owned, declarative menu looks/options/schemas plus a host-only selection model, keyboard-driven terminal UI and SVG/QEMU previews. It is **not** bootable firmware or a platform backend.
 - `compatibility/`: editable feature/status inputs (`ports.json`) and upstream-watch report. `docs/compatibility-matrix.html` and the marked README table are generated outputs.
 - `components/`: source snapshots and compatibility notes. Read the component README, `component.toml`, `UPSTREAM.toml`, source license and family matrix before reuse; the manifest is not portability proof.
 - `docs/`: architecture, research/audit notes, evidence conventions and screenshots. Screenshots must say whether they are device, full emulator, or renderer/mock output.
