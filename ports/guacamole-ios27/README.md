@@ -6,7 +6,7 @@ This is the primary/default **reference** for future Portsmith boot-menu design 
 
 ## What the menu looks like and where it lives
 
-The checked-in repository has no running-menu screenshot; it includes OS icon artwork and source-level documentation. `docs/dualboot.md` describes a black screen with a vertical column of rounded OS pictures, a blue selection ring, and small Restart/Power off buttons at lower right. Volume keys move the selection, power boots it, and touchscreen taps are supported. The default selection is remembered and starts after five seconds unless input arrives.
+The pinned upstream repository has no running-menu screenshot; it includes OS icon artwork and source-level documentation. Portsmith has a [QEMU renderer preview](../../docs/screenshots/guacamole-menu-qemu.png), not a full-system boot capture; see the [screenshot notes](../../docs/screenshots/README.md). `docs/dualboot.md` describes a black screen with a vertical column of rounded OS pictures, a blue selection ring, and small Restart/Power off buttons at lower right. Volume keys move the selection, power boots it, and touchscreen taps are supported. The default selection is remembered and starts after five seconds unless input arrives.
 
 Relevant pinned files:
 
@@ -41,4 +41,4 @@ The menu UI is promising, but the implementation is not universal. `menu.c` uses
 
 A future universalization should begin with a host-testable menu model/renderer and explicit interfaces for framebuffer, timer, input, target dispatch and optional preference persistence. Hardware, image-format, boot-slot, storage and handoff adapters must remain target-specific; persistence should be disabled by default. No implementation was extracted in this change.
 
-`LICENSE.txt` declares MIT for the project's own work while retaining APSL-2.0 for XNU patches, a separate MIT notice for `userland/audio/`, and earlier ios-sweet copyright notices. The menu artwork's per-file provenance is not established. Portsmith stores only a pinned submodule pointer; no source, firmware, artwork or generated image was copied.
+`LICENSE.txt` declares MIT for the project's own work while retaining APSL-2.0 for XNU patches, a separate MIT notice for `userland/audio/`, and earlier ios-sweet copyright notices. The menu artwork's per-file provenance is not established. Portsmith stores the pinned source as a submodule and includes a QEMU-rendered menu screenshot (see its separate license/evidence notes); no source code, firmware, or original artwork files were copied.

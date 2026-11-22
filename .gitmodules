@@ -278,3 +278,7 @@
 	path = ports/guacamole-ios27/repo
 	url = https://github.com/coreycusick/ios-guacamole.git
 	branch = ios27
+[submodule "ports/gts7xlwifi/repo"]
+	path = ports/gts7xlwifi/repo
+	url = https://github.com/rui12366B/UniXNU-gts7xlwifi.git
+	branch = main

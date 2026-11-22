@@ -1,0 +1,32 @@
+[port]
+name = "gts7xlwifi"
+model = "Samsung Galaxy Tab S7+ Wi-Fi (SM-T970)"
+codename = "gts7xlwifi"
+soc = "Qualcomm SM8250 / Snapdragon 865"
+source = "ports/gts7xlwifi/repo"
+status = "Reference-only upstream iPadOS 17.7.11 tablet bring-up with device-log reports; no Portsmith device testing."
+reference_only = true
+
+[hardware]
+vendor = "Samsung"
+soc_vendor = "Qualcomm"
+storage = "UFS (upstream-reported)"
+gpu_family = "Qualcomm Adreno"
+gpu = "Adreno 650 (upstream-reported)"
+boot_family = "Samsung S-Boot -> separate UEFI selector"
+boot_chain = "S-Boot -> UEFI/ESP menu -> UniXNU XNU payload; exact firmware tree not included in this source"
+panel = "S6TUUM3 dual-DSI, 2800x1752 (upstream-reported)"
+
+[upstream]
+repository = "https://github.com/rui12366B/UniXNU-gts7xlwifi"
+revision = "88b34f97100a01aab4ea6b86dc9c748b2114c382"
+branch = "main"
+license_status = "BSD-2-Clause-Patent default per LICENSE; drivers/kits preserve their upstream licenses, SPDX-MIT files remain MIT, XNU patches are APSL-2.0. Proprietary firmware is not included; no code copied."
+
+[safety]
+reference_only = true
+firmware_written_by_upstream_setup = true
+boot_partition_or_uefi_setup_is_upstream_only = true
+flash_requires_explicit_current_authorization = true
+code_reuse_requires_component_and_per_file_license_review = true
+firmware_reuse_requires_separate_rights_review = true

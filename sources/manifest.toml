@@ -1384,3 +1384,15 @@ role = "Reference-only OnePlus 7 Pro iOS 27.2/macOS 27.2 multi-boot source; prim
 license = "MIT for project work per LICENSE.txt with carve-outs: XNU patches remain APSL-2.0, userland/audio has a separate MIT notice, ios-sweet-derived code retains prior notices; menu-art provenance needs review. No code copied."
 reference_only = true
 watch_upstream = true
+
+[[source]]
+name = "unixnu-gts7xlwifi"
+revision = "88b34f97100a01aab4ea6b86dc9c748b2114c382"
+path = "ports/gts7xlwifi/repo"
+upstream = "https://github.com/rui12366B/UniXNU-gts7xlwifi"
+branch = "main"
+maintainer = "rui12366B"
+role = "Reference-only Samsung Galaxy Tab S7+ Wi-Fi (SM-T970) iPadOS 17.7.11 profile with device-log reports for desktop, GPU, UFS, touch and peripherals; distinct from single-core sm-t970 bootstrap"
+license = "BSD-2-Clause-Patent default per LICENSE; drivers/kits retain upstream licenses, SPDX-MIT files remain MIT, XNU patches are APSL-2.0. Proprietary firmware is not included. Reference only; no code copied."
+reference_only = true
+watch_upstream = true

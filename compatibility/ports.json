@@ -795,6 +795,74 @@
       }
     },
     {
+      "id": "gts7xlwifi",
+      "device": "Samsung Galaxy Tab S7+ Wi-Fi (SM-T970)",
+      "codename": "gts7xlwifi",
+      "soc": "Qualcomm SM8250 / Snapdragon 865",
+      "storage": "UFS",
+      "gpu": "Adreno 650",
+      "repo_url": "https://github.com/rui12366B/UniXNU-gts7xlwifi",
+      "revision": "88b34f97100a01aab4ea6b86dc9c748b2114c382",
+      "repo_path": "ports/gts7xlwifi/repo",
+      "evidence_file": "porting.toml",
+      "evidence_url": "https://github.com/rui12366B/UniXNU-gts7xlwifi/blob/88b34f97100a01aab4ea6b86dc9c748b2114c382/porting.toml",
+      "status_basis": "upstream_report",
+      "source_mode": "submodule",
+      "branch": "main",
+      "reference_only": true,
+      "reference_note": "Separate advanced tablet profile from the existing sm-t970 single-core bootstrap; upstream evidence only, no Portsmith testing.",
+      "features": {
+        "boot": {
+          "state": "reported_working",
+          "detail": "Pinned device record reports an iPadOS 17.7.11 desktop reached through the Samsung UEFI selector; Portsmith did not build or boot it."
+        },
+        "gpu": {
+          "state": "reported_working",
+          "detail": "Pinned device logs report Adreno 650-composited UI and GPU clients; fault and mediaserver limitations remain documented."
+        },
+        "display": {
+          "state": "reported_working",
+          "detail": "Device logs report 2800x1752 display and GPU-composited desktop using the GOP framebuffer/direct scanout."
+        },
+        "touch_buttons": {
+          "state": "reported_working",
+          "detail": "Pinned evidence reports touchscreen HID events; S Pen is not yet qualified."
+        },
+        "audio": {
+          "state": "reported_working",
+          "detail": "Pinned device record reports speaker output and microphone capture, with volume/protection limits."
+        },
+        "bluetooth": {
+          "state": "reported_working",
+          "detail": "Later pinned device-log notes report Bluetooth Settings power-on; maintainers list Bluetooth as device-verified."
+        },
+        "wifi": {
+          "state": "partial",
+          "detail": "Top-level summary reports PCIe stage 4; detailed record also describes association, DHCP/DNS/TCP and later app traffic. The area remains `implemented`, not `device-verified`, so conservatively Partial."
+        },
+        "camera_sensors": {
+          "state": "partial",
+          "detail": "Camera sensor and raw-frame stages are reported, but built-in iPadOS apps do not consume frames and real sensor streaming is incomplete."
+        },
+        "power_sleep": {
+          "state": "partial",
+          "detail": "Battery/charging and shutdown work are described, but current record notes a UFS unmount/shutdown limitation; sleep is not established."
+        },
+        "storage": {
+          "state": "reported_working",
+          "detail": "Pinned device logs report native UFS root/Data, persistent data and per-4KiB verification without integrity failures; no Portsmith test."
+        },
+        "usb": {
+          "state": "reported_working",
+          "detail": "Pinned evidence reports USB debug and Apple USB-device enumeration; upstream report only."
+        },
+        "stability": {
+          "state": "partial",
+          "detail": "Upstream record still lists GPU, UFS, networking and power limits; no Portsmith long-run qualification."
+        }
+      }
+    },
+    {
       "id": "guacamole",
       "device": "OnePlus 7 Pro",
       "codename": "guacamole",

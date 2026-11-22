@@ -45,10 +45,10 @@
         "compatibility_files": [],
         "status": "skipped"
       },
-      "compare_url": "https://github.com/devilAPI/zte-axon7/compare/60ccb0edcd32d1518f504548a0ae257d15ff9863...e7ad7978077c29599e37153d8345ca97333430f5",
+      "compare_url": "https://github.com/devilAPI/zte-axon7/compare/60ccb0edcd32d1518f504548a0ae257d15ff9863...1e51314a1756d2ccd916f4110972839f9a500f3f",
       "path": "ports/axon7/repo",
       "pinned_revision": "60ccb0edcd32d1518f504548a0ae257d15ff9863",
-      "remote_head": "e7ad7978077c29599e37153d8345ca97333430f5",
+      "remote_head": "1e51314a1756d2ccd916f4110972839f9a500f3f",
       "repository": "https://github.com/devilAPI/zte-axon7",
       "state": "review-required"
     },
@@ -159,6 +159,14 @@
       "remote_head": "dcc149d63fd42e98b4895272ff16675d13dd1ee6",
       "repository": "https://github.com/gta4lunix/UniXNU-gta4l",
       "state": "review-required"
+    },
+    {
+      "branch": "main",
+      "path": "ports/gts7xlwifi/repo",
+      "pinned_revision": "88b34f97100a01aab4ea6b86dc9c748b2114c382",
+      "remote_head": "88b34f97100a01aab4ea6b86dc9c748b2114c382",
+      "repository": "https://github.com/rui12366B/UniXNU-gts7xlwifi",
+      "state": "pin-current"
     },
     {
       "branch": "ios27",
@@ -763,10 +771,10 @@
         "compatibility_files": [],
         "status": "skipped"
       },
-      "compare_url": "https://github.com/DC28088/ios-sweet/compare/8ba152f7132d3c25b5e2ff83b7f5455b8e01457f...485ae39cce6c91280165fd3b45da7136e21dc280",
+      "compare_url": "https://github.com/DC28088/ios-sweet/compare/8ba152f7132d3c25b5e2ff83b7f5455b8e01457f...2b54629a38f18c6d4ae23a3dccd4eed74b9f3b58",
       "path": "ports/sweet-native-metal/repo",
       "pinned_revision": "8ba152f7132d3c25b5e2ff83b7f5455b8e01457f",
-      "remote_head": "485ae39cce6c91280165fd3b45da7136e21dc280",
+      "remote_head": "2b54629a38f18c6d4ae23a3dccd4eed74b9f3b58",
       "repository": "https://github.com/DC28088/ios-sweet",
       "state": "review-required"
     },

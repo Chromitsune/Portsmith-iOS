@@ -8,6 +8,7 @@ Do not commit Apple/vendor firmware, IPSWs, device dumps, keys, calibration data
 
 
 ## Reference-only research sources
+- `ports/gts7xlwifi/repo` is `rui12366B/UniXNU-gts7xlwifi` at `88b34f97100a01aab4ea6b86dc9c748b2114c382`, a separately reported advanced Samsung SM-T970 tablet profile. Keep it distinct from the catalog `ports/sm-t970/repo` single-core bootstrap. The BSD-2-Clause-Patent root license preserves per-driver/kit licenses, MIT-tagged files and APSL-2.0 XNU patches; no firmware/source copied. Initialize with `python3 tools/checkout-sources.py --reference unixnu-gts7xlwifi`.
 - `ports/guacamole-ios27/repo` is the `coreycusick/ios-guacamole` iOS 27 branch at `396a851ef112fd34003f0b37c3270bcd6c2e8cc2`, the primary/default boot-menu reference. It is separate from the catalog `ports/guacamole/repo` (`OtVaL228/ios-sweet` branch `guacamole`); its menu has OnePlus-specific ABL, PM8150/framebuffer/touch/UFS assumptions and performs a UFS choice-record write. `LICENSE.txt` gives project MIT terms with APSL/audio/ios-sweet carve-outs; no code/art is copied. Initialize with `python3 tools/checkout-sources.py --reference ios-guacamole`.
 
 - `ports/axon7/repo` is a reference-only ZTE Axon 7 parent repository pinned at `60ccb0edcd32d1518f504548a0ae257d15ff9863`; it has a nested `devilAPI/ios-sailfish` gitlink at `aae05df53f4b6913b5aa3abb2ac763b7aeaf7295`. The README declares APSL-2.0 but no root LICENSE file is present; nested terms remain separate and no code is copied. Initialize with `python3 tools/checkout-sources.py --reference zte-axon7`.

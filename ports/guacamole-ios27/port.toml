@@ -28,7 +28,9 @@ license_status = "LICENSE.txt grants MIT for project work, with per-source carve
 role = "Primary/default Portsmith reference for future boot-menu design/extraction, not a default boot image or universal implementation"
 menu_source = "shim/menu.c; shim/shim.c; docs/dualboot.md"
 board_specific = true
-menu_artifacts_reused = false
+menu_art_files_copied = false
+qemu_renderer_preview_generated = true
+qemu_preview_is_hardware_test = false
 universal_tool_extracted = false
 
 [safety]
