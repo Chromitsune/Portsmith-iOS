@@ -1,0 +1,7 @@
+# OnePlus 7 Pro / `ios-guacamole` iOS 27 branch
+
+This wrapper pins `coreycusick/ios-guacamole` at the exact `ios27` commit in `port.toml`. It is a source/evidence reference, not Portsmith qualification. Keep it separate from `ports/guacamole/`, which points to the distinct `OtVaL228/ios-sweet` `guacamole` branch and has its own iOS 16 evidence. Do not merge feature reports, code provenance, or boot-chain assumptions across these sources.
+
+This is the primary/default **reference implementation** for Portsmith boot-menu research. It is not a default image or a universal boot tool. The menu and chain-loader are for the OnePlus 7 Pro (`guacamole`, SM8150, Qualcomm ABL, boot image v2, PM8150, UFS, fixed 1440x3120 framebuffer, and board-specific touchscreen). The pinned docs describe Android in `boot_a`, the selector image in `boot_b`, iOS/macOS payloads in a combined ramdisk, and a persistent choice record written to a GPT-checked unallocated UFS block. These are upstream-described behaviors, not verified by Portsmith.
+
+Do not flash, switch slots, alter partitions, or write a device. No menu code or artwork is copied into Portsmith. The root `LICENSE.txt` grants MIT for project work but preserves source-specific terms: XNU patches are APSL-2.0, `userland/audio/` has a separate MIT notice, and ios-sweet-derived files retain prior notices. Review the touch driver's derivation and every asset's provenance before any extraction or redistribution. Never recursively initialize nested submodules without separate review.

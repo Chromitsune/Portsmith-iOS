@@ -1372,3 +1372,15 @@ maintainer = "devilAPI"
 role = "Reference-only ZTE Axon 7 A2017G multi-boot project; iOS 16.7.16 upstream device report, nested ios-sailfish submodule"
 license = "README declares APSL-2.0 but no root LICENSE file; nested ios-sailfish and third-party sources have separate terms. Reference only, no code copied."
 reference_only = true
+
+[[source]]
+name = "ios-guacamole"
+revision = "396a851ef112fd34003f0b37c3270bcd6c2e8cc2"
+path = "ports/guacamole-ios27/repo"
+upstream = "https://github.com/coreycusick/ios-guacamole"
+branch = "ios27"
+maintainer = "Corey Cusick"
+role = "Reference-only OnePlus 7 Pro iOS 27.2/macOS 27.2 multi-boot source; primary/default reference for boot-menu research"
+license = "MIT for project work per LICENSE.txt with carve-outs: XNU patches remain APSL-2.0, userland/audio has a separate MIT notice, ios-sweet-derived code retains prior notices; menu-art provenance needs review. No code copied."
+reference_only = true
+watch_upstream = true

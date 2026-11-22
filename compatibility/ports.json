@@ -845,6 +845,74 @@
       "source_mode": "submodule"
     },
     {
+      "id": "guacamole-ios27",
+      "device": "OnePlus 7 Pro (coreycusick iOS 27 branch)",
+      "codename": "guacamole",
+      "soc": "Qualcomm SM8150 / Snapdragon 855",
+      "storage": "UFS",
+      "gpu": "Adreno 640",
+      "repo_url": "https://github.com/coreycusick/ios-guacamole",
+      "revision": "396a851ef112fd34003f0b37c3270bcd6c2e8cc2",
+      "repo_path": "ports/guacamole-ios27/repo",
+      "evidence_file": "README.md",
+      "evidence_url": "https://github.com/coreycusick/ios-guacamole/blob/396a851ef112fd34003f0b37c3270bcd6c2e8cc2/README.md",
+      "status_basis": "upstream_report",
+      "source_mode": "submodule",
+      "branch": "ios27",
+      "reference_only": true,
+      "reference_note": "Primary/default Portsmith boot-menu reference only; not a default image or universal tool, no Portsmith device testing; keep separate from existing guacamole/ios-sweet evidence.",
+      "features": {
+        "boot": {
+          "state": "reported_working",
+          "detail": "Pinned README reports iOS 27.2 reaches the lock screen/SpringBoard through the triple-boot selector. Upstream report only; the selector path and boot_b/slot setup are device-specific."
+        },
+        "gpu": {
+          "state": "partial",
+          "detail": "README reports NativeAdrenoMetal + Turnip rendering the UI at about 30–40 fps, but stutters/textures remain and other apps are untested."
+        },
+        "display": {
+          "state": "reported_working",
+          "detail": "Pinned README reports the iOS system UI on the OnePlus 7 Pro panel; upstream report only."
+        },
+        "touch_buttons": {
+          "state": "reported_working",
+          "detail": "README reports touch navigation; docs describe menu volume/power controls and taps. Not Portsmith-tested."
+        },
+        "audio": {
+          "state": "reported_working",
+          "detail": "Pinned README reports speaker/system audio and haptics."
+        },
+        "bluetooth": {
+          "state": "reported_working",
+          "detail": "Pinned README reports discovery and Bluetooth audio."
+        },
+        "wifi": {
+          "state": "reported_working",
+          "detail": "Pinned README reports joining, saved-network auto-join, and SSH over Wi-Fi."
+        },
+        "camera_sensors": {
+          "state": "partial",
+          "detail": "README reports front/rear preview and photos, with slow preview and no ultra-wide/telephoto; other sensors are not qualified."
+        },
+        "cellular": {
+          "state": "partial",
+          "detail": "README reports a no-SIM modem/IMEI view, but no calls, SMS, or mobile data; not real cellular service."
+        },
+        "power_sleep": {
+          "state": "partial",
+          "detail": "Shutdown/reboot are reported; system sleep panicked and is disabled in the described build."
+        },
+        "storage": {
+          "state": "partial",
+          "detail": "Docs place an iOS root partition on UFS and the selector uses UFS reads; no broad filesystem write/reliability qualification is documented. The menu’s one-choice-record write is device-specific."
+        },
+        "stability": {
+          "state": "partial",
+          "detail": "The upstream project describes this as experimental and not daily-use; no long-duration qualification is reported."
+        }
+      }
+    },
+    {
       "id": "hero2lte",
       "device": "Samsung Galaxy S7 Edge (hero2lte)",
       "codename": "hero2lte",

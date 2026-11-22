@@ -5,3 +5,5 @@ Source is `repo/`, pinned to `OtVaL228/ios-sweet` branch `guacamole`; read `repo
 Upstream reports an iOS 16 home screen and Adreno 640 GPU rendering through Mesa/freedreno + an EAGL/OpenGL ES path. This is **not native Metal**. Wi-Fi, audio, sensors, and cellular remain incomplete in the linked status. The README describes destructive `userdata` installation; treat it as lab-only and follow the upstream recovery guide.
 
 Do not reuse Snapdragon 855 addresses, firmware, display/touch timings, or partition assumptions for Lavender/SDM660.
+
+The separate `ports/guacamole-ios27/` profile points to `coreycusick/ios-guacamole` and its iOS 27 branch/menu. Keep its feature evidence, source provenance, and boot-slot/UFS assumptions separate from this iOS 16 branch.

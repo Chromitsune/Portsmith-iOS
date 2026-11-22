@@ -274,3 +274,7 @@
 	path = ports/axon7/repo
 	url = https://github.com/devilAPI/zte-axon7.git
 	branch = main
+[submodule "ports/guacamole-ios27/repo"]
+	path = ports/guacamole-ios27/repo
+	url = https://github.com/coreycusick/ios-guacamole.git
+	branch = ios27

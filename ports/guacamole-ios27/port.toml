@@ -1,0 +1,43 @@
+[port]
+name = "guacamole-ios27"
+model = "OnePlus 7 Pro"
+codename = "guacamole"
+soc = "Qualcomm SM8150 / Snapdragon 855"
+source = "ports/guacamole-ios27/repo"
+status = "Reference-only iOS 27.2/macOS 27.2 multi-boot source and primary Portsmith boot-menu reference; no Portsmith device testing."
+reference_only = true
+
+[hardware]
+vendor = "OnePlus"
+soc_vendor = "Qualcomm"
+storage = "UFS (upstream-reported)"
+gpu_family = "Qualcomm Adreno"
+gpu = "Adreno 640 (upstream-reported)"
+boot_family = "Qualcomm ABL / Android boot image v2"
+boot_chain = "ABL -> board-specific ARM64 shim/menu in boot_b -> Android boot_a or SWEETXNU payload in combined ramdisk"
+dram_gib = 8
+panel = "1440x3120 (upstream board notes)"
+
+[upstream]
+repository = "https://github.com/coreycusick/ios-guacamole"
+revision = "396a851ef112fd34003f0b37c3270bcd6c2e8cc2"
+branch = "ios27"
+license_status = "LICENSE.txt grants MIT for project work, with per-source carve-outs: XNU patches remain APSL-2.0, userland/audio has a separate MIT notice, and ios-sweet-derived code retains upstream copyright notices. Menu-art provenance needs review before reuse."
+
+[boot_menu_reference]
+role = "Primary/default Portsmith reference for future boot-menu design/extraction, not a default boot image or universal implementation"
+menu_source = "shim/menu.c; shim/shim.c; docs/dualboot.md"
+board_specific = true
+menu_artifacts_reused = false
+universal_tool_extracted = false
+
+[safety]
+reference_only = true
+boot_partition_written_by_upstream_permanent_setup = true
+slot_switch_required_by_upstream_setup = true
+persistent_ufs_choice_record_written_by_upstream_menu = true
+upstream_choice_write_scope = "One 4 KiB SWBM record in the first block of the final unallocated 4 MiB on UFS LUN0 after GPT overlap checks; do not generalize or perform device I/O without current explicit authorization."
+fastboot_boot_report_is_upstream_only = true
+userdata_partition_table_changes_in_upstream_setup = true
+flash_requires_explicit_current_authorization = true
+code_reuse_requires_per_file_license_and_art_provenance_review = true
