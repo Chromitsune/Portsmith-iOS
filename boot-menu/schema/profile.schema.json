@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://portsmith.invalid/boot-menu/profile.schema.json",
+  "title": "Portsmith boot-menu profile",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "profile_id", "title", "look_id", "options_id", "entries"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "profile_id": {"type": "string", "pattern": "^[a-z][a-z0-9-]*$"},
+    "title": {"type": "string", "minLength": 1},
+    "look_id": {"type": "string", "pattern": "^[a-z][a-z0-9-]*$"},
+    "options_id": {"type": "string", "pattern": "^[a-z][a-z0-9-]*$"},
+    "entries": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/entry"}}
+  },
+  "$defs": {
+    "entry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "label", "detail", "icon_id", "target_id", "enabled"],
+      "properties": {
+        "id": {"type": "string", "pattern": "^[a-z][a-z0-9-]*$"},
+        "label": {"type": "string", "minLength": 1},
+        "detail": {"type": "string"},
+        "icon_id": {"type": ["string", "null"]},
+        "target_id": {"type": "string", "pattern": "^opaque:[a-z0-9._:-]+$"},
+        "enabled": {"type": "boolean"}
+      }
+    }
+  }
+}

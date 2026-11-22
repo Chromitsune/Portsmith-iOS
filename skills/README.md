@@ -8,4 +8,4 @@ Skills are short, repeatable playbooks for recurring work. They should be device
 
 - `new-port-intake/SKILL.md` — add a pinned port/reference with license, duplicate, and catalog boundaries.
 - `compatibility-evidence/SKILL.md` — map exact-revision evidence to matrix statuses conservatively.
-- `device-log-triage/SKILL.md` — retrieve and interpret logs without causing an unnecessary reset/write.
+- `device-log-triage/SKILL.md` — select a documented read path, classify side effects, and package local captures without causing an unnecessary reset/write.

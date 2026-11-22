@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "options_id": "safe-defaults",
+  "timeout_ms": 0,
+  "default_entry_id": null,
+  "auto_boot": false,
+  "remember_selection": false,
+  "persist_selection": false,
+  "skip_disabled_entries": true,
+  "require_confirmation_for": ["restart", "power-off", "firmware-update"],
+  "unknown_action_policy": "reject"
+}

@@ -1396,3 +1396,15 @@ role = "Reference-only Samsung Galaxy Tab S7+ Wi-Fi (SM-T970) iPadOS 17.7.11 pro
 license = "BSD-2-Clause-Patent default per LICENSE; drivers/kits retain upstream licenses, SPDX-MIT files remain MIT, XNU patches are APSL-2.0. Proprietary firmware is not included. Reference only; no code copied."
 reference_only = true
 watch_upstream = true
+
+[[source]]
+name = "jesvi-ios-x1slte"
+revision = "3d7b07ad64fbb6edf3e4b96cdce0312215992a20"
+path = "ports/x1slte/repo"
+upstream = "https://github.com/jesvi-eulah/Jesvi-iOS"
+branch = "main"
+maintainer = "jesvi-eulah"
+role = "Reference-only full upstream iOS 16.5/XNU port for Samsung Galaxy S20 LTE SM-G980F (x1slte, Exynos 990); broad subsystem reports, Beta and exact-model only"
+license = "MIT for project-authored non-XNU files per LICENSE; xnu/hakios.patch and xnu/files APSL-2.0; NOTICE contains separate third-party/vendor-derived terms, including unresolved review items. iOS IPSW and device firmware are not included or licensed."
+reference_only = true
+watch_upstream = true

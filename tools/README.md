@@ -8,6 +8,14 @@
 
 `tools/jobs/bg.sh NAME COMMAND...` starts a long command in a detached `tmux` session, saves output to ignored `logs/NAME.log`, records the exit code, and sends a best-effort desktop notification. `tools/jobs/bg.sh -s NAME` reports status; `tools/jobs/bg.sh -l` lists sessions. This is adapted from iOSPlus10's MIT-licensed `scripts/bg.sh` and `scripts/lib/notify.sh` (see file headers / upstream credit).
 
+## Device log evidence
+
+`python3 tools/device-log-capture.py` packages an already-acquired local file or stdin stream under ignored `logs/<port>/<run-id>/` and writes a manifest with UTC time, transport, evidence level, source/image pins, byte count, SHA-256, and optional source range/decoder format. It never runs ADB, fastboot, serial commands or any device action. Acquisition itself must use the documented, read-only port-specific path in [`docs/device-log-method.md`](../docs/device-log-method.md).
+
+## Boot-menu staging
+
+`boot-menu/` contains neutral look/options/profile data and a host-only selection/SVG preview prototype. It has no device backend or boot executor. The Guacamole QEMU preview is explicitly a mocked renderer fixture, not a universal boot menu or device test. Read [`docs/tool-reuse-audit.md`](../docs/tool-reuse-audit.md) before moving code from a port into shared tools.
+
 ## Image and firmware CLI
 
 `portsmith-image-tools/` is an initial Rust CLI adapted from iOSPlus10's MIT-licensed `tools/op10tool`:

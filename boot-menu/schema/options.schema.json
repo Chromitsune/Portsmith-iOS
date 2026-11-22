@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://portsmith.invalid/boot-menu/options.schema.json",
+  "title": "Portsmith boot-menu options",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "options_id", "timeout_ms", "default_entry_id", "auto_boot", "remember_selection", "persist_selection", "skip_disabled_entries", "require_confirmation_for", "unknown_action_policy"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "options_id": {"type": "string", "pattern": "^[a-z][a-z0-9-]*$"},
+    "timeout_ms": {"type": "integer", "minimum": 0},
+    "default_entry_id": {"type": ["string", "null"]},
+    "auto_boot": {"type": "boolean"},
+    "remember_selection": {"type": "boolean"},
+    "persist_selection": {"type": "boolean"},
+    "skip_disabled_entries": {"type": "boolean"},
+    "require_confirmation_for": {"type": "array", "uniqueItems": true, "items": {"enum": ["restart", "power-off", "firmware-update"]}},
+    "unknown_action_policy": {"const": "reject"}
+  }
+}

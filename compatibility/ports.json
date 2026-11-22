@@ -4140,6 +4140,78 @@
       }
     },
     {
+      "id": "x1slte",
+      "device": "Samsung Galaxy S20 LTE SM-G980F (Jesvi iOS 16.5)",
+      "codename": "x1slte",
+      "soc": "Samsung Exynos 990",
+      "storage": "UFS",
+      "gpu": "ARM Mali-G77",
+      "repo_url": "https://github.com/jesvi-eulah/Jesvi-iOS",
+      "revision": "3d7b07ad64fbb6edf3e4b96cdce0312215992a20",
+      "repo_path": "ports/x1slte/repo",
+      "evidence_file": "README.md",
+      "evidence_url": "https://github.com/jesvi-eulah/Jesvi-iOS/blob/3d7b07ad64fbb6edf3e4b96cdce0312215992a20/README.md",
+      "status_basis": "upstream_report",
+      "source_mode": "submodule",
+      "branch": "main",
+      "reference_only": true,
+      "reference_note": "Full upstream end-to-end port report for exact Galaxy S20 LTE SM-G980F; beta, exact-model/bootloader only, not Portsmith verified. Keep separate from starlte and other S20 variants.",
+      "features": {
+        "boot": {
+          "state": "reported_working",
+          "detail": "Pinned README describes native iOS 16.5 on the Galaxy S20 LTE SM-G980F through its loader and XNU stack. Upstream report only; other S20 variants are not reported booting."
+        },
+        "gpu": {
+          "state": "reported_working",
+          "detail": "Pinned README reports Metal acceleration on Mali-G77 and OpenGL ES through Mesa; no Portsmith test."
+        },
+        "display": {
+          "state": "reported_working",
+          "detail": "Pinned README reports FHD+/QHD/FHD modes up to 120 Hz, True Tone, brightness and AOD on the exact SM-G980F."
+        },
+        "touch_buttons": {
+          "state": "reported_working",
+          "detail": "Pinned README/device.conf reports multitouch, lock-screen pocket rejection and power/volume buttons."
+        },
+        "audio": {
+          "state": "reported_working",
+          "detail": "Pinned README reports speaker, earpiece, microphone, video and call audio."
+        },
+        "bluetooth": {
+          "state": "reported_working",
+          "detail": "Pinned README reports Bluetooth and A2DP audio; subsystem details are upstream reports, not Portsmith tests."
+        },
+        "wifi": {
+          "state": "reported_working",
+          "detail": "Pinned README/device.conf reports 2.4 and 5 GHz Wi-Fi."
+        },
+        "cellular": {
+          "state": "reported_working",
+          "detail": "Pinned README/device.conf reports LTE data, VoLTE calls and SMS. Calls documentation describes an AP-side VoIP-style path, not native modem voice; carrier scope is limited."
+        },
+        "camera_sensors": {
+          "state": "partial",
+          "detail": "README reports front/rear lenses and multiple sensors; GPS is described as partial and fingerprint matching/unlock is not working."
+        },
+        "power_sleep": {
+          "state": "partial",
+          "detail": "Charging, battery gauge, governors and thermal management are reported; sleep/wake is not established by the cited README."
+        },
+        "storage": {
+          "state": "reported_working",
+          "detail": "Pinned README reports persistent UFS and microSD exFAT read/write. Upstream install is destructive to Android userdata; no Portsmith validation."
+        },
+        "usb": {
+          "state": "reported_working",
+          "detail": "Pinned README reports USB networking, Finder file access and serial console."
+        },
+        "stability": {
+          "state": "partial",
+          "detail": "Upstream labels the project Beta (v0.1.3 in preparation), documents bugs and unfinished features, and gives no Portsmith long-run qualification."
+        }
+      }
+    },
+    {
       "id": "yunluo",
       "device": "Redmi Pad format-2 qualification candidate; boot Mu and cust UniXNU must remain separate",
       "codename": "yunluo",

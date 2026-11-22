@@ -45,10 +45,10 @@
         "compatibility_files": [],
         "status": "skipped"
       },
-      "compare_url": "https://github.com/devilAPI/zte-axon7/compare/60ccb0edcd32d1518f504548a0ae257d15ff9863...1e51314a1756d2ccd916f4110972839f9a500f3f",
+      "compare_url": "https://github.com/devilAPI/zte-axon7/compare/60ccb0edcd32d1518f504548a0ae257d15ff9863...9eccd175d40653f99455262e2f4115eab77e42e2",
       "path": "ports/axon7/repo",
       "pinned_revision": "60ccb0edcd32d1518f504548a0ae257d15ff9863",
-      "remote_head": "1e51314a1756d2ccd916f4110972839f9a500f3f",
+      "remote_head": "9eccd175d40653f99455262e2f4115eab77e42e2",
       "repository": "https://github.com/devilAPI/zte-axon7",
       "state": "review-required"
     },
@@ -847,6 +847,14 @@
       "pinned_revision": "9b1402a99d9ee37d8aa4a980eceff18a4c993e02",
       "remote_head": "9b1402a99d9ee37d8aa4a980eceff18a4c993e02",
       "repository": "https://github.com/Sulee7z/UniXNU-venus",
+      "state": "pin-current"
+    },
+    {
+      "branch": "main",
+      "path": "ports/x1slte/repo",
+      "pinned_revision": "3d7b07ad64fbb6edf3e4b96cdce0312215992a20",
+      "remote_head": "3d7b07ad64fbb6edf3e4b96cdce0312215992a20",
+      "repository": "https://github.com/jesvi-eulah/Jesvi-iOS",
       "state": "pin-current"
     },
     {

@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "look_id": "icon-stack",
+  "description": "Vertical icon cards with a rounded selection ring; Guacamole-inspired composition, no upstream artwork included.",
+  "layout": "vertical-icon-stack",
+  "background": "#000000",
+  "palette": {
+    "surface": "#24242b",
+    "selection": "#0a84ff",
+    "text": "#ffffff",
+    "secondary_text": "#8e8e93",
+    "disabled": "#55555c"
+  },
+  "geometry": {
+    "safe_margin_fraction": 0.06,
+    "icon_fraction_of_short_edge": 0.42,
+    "row_gap_fraction": 0.035,
+    "selection_ring_fraction": 0.012
+  },
+  "icon_policy": "optional-abstract-icon-id",
+  "text_fallback": true
+}

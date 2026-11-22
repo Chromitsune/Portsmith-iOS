@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "look_id": "text-list",
+  "description": "High-contrast text list for text consoles, small displays, or missing artwork.",
+  "layout": "vertical-text-list",
+  "background": "#000000",
+  "palette": {
+    "surface": "#101820",
+    "selection": "#ffffff",
+    "text": "#ffffff",
+    "secondary_text": "#c7d1db",
+    "disabled": "#727b84"
+  },
+  "geometry": {
+    "safe_margin_fraction": 0.08,
+    "row_gap_fraction": 0.025,
+    "selection_indicator": "outline-and-prefix"
+  },
+  "icon_policy": "none",
+  "text_fallback": true
+}

@@ -1,0 +1,35 @@
+[port]
+name = "x1slte"
+model = "Samsung Galaxy S20 LTE SM-G980F"
+codename = "x1slte"
+soc = "Samsung Exynos 990"
+source = "ports/x1slte/repo"
+status = "Reference-only full upstream iOS 16.5 port for the exact SM-G980F; broad subsystem reports, still Beta; no Portsmith device testing."
+reference_only = true
+
+[hardware]
+vendor = "Samsung"
+soc_vendor = "Samsung"
+storage = "UFS (upstream-reported)"
+gpu_family = "ARM Mali"
+gpu = "Mali-G77 (upstream-reported)"
+boot_family = "Samsung S-Boot / Silicium UEFI / Carbon PSCI"
+boot_chain = "S-Boot -> Silicium UEFI + Carbon hypervisor -> xnuloader -> XNU -> iOS 16.5 userland"
+dram_gib = 8
+
+[upstream]
+repository = "https://github.com/jesvi-eulah/Jesvi-iOS"
+revision = "3d7b07ad64fbb6edf3e4b96cdce0312215992a20"
+branch = "main"
+license_status = "MIT for project-authored non-XNU files per LICENSE; xnu/hakios.patch and xnu/files APSL-2.0; NOTICE contains separate third-party/vendor-derived terms, including review-needed items. iOS IPSW/device firmware are not included or licensed."
+
+[safety]
+reference_only = true
+upstream_fresh_install_erases_android_userdata = true
+upstream_restore_wipes_ios_data = true
+supported_model = "Samsung Galaxy S20 LTE SM-G980F"
+supported_bootloader = "G980FXXSNHYB7 (upstream installer allowlist)"
+other_s20_variants_are_not_qualified = true
+flash_requires_explicit_current_authorization = true
+code_reuse_requires_per_file_provenance_review = true
+firmware_reuse_requires_separate_rights_review = true

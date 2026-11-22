@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://portsmith.invalid/boot-menu/look.schema.json",
+  "title": "Portsmith boot-menu look",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "look_id", "description", "layout", "background", "palette", "geometry", "icon_policy", "text_fallback"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "look_id": {"type": "string", "pattern": "^[a-z][a-z0-9-]*$"},
+    "description": {"type": "string", "minLength": 1},
+    "layout": {"enum": ["vertical-icon-stack", "vertical-text-list", "responsive-card-grid"]},
+    "background": {"$ref": "#/$defs/color"},
+    "palette": {"type": "object", "additionalProperties": false, "required": ["surface", "selection", "text", "secondary_text", "disabled"], "properties": {"surface": {"$ref": "#/$defs/color"}, "selection": {"$ref": "#/$defs/color"}, "text": {"$ref": "#/$defs/color"}, "secondary_text": {"$ref": "#/$defs/color"}, "disabled": {"$ref": "#/$defs/color"}}},
+    "geometry": {"type": "object", "minProperties": 1, "additionalProperties": {"type": ["number", "integer", "string"]}},
+    "icon_policy": {"enum": ["none", "optional-abstract-icon-id"]},
+    "text_fallback": {"type": "boolean"}
+  },
+  "$defs": {"color": {"type": "string", "pattern": "^#[0-9a-fA-F]{6}$"}}
+}

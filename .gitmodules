@@ -282,3 +282,7 @@
 	path = ports/gts7xlwifi/repo
 	url = https://github.com/rui12366B/UniXNU-gts7xlwifi.git
 	branch = main
+[submodule "ports/x1slte/repo"]
+	path = ports/x1slte/repo
+	url = https://github.com/jesvi-eulah/Jesvi-iOS.git
+	branch = main

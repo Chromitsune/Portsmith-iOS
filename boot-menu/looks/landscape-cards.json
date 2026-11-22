@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "look_id": "landscape-cards",
+  "description": "Two-row card grid for landscape canvases; reflows to a single column when space is constrained.",
+  "layout": "responsive-card-grid",
+  "background": "#111318",
+  "palette": {
+    "surface": "#292d36",
+    "selection": "#45a3ff",
+    "text": "#f7f8fa",
+    "secondary_text": "#c3c7d1",
+    "disabled": "#676b74"
+  },
+  "geometry": {
+    "safe_margin_fraction": 0.06,
+    "preferred_columns": 3,
+    "row_gap_fraction": 0.04,
+    "column_gap_fraction": 0.035
+  },
+  "icon_policy": "optional-abstract-icon-id",
+  "text_fallback": true
+}

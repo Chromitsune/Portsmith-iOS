@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "profile_id": "portable-example",
+  "title": "Choose a system",
+  "look_id": "icon-stack",
+  "options_id": "safe-defaults",
+  "entries": [
+    {"id": "system-a", "label": "System A", "detail": "Example target", "icon_id": "placeholder:a", "target_id": "opaque:system-a", "enabled": true},
+    {"id": "system-b", "label": "System B", "detail": "Example target", "icon_id": "placeholder:b", "target_id": "opaque:system-b", "enabled": true},
+    {"id": "recovery", "label": "Recovery", "detail": "Example target", "icon_id": "placeholder:recovery", "target_id": "opaque:recovery", "enabled": false}
+  ]
+}

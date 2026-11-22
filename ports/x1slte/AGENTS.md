@@ -1,0 +1,9 @@
+# Samsung Galaxy S20 LTE (`x1slte`) — Jesvi full-port reference
+
+This wrapper pins `jesvi-eulah/Jesvi-iOS` at the exact `main` commit in `port.toml`. The upstream project calls this a **full, native iOS 16.5 port** for Samsung Galaxy S20 LTE `SM-G980F` / `x1slte` on Exynos 990: it includes XNU changes, loader, drivers, userspace glue and release tooling, and reports a broad working feature set. This is not merely kernel-entry or a boot-menu demonstration. Upstream still labels it Beta, lists remaining limitations, and says only this exact model/bootloader is supported; S20+ and S20 Ultra kernels build but have not booted. These are upstream claims, not Portsmith verification.
+
+Keep this profile separate from `ports/starlte/` (Galaxy S9 / Exynos 9810 HakiOS) and other Samsung/Exynos records. Do not merge their boot chains, device trees, firmware, memory reservations, storage layouts, features or evidence.
+
+Read the pinned README, `devices/exynos990/x1slte/device.conf`, `docs/devices/x1slte/`, `docs/SHIPPING.md`, install/release guides, `LICENSE`, `LICENSE.APSL`, `NOTICE` and third-party compliance notes before adaptation. The root license splits MIT project work from APSL-2.0 XNU patches; NOTICE includes third-party and vendor-derived materials, some with review-needed terms. The build fetches iOS 16.5 from the owner's IPSW and obtains Samsung firmware from the owner's phone; neither is a reuse/redistribution grant.
+
+The documented fresh TWRP install erases Android userdata; restoring Android wipes iOS data. The install guide requires the exact SM-G980F and bootloader `G980FXXSNHYB7`. Do not run the installer, TWRP, Odin, Download Mode, flash, reboot, or partition commands. Any device operation requires current explicit authorization and a reviewed recovery path. Portsmith performed no device operation or build for this profile.
