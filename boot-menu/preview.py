@@ -3,11 +3,12 @@
 from __future__ import annotations
 
 import argparse
+import base64
 import html
 from pathlib import Path
 import sys
 
-from engine import MenuController, load_profile
+from engine import ROOT, MenuController, load_profile
 
 
 def render_svg(profile, controller, width: int, height: int) -> str:
@@ -33,10 +34,14 @@ def render_svg(profile, controller, width: int, height: int) -> str:
             if i == selected:
                 parts.append(f'<rect x="{x-12:.1f}" y="{cy-12:.1f}" width="{size+24:.1f}" height="{size+24:.1f}" rx="{size*.24:.1f}" fill="none" stroke="{palette["selection"]}" stroke-width="12"/>')
             parts.append(f'<rect x="{x:.1f}" y="{cy:.1f}" width="{size:.1f}" height="{size:.1f}" rx="{size*.22:.1f}" fill="{color}" opacity="{opacity}"/>')
-            if entry.icon_id:
+            icon_path = ROOT / "icons" / f"{entry.icon_id}.svg" if entry.icon_id else None
+            if icon_path and icon_path.is_file():
+                data = base64.b64encode(icon_path.read_bytes()).decode("ascii")
+                parts.append(f'<image x="{x+size*.16:.1f}" y="{cy+size*.10:.1f}" width="{size*.68:.1f}" height="{size*.68:.1f}" href="data:image/svg+xml;base64,{data}" opacity="{opacity}"/>')
+            else:
+                letter = html.escape(entry.label[:1].upper())
                 parts.append(f'<circle cx="{width/2:.1f}" cy="{cy+size*.43:.1f}" r="{size*.18:.1f}" fill="{palette["selection"] if entry.enabled else palette["secondary_text"]}" opacity="{opacity}"/>')
-            letter = html.escape(entry.label[:1].upper())
-            parts.append(f'<text x="{width/2:.1f}" y="{cy+size*.58:.1f}" text-anchor="middle" fill="{palette["text"]}" font-family="sans-serif" font-size="{size*.18:.1f}" opacity="{opacity}">{letter}</text>')
+                parts.append(f'<text x="{width/2:.1f}" y="{cy+size*.49:.1f}" text-anchor="middle" fill="{palette["text"]}" font-family="sans-serif" font-size="{size*.16:.1f}" opacity="{opacity}">{letter}</text>')
             parts.append(f'<text x="{width/2:.1f}" y="{cy+size*.86:.1f}" text-anchor="middle" fill="{palette["text"]}" font-family="sans-serif" font-size="{size*.07:.1f}" opacity="{opacity}">{html.escape(entry.label)}</text>')
     elif layout == "vertical-text-list":
         row_h = min(height*0.15, width*0.17)

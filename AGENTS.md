@@ -48,7 +48,7 @@ Useful distinctions: `adb logcat -d` is Android userspace, not XNU kernel loggin
 - Before adapting code, inspect the exact repository/file license and provenance. Record origin path and commit in `CREDITS.md` or component `UPSTREAM.md`; preserve notices and third-party carve-outs.
 - Catalog `available`, source compilation, mock UI rendering and upstream “device-verified” records do not become Portsmith device verification. Use the evidence level that the exact source supports.
 - Shared components are scoped experiments, not universal drivers. Do not mark an implementation compatible without board/SoC/controller-level review.
-- `boot-menu/` contains only neutral profile data and UI contracts. Keep entry display/model, rendering, input, timer, target dispatch and optional preference storage separate. The Guacamole QEMU preview is renderer-only with mocked I/O; it does not run its boot chain. Do not copy menu code/art or use its UFS/boot-slot behavior generically without the documented audit and license review.
+- `boot-menu/` contains only neutral profile data and UI contracts. Keep entry display/model, rendering, input, timer, target dispatch and optional preference storage separate. The Guacamole QEMU preview is renderer-only with mocked I/O; the generic `boot-menu/qemu-preview.py` renders profile looks in a toy guest. Neither runs a real boot chain or accesses a device. Do not copy menu code/art or use its UFS/boot-slot behavior generically without the documented audit and license review.
 
 ## Folder-level `AGENTS.md` policy
 

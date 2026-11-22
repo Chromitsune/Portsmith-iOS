@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "profile_id": "ios-dualboot-landscape",
+  "title": "Choose a system",
+  "look_id": "landscape-cards",
+  "options_id": "safe-defaults",
+  "entries": [
+    {"id": "ios-16", "label": "iOS 16", "detail": "Example target", "icon_id": "ios-16", "target_id": "opaque:ios16", "enabled": true},
+    {"id": "ios-27", "label": "iOS 27", "detail": "Example target", "icon_id": "ios-27", "target_id": "opaque:ios27", "enabled": true},
+    {"id": "android", "label": "Android", "detail": "Example target", "icon_id": "android-generic", "target_id": "opaque:android", "enabled": true},
+    {"id": "recovery", "label": "Recovery", "detail": "Example target", "icon_id": null, "target_id": "opaque:recovery", "enabled": false}
+  ]
+}

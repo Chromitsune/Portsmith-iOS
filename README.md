@@ -25,7 +25,7 @@ This initializes the 12 curated port sources and shared UniXNU framework; refere
 ## Layout
 
 - `AGENTS.md` — workspace instructions for agents, including the canonical read-only device-log workflow.
-- `boot-menu/` — declarative, platform-neutral looks/options, a host-tested selection model and SVG preview; not bootable firmware. See [`boot-menu/README.md`](boot-menu/README.md).
+- `boot-menu/` — declarative, platform-neutral looks/options, original iOS-version badges, a host-tested selection model and QEMU/SVG previews; not bootable firmware. See [`boot-menu/README.md`](boot-menu/README.md).
 - `compatibility/` — per-feature source evidence and generated matrix inputs/outputs.
 - `docs/architecture.md` — repository boundaries, evidence labels, and source/license rules.
 - `ports/` — curated per-device `AGENTS.md`/manifests and source under `repo/`; `ports/catalog/` separately indexes the full UniXNU device list and optional available-record source submodules. Most curated ports are pinned Git submodules; Dada is a vendored snapshot with its original README, notices, and licenses retained.
