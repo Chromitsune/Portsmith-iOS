@@ -25,6 +25,8 @@ The tables below cover the 12 curated ports. The 78 additional catalog-derived f
 | Xiaomi 15 — `dada` | Qualcomm SM8750 / Snapdragon 8 Elite | UFS (per source tree) |
 | Xiaomi Pad 6S Pro — `sheng` | Qualcomm SM8550 / Snapdragon 8 Gen 2 | UFS (board-specific integration) |
 
+Before adapting another port for Lavender, see the [cross-port reuse audit](../docs/lavender-cross-port-audit.md); similar storage media or SoC families are not proof of compatible hardware paths.
+
 ## OnePlus
 
 | Device / Port | SoC | Storage |

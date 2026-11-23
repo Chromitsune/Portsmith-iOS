@@ -11,4 +11,4 @@ Current safety/status reminders:
 - Never write `LOGFS` or guess hardware register addresses.
 - Keep build outputs and payload images ignored; do not commit them.
 
-The `iOSPlus10` source is a reference for its agent workflow, logging and generic tools, not a drop-in SDM660 driver set. See `sources/README.md` and `docs/` for the integration boundary.
+The `iOSPlus10` source is a reference for its agent workflow, logging and generic tools, not a drop-in SDM660 driver set. See `sources/README.md` and `docs/` for the integration boundary. The cross-port comparison and reuse gates are in [`docs/lavender-cross-port-audit.md`](../../docs/lavender-cross-port-audit.md); it makes no reuse claim and does not authorize device operations.
